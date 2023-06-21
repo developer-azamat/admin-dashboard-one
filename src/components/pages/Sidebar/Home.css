@@ -40,6 +40,7 @@
 
 .Sidebar.active{
     width: 80px;
+    padding: 100px 0px !important;
 }
 
 .Sidebar.active .logo{
@@ -50,7 +51,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding:30px 10px;
+    padding: 40px 10px;
 }
 
 .Sidebar.active .nav-items div li{
