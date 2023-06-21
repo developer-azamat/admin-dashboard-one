@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
+import "./App.css"
+import Home from './components/pages/Sidebar/Home'
 
 const App = () => {
   return (
-    <div>
-      <h1 className='text-lg'>Hello</h1>
+    <div className='App flex'>
+      <Home/>
     </div>
   )
 }
