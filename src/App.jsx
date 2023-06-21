@@ -5,7 +5,7 @@ import Main from './components/pages/main-info/Main'
 
 const App = () => {
   return (
-    <div className='App flex'>
+    <div className='App flex overflow-y-hidden'>
       <Home/>
       <Main/>
     </div>

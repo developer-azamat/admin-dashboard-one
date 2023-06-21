@@ -17,7 +17,7 @@ function Home() {
   };
 
   return (
-    <div className={removeBar ? 'Sidebar active bg-slate-700 w-[320px] min-h-screen' : 'Sidebar bg-slate-700 w-[320px] min-h-screen'}>
+    <div className={removeBar ? 'Sidebar active bg-slate-700 w-[400px] min-h-screen' : 'Sidebar bg-slate-700 w-[400px] min-h-screen'}>
       <div className="logo h-20 flex items-center justify-center bg-slate-800 text-3xl"><LocalAtmIcon/> money <span>Manager</span></div>
       <ul className='nav-items'>
         <div
