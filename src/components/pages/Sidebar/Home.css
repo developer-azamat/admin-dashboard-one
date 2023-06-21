@@ -40,7 +40,9 @@
 
 .Sidebar.active{
     width: 80px;
-    padding: 100px 0px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .Sidebar.active .logo{
