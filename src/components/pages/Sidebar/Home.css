@@ -31,12 +31,11 @@
     font-size: 28px;
     color: rgb(229, 221, 221);
 }
-.arrow-icon{
-    font-size: 50px;
+.arrow-icons{
     cursor: pointer;
     position: absolute;
-    bottom: 30px;
-    right: 30px;
+    bottom: 20px;
+    right: 0px;
 }
 
 .Sidebar.active{
@@ -57,4 +56,8 @@
 
 .Sidebar.active .nav-items div li{
     display: none;
+}
+
+.Sidebar.Sidebar.active .arrow-icon{
+    transform: rotate(180deg)
 }

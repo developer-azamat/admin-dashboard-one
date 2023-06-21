@@ -39,7 +39,9 @@ function Home() {
           <li>Statistika</li>
         </div>
       </ul>
-      <ArrowBackIosNewIcon onClick={handelClick} className='arrow-icon icons w-10 h-10'/>
+      <div onClick={handelClick} className="arrow-icons transition-all w-full h-[70px] flex justify-end items-center px-7 cursor-pointer absolute">
+        <ArrowBackIosNewIcon className='arrow-icon icons w-10 h-10'/>
+      </div>
     </div>
   )
 }
