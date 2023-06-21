@@ -22,7 +22,7 @@ const App = () => {
   return (
     <div className={styles.container}>
         <Dashboard />
-        <h1>Hello</h1>
+        <h1>Hell</h1>
     </div>
   )
 }
