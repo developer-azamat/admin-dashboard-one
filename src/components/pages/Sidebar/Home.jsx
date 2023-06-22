@@ -7,6 +7,7 @@ import WarehouseIcon from '@mui/icons-material/Warehouse';
 import LeaderboardIcon from '@mui/icons-material/Leaderboard';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import LocalAtmIcon from '@mui/icons-material/LocalAtm';
+import { NavLink } from 'react-router-dom';
 
 function Home() {
   const [removeBar, setRemoveBar] = useState(false);
@@ -18,15 +19,16 @@ function Home() {
 
   return (
     <div className={removeBar ? 'Sidebar active bg-slate-700 w-[400px] min-h-screen' : 'Sidebar bg-slate-700 w-[400px] min-h-screen'}>
-      <div className="logo h-20 flex items-center justify-center bg-slate-800 text-3xl"><LocalAtmIcon/> money <span>Manager</span></div>
+      <div className="logo h-20 flex items-center justify-center bg-slate-800 text-3xl"><LocalAtmIcon/> Money <span>Manager</span></div>
       <ul className='nav-items'>
-        <div
-          className={selectedItem === 0 ? 'flex items-center gap-5 hover:bg-slate-600 cursor-pointer transition-all bg-slate-600' : 'flex items-center gap-5 hover:bg-slate-600 cursor-pointer transition-all'}
+        <NavLink
+          className={selectedItem === 0 ? 'flex items-center gap-5 hover:bg-slate-600 cursor-pointer transition-all bg-slate-600' : 'flex items-center gap-5 p-6 hover:bg-slate-600 cursor-pointer transition-all'}
+          to='/'
           onClick={() => handleClick(0)}
         >
           <HomeIcon className='icons'/>
           <li>Asosiy</li>
-        </div>
+        </NavLink>
         <div
           className={selectedItem === 1 ? 'flex items-center gap-5 hover:bg-slate-600 cursor-pointer transition-all bg-slate-600' : 'flex items-center gap-5 hover:bg-slate-600 cursor-pointer transition-all'}
           onClick={() => handleClick(1)}
@@ -34,13 +36,14 @@ function Home() {
           <Inventory2Icon className='icons'/>
           <li>Mahsulotlar</li>
         </div>
-        <div
+        <NavLink
           className={selectedItem === 2 ? 'flex items-center gap-5 hover:bg-slate-600 cursor-pointer transition-all bg-slate-600' : 'flex items-center gap-5 hover:bg-slate-600 cursor-pointer transition-all'}
           onClick={() => handleClick(2)}
+          to='/worker'
         >
           <PeopleAltIcon className='icons'/>
           <li>Ishchilar</li>
-        </div>
+        </NavLink>
         <div
           className={selectedItem === 3 ? 'flex items-center gap-5 hover:bg-slate-600 cursor-pointer transition-all bg-slate-600' : 'flex items-center gap-5 hover:bg-slate-600 cursor-pointer transition-all'}
           onClick={() => handleClick(3)}

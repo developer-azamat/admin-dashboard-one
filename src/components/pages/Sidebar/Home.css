@@ -18,8 +18,9 @@
     flex-direction: column;
     justify-content: center;
     padding: 60px 0 0 0px;
+
 }
-.nav-items div{
+.nav-items a , .nav-items div{
     padding: 20px 25px;
 }
 .icons{
@@ -47,14 +48,14 @@
     display: none;
 }
 
-.Sidebar.active .nav-items div{
+.Sidebar.active (.nav-items div, .nav-items a){
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 40px 10px;
 }
 
-.Sidebar.active .nav-items div li{
+.Sidebar.active .nav-items div li, .Sidebar.active .nav-items a li{
     display: none;
 }
 
