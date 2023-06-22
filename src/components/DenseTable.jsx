@@ -196,7 +196,7 @@ function EnhancedTableToolbar(props) {
           id="tableTitle"
           component="div"
         >
-          Nutrition
+          Ishchilar
         </Typography>
       )}
 
@@ -293,7 +293,7 @@ export default function EnhancedTable() {
 
   return (
     <Box sx={{ width: '100%' }}>
-      <Paper sx={{ width: '100%', mb: 2 }}>
+      <Paper sx={{ width: '100%' }}>
         <EnhancedTableToolbar numSelected={selected.length} />
         <TableContainer>
           <Table

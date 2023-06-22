@@ -6,6 +6,9 @@ const theme = createTheme({
     background: {
       paper: '#f3f3f3',
     },
+    hover:{
+      paper: "#fff",
+    },
     text: {
       primary: '#173A5E',
       secondary: '#46505A',
@@ -19,10 +22,13 @@ const theme = createTheme({
   },
 });
 
-export default function Example() {
+export default function Example({worker}) {
+  const {name, price} = worker
+
   return (
     <ThemeProvider theme={theme}>
       <Box
+      className="hover:scale-105 transition-all duration-200 ease-linear"
         sx={{
           bgcolor: 'background.paper',
           boxShadow: 1,
@@ -31,9 +37,9 @@ export default function Example() {
           minWidth: 300,
         }}
       >
-        <Box sx={{ color: 'text.secondary' }}>Sessions</Box>
+        <Box sx={{ color: 'text.secondary' }}>{name}</Box>
         <Box sx={{ color: 'text.primary', fontSize: 34, fontWeight: 'medium' }}>
-          98.3 K
+          {price}
         </Box>
         <Box
           sx={{
