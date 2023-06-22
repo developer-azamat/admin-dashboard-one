@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./Home.css";
+import "./Sidebar.css";
 import HomeIcon from '@mui/icons-material/Home';
 import Inventory2Icon from '@mui/icons-material/Inventory2';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
@@ -9,7 +9,7 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import LocalAtmIcon from '@mui/icons-material/LocalAtm';
 import { NavLink } from 'react-router-dom';
 
-function Home() {
+function Sidebar() {
   const [removeBar, setRemoveBar] = useState(false);
   const [selectedItem, setSelectedItem] = useState(0);
 
@@ -66,4 +66,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Sidebar;
