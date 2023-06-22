@@ -20,7 +20,7 @@ function Main() {
   };
 
   return (
-    <div className='Main-info'>
+    <div className='Main-info w-full h-screen'>
       <div className="navbar h-20 px-10 p-5 flex items-center justify-between border-gray-300 border-[1px]">
         <div className="left-links flex items-center gap-5">
           <a
