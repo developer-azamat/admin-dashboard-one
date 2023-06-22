@@ -8,7 +8,7 @@ import Filials from "./components/pages/filials/Filials";
 
 const App = () => {
   return (
-    <div className="flex overflow-y-hidden">
+    <div className="flex overflow-hidden">
       <BrowserRouter>
         <Sidebar />
         <Routes>

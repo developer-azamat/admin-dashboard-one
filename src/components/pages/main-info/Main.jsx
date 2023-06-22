@@ -39,32 +39,32 @@ function Main() {
       </div>
       <div className="all-info bg-gray-200 h-screen overflow-scroll">
         <div className="top-charts flex gap-10 justify-between px-10 py-8">
-          <div className="chart-box w-1/3 h-52 bg-blue-700 rounded-lg py-7 px-5 border-[1px] border-blue-800">
+          <div className="chart-box w-1/4 h-52 bg-blue-700 rounded-lg py-7 px-5 border-[1px] border-blue-900">
             <span className="bigNum text-4xl font-medium text-gray-100">
-              $22K
+              $3576.34
             </span>
-            <div className="info-type text-gray-100 text-xl mt-1">Users</div>
+            <div className="info-type text-gray-100 text-xl mt-1">Umumiy Daromad</div>
           </div>
-          <div className="chart-box w-1/3 h-52 bg-blue-500 rounded-lg py-7 px-5 border-[1px] border-blue-600">
+          <div className="chart-box w-1/4 h-52 bg-red-500 rounded-lg py-7 px-5 border-[1px] border-red-700">
             <span className="bigNum text-4xl font-medium text-gray-100">
-              $22K
+              $42.040
             </span>
-            <div className="info-type text-gray-100 text-xl mt-1">Income</div>
+            <div className="info-type text-gray-100 text-xl mt-1">Jami Foyda</div>
           </div>
-          <div className="chart-box w-1/3 h-52 bg-amber-400 rounded-lg py-7 px-5 border-[1px] border-amber-500">
+          <div className="chart-box w-1/4 h-52 bg-amber-400 rounded-lg py-7 px-5 border-[1px] border-amber-600">
             <span className="bigNum text-4xl font-medium text-gray-100">
-              $22K
+              106
             </span>
             <div className="info-type text-gray-100 text-xl mt-1">
-              Conversion Rate
+              Mahsulotlar
             </div>
           </div>
-          <div className="chart-box w-1/3 h-52 bg-red-500 rounded-lg py-7 px-5 border-[1px] border-red-600">
+          {/* <div className="chart-box w-1/3 h-52 bg-red-500 rounded-lg py-7 px-5 border-[1px] border-red-600">
             <span className="bigNum text-4xl font-medium text-gray-100">
               $22K
             </span>
             <div className="info-type text-gray-100 text-xl mt-1">Sessions</div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
