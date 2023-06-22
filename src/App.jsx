@@ -4,12 +4,11 @@ import Sidebar from "./components/pages/sidebar/Sidebar";
 import Main from "./components/pages/main-info/Main";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Workers from "./components/pages/workers/Workers";
-import AddingWorkers from "./components/pages/addworkers/AddingWorkers";
 import Filials from "./components/pages/filials/Filials";
 
 const App = () => {
   return (
-    <div className="App flex overflow-y-hidden">
+    <div className="flex overflow-y-hidden">
       <BrowserRouter>
         <Sidebar />
         <Routes>

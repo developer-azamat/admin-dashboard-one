@@ -8,7 +8,7 @@ const AddingWorkers = () => {
   };
   return (
     <>
-      <div className="flex mt-5 justify-center items-start w-[100%] bg-[white] min-h-[100vh]">
+      <div className="flex mt-5 justify-center items-start w-[100%] bg-[white] min-h-[100vh]" >
         <form
           onSubmit={handleSubmit}
           className="!z-5 relative flex flex-col rounded-[20px] max-w-[300px] md:max-w-[600px] shadow-md 

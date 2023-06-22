@@ -24,8 +24,8 @@ function Workers() {
   const [isActive, setIsActive] = useState(false);
 
   return (
-    <div className="px-10 py-5">
-      <div className="flex items-center mb-10 gap-5 bg-white/20 ">
+    <div className="px-10 py-5 w-full">
+      <div className="flex w-full justify-between items-center mb-10 gap-5 bg-white/20 ">
         {dataWorkers.map((worker) => (
           <Example key={worker.id} worker={worker} />
         ))}
