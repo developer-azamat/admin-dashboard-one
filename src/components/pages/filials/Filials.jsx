@@ -2,16 +2,20 @@ import React, { useState } from "react";
 import Example from "../../Example";
 import DataTable from "../../DataTable";
 import AddingWorkers from "../addworkers/AddingWorkers";
-function Workers() {
+import "./Filials.css";
+import FilialTable from "../../FilialTable";
+import AddingFilials from "../../AddingFilials";
+
+const Filials = () => {
   const dataWorkers = [
     {
       name: "Umumiy daromad",
-      price: "120000" + "$",
+      price: "13000" + "$",
       id: 1,
     },
     {
       name: "Jami foyda",
-      price: "120000" + "$",
+      price: "15000" + "$",
       id: 2,
     },
     {
@@ -35,12 +39,12 @@ function Workers() {
           className="px-5 py-2 bg-gray-600/90 hover:bg-gray-600/40 transition-all duration-200 ease-in hover:text-black mb-2 text-base rounded-md  text-white"
           onClick={() => setIsActive((prev) => !prev)}
         >
-          {!isActive ? "Add worker" : "List workers"}
+          {!isActive ? "Add filial" : "List filials"}
         </button>
       </a>
-      {!isActive ? <DataTable /> : <AddingWorkers />}
+      {!isActive ? <FilialTable /> : <AddingFilials />}
     </div>
   );
-}
+};
 
-export default Workers;
+export default Filials;

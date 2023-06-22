@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import "./Sidebar.css";
-import HomeIcon from '@mui/icons-material/Home';
-import Inventory2Icon from '@mui/icons-material/Inventory2';
-import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
-import WarehouseIcon from '@mui/icons-material/Warehouse';
-import LeaderboardIcon from '@mui/icons-material/Leaderboard';
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-import LocalAtmIcon from '@mui/icons-material/LocalAtm';
-import { NavLink } from 'react-router-dom';
+import HomeIcon from "@mui/icons-material/Home";
+import Inventory2Icon from "@mui/icons-material/Inventory2";
+import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
+import WarehouseIcon from "@mui/icons-material/Warehouse";
+import LeaderboardIcon from "@mui/icons-material/Leaderboard";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import LocalAtmIcon from "@mui/icons-material/LocalAtm";
+import { NavLink } from "react-router-dom";
 
 function Sidebar() {
   const [removeBar, setRemoveBar] = useState(false);
@@ -18,49 +18,81 @@ function Sidebar() {
   };
 
   return (
-    <div className={removeBar ? 'Sidebar active bg-slate-700 w-[400px] min-h-screen' : 'Sidebar bg-slate-700 w-[400px] min-h-screen'}>
-      <div className="logo h-20 flex items-center justify-center bg-slate-800 text-3xl"><LocalAtmIcon/> Money <span>Manager</span></div>
-      <ul className='nav-items'>
+    <div
+      className={
+        removeBar
+          ? "Sidebar active bg-slate-700 w-[400px] min-h-screen"
+          : "Sidebar bg-slate-700 w-[400px] min-h-screen"
+      }
+    >
+      <div className="logo h-20 flex items-center justify-center bg-slate-800 text-3xl">
+        <LocalAtmIcon /> Money <span>Manager</span>
+      </div>
+      <ul className="nav-items">
         <NavLink
-          className={selectedItem === 0 ? 'flex items-center gap-5 hover:bg-slate-600 cursor-pointer transition-all bg-slate-600' : 'flex items-center gap-5 p-6 hover:bg-slate-600 cursor-pointer transition-all'}
-          to='/'
+          className={
+            selectedItem === 0
+              ? "flex items-center gap-5 hover:bg-slate-600 cursor-pointer transition-all bg-slate-600"
+              : "flex items-center gap-5 p-6 hover:bg-slate-600 cursor-pointer transition-all"
+          }
+          to="/"
           onClick={() => handleClick(0)}
         >
-          <HomeIcon className='icons'/>
+          <HomeIcon className="icons" />
           <li>Asosiy</li>
         </NavLink>
         <div
-          className={selectedItem === 1 ? 'flex items-center gap-5 hover:bg-slate-600 cursor-pointer transition-all bg-slate-600' : 'flex items-center gap-5 hover:bg-slate-600 cursor-pointer transition-all'}
+          className={
+            selectedItem === 1
+              ? "flex items-center gap-5 hover:bg-slate-600 cursor-pointer transition-all bg-slate-600"
+              : "flex items-center gap-5 hover:bg-slate-600 cursor-pointer transition-all"
+          }
           onClick={() => handleClick(1)}
         >
-          <Inventory2Icon className='icons'/>
+          <Inventory2Icon className="icons" />
           <li>Mahsulotlar</li>
         </div>
         <NavLink
-          className={selectedItem === 2 ? 'flex items-center gap-5 hover:bg-slate-600 cursor-pointer transition-all bg-slate-600' : 'flex items-center gap-5 hover:bg-slate-600 cursor-pointer transition-all'}
+          className={
+            selectedItem === 2
+              ? "flex items-center gap-5 hover:bg-slate-600 cursor-pointer transition-all bg-slate-600"
+              : "flex items-center gap-5 hover:bg-slate-600 cursor-pointer transition-all"
+          }
           onClick={() => handleClick(2)}
-          to='/worker'
+          to="/worker"
         >
-          <PeopleAltIcon className='icons'/>
+          <PeopleAltIcon className="icons" />
           <li>Ishchilar</li>
         </NavLink>
-        <div
-          className={selectedItem === 3 ? 'flex items-center gap-5 hover:bg-slate-600 cursor-pointer transition-all bg-slate-600' : 'flex items-center gap-5 hover:bg-slate-600 cursor-pointer transition-all'}
+        <NavLink
+          to="/filials"
+          className={
+            selectedItem === 3
+              ? "flex items-center gap-5 hover:bg-slate-600 cursor-pointer transition-all bg-slate-600"
+              : "flex items-center gap-5 hover:bg-slate-600 cursor-pointer transition-all"
+          }
           onClick={() => handleClick(3)}
         >
-          <WarehouseIcon className='icons'/>
+          <WarehouseIcon className="icons" />
           <li>Filiallar</li>
-        </div>
+        </NavLink>
         <div
-          className={selectedItem === 4 ? 'flex items-center gap-5 hover:bg-slate-600 cursor-pointer transition-all bg-slate-600' : 'flex items-center gap-5 hover:bg-slate-600 cursor-pointer transition-all'}
+          className={
+            selectedItem === 4
+              ? "flex items-center gap-5 hover:bg-slate-600 cursor-pointer transition-all bg-slate-600"
+              : "flex items-center gap-5 hover:bg-slate-600 cursor-pointer transition-all"
+          }
           onClick={() => handleClick(4)}
         >
-          <LeaderboardIcon className='icons'/>
+          <LeaderboardIcon className="icons" />
           <li>Statistika</li>
         </div>
       </ul>
-      <div onClick={() => setRemoveBar(!removeBar)} className="arrow-icons transition-all w-full h-[70px] flex justify-end items-center px-7 cursor-pointer absolute">
-        <ArrowBackIosNewIcon className='arrow-icon icons w-10 h-10'/>
+      <div
+        onClick={() => setRemoveBar(!removeBar)}
+        className="arrow-icons transition-all w-full h-[70px] flex justify-end items-center px-7 cursor-pointer absolute"
+      >
+        <ArrowBackIosNewIcon className="arrow-icon icons w-10 h-10" />
       </div>
     </div>
   );

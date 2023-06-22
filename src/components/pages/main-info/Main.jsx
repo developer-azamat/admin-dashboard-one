@@ -20,62 +20,8 @@ function Main() {
   
 
   return (
-<<<<<<< Updated upstream
-    <div className='Main-info w-full h-screen'>
-      <div className="navbar h-20 px-10 py-5 flex items-center justify-between border-gray-300 border-[1px]">
-        <div className="left-links flex items-center gap-5">
-          <a
-            href=""
-            className={`text-xl ${activeLink === 0 ? 'text-black' : 'text-gray-500 hover:text-black'}`}
-            onClick={() => handleLinkClick(0)}
-          >
-            Dashboard
-          </a>
-          <a
-            href=""
-            className={`text-xl ${activeLink === 1 ? 'text-black' : 'text-gray-500 hover:text-black'}`}
-            onClick={() => handleLinkClick(1)}
-          >
-            Ishchilar
-          </a>
-          <a
-            href=""
-            className={`text-xl ${activeLink === 2 ? 'text-black' : 'text-gray-500 hover:text-black'}`}
-            onClick={() => handleLinkClick(2)}
-          >
-            Settings
-          </a>
-        </div>
-        <div className="right-links flex items-center gap-8">
-          <div className="icons flex items-center gap-5">
-            <a
-              href=""
-              onClick={() => handleIconClick(0)}
-            >
-              <NotificationsNoneIcon className={`icon ${activeIcon === 0 ? 'text-black' : 'text-gray-500 hover:text-black'}`} /> 
-            </a>
-            <a
-              href=""
-              onClick={() => handleIconClick(1)}
-            >
-              <FormatListBulletedIcon className={`icon ${activeIcon === 1 ? 'text-black' : 'text-gray-500 hover:text-black'}`} />
-            </a>
-            <a
-              href=""
-              onClick={() => handleIconClick(2)}
-            >
-              <MailOutlineIcon className={`icon ${activeIcon === 2 ? 'text-black' : 'text-gray-500 hover:text-black'}`} />
-            </a>
-          </div>
-          <div className="logo">
-            <img className='rounded-full w-[50px] cursor-pointer' src="https://coreui.io/demos/react/4.0/free/static/media/8.35ee8919.jpg" alt="" />
-          </div>
-        </div>
-      </div>
-=======
     <div className="Main-info w-full h-screen">
       <Navbar  />
->>>>>>> Stashed changes
       <div className="current-page h-14 border-gray-300 border-[1px] flex items-center px-10 p-5 gap-3">
         <a href="" className="previous-page underline text-xl text-blue-600">
           Home
