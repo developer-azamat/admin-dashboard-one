@@ -17,11 +17,11 @@ function Main() {
     setActiveIcon(index);
   };
 
-  
+
 
   return (
-    <div className="Main-info w-full h-screen">
-      <Navbar  />
+    <div className="Main-info w-full h-[10vh]">
+
       <div className="current-page h-14 border-gray-300 border-[1px] flex items-center px-10 p-5 gap-3">
         <a href="" className="previous-page underline text-xl text-blue-600">
           Home
@@ -29,15 +29,14 @@ function Main() {
         <span className="text-1xl">/</span>
         <a
           href=""
-          className={`text-xl ${
-            activeLink === 6 ? "text-black" : "text-gray-500 hover:text-black"
-          }`}
+          className={`text-xl ${activeLink === 6 ? "text-black" : "text-gray-500 hover:text-black"
+            }`}
           onClick={() => handleLink2Click(6)}
         >
           Dashboard
         </a>
       </div>
-      <div className="all-info bg-gray-200 h-screen overflow-scroll">
+      <div className="all-info bg-gray-200 min-h-screen">
         <div className="top-charts flex gap-10 justify-between px-10 py-8">
           <div className="chart-box w-1/4 h-52 bg-blue-700 rounded-lg py-7 px-5 border-[1px] border-blue-900">
             <span className="bigNum text-4xl font-medium text-gray-100">

@@ -6,18 +6,24 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Workers from "./components/pages/workers/Workers";
 import Filials from "./components/pages/filials/Filials";
 import Products from "./components/pages/Products/Products";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   return (
-    <div className="flex overflow-hidden">
+    <div className="flex">
       <BrowserRouter>
         <Sidebar />
-        <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/worker" element={<Workers />} />
-          <Route path="/filials" element={<Filials />} />
-        </Routes>
+        <div className='w-full'>
+          <Navbar />
+          <div className="pages h-[90vh] overflow-y-scroll">
+            <Routes>
+              <Route path="/" element={<Main />} />
+              <Route path="/products" element={<Products />} />
+              <Route path="/worker" element={<Workers />} />
+              <Route path="/filials" element={<Filials />} />
+            </Routes>
+          </div>
+        </div>
       </BrowserRouter>
     </div>
   );
