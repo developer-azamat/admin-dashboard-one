@@ -1,0 +1,225 @@
+[33mcommit b37ef512d42764be5ce91c8d4fca3309d1f4fe7f[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: azamat-developer <azamatjonazimov561@gmail.com>
+Date:   Fri Jun 23 12:52:46 2023 +0500
+
+    i edited Main.jsx
+
+[33mcommit 84ce4c3c5a02ee9e629f8dddd298f793e718ad84[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Amirxon <shokirovamir2006@gmail.com>
+Date:   Fri Jun 23 05:13:52 2023 +0500
+
+    Current page bar addition
+
+[33mcommit 1c4531f17906d8d88cf6fa0d0f0b3c78aac87131[m
+Author: nolonooojx23 <119511297+nolonooojx23@users.noreply.github.com>
+Date:   Fri Jun 23 04:44:49 2023 +0300
+
+    a bit updates
+
+[33mcommit 5f67fcad9443625e18cacb3521e3bcdca8a9258b[m
+Author: nolonooojx23 <119511297+nolonooojx23@users.noreply.github.com>
+Date:   Fri Jun 23 04:31:58 2023 +0300
+
+    fixed bags
+
+[33mcommit 515b4c6326d515482a7799166a027ed30dca4a40[m
+Author: nolonooojx23 <119511297+nolonooojx23@users.noreply.github.com>
+Date:   Fri Jun 23 03:08:45 2023 +0300
+
+    Mahsulot page finish
+
+[33mcommit 8cbb99322edf4e700c5c9b3a7c8f31107f1b7f5d[m
+Author: Amirxon <shokirovamir2006@gmail.com>
+Date:   Thu Jun 22 22:32:18 2023 +0500
+
+    ,
+
+[33mcommit 5f2b8570089c436c3ff832fa39fd4b656698508c[m
+Author: azamat-developer <azamatjonazimov561@gmail.com>
+Date:   Thu Jun 22 20:08:20 2023 +0500
+
+    editing styles
+
+[33mcommit f53ffd45df7dca62d3815f0fdc789e1b111c81d9[m
+Author: azamat-developer <azamatjonazimov561@gmail.com>
+Date:   Thu Jun 22 19:34:34 2023 +0500
+
+    adding new page (filials)
+
+[33mcommit ee4d09925bb8f9e53f7d6beb5bfa1681ff4a3747[m
+Author: azamat-developer <azamatjonazimov561@gmail.com>
+Date:   Thu Jun 22 18:28:01 2023 +0500
+
+    new component
+
+[33mcommit 7037a82ba22589626c430d236017d70026db85ef[m
+Author: Amirxon <shokirovamir2006@gmail.com>
+Date:   Thu Jun 22 16:52:51 2023 +0500
+
+    "Home.jsx" renamed to "Sidebar.jsx"
+
+[33mcommit 6d98c1bd6ce8e74bfcc2a8dbbb98f7800bfbaab8[m
+Author: azamat-developer <azamatjonazimov561@gmail.com>
+Date:   Thu Jun 22 14:46:04 2023 +0500
+
+    editing table
+
+[33mcommit dc8ec3a6015e5f09378d575a90520a51d9fae852[m
+Author: azamat-developer <azamatjonazimov561@gmail.com>
+Date:   Thu Jun 22 12:50:52 2023 +0500
+
+    new update
+
+[33mcommit e2c0ce97ac9fa671c46a1786f9c69ef0c63dd979[m
+Author: azamat-developer <azamatjonazimov561@gmail.com>
+Date:   Thu Jun 22 11:57:09 2023 +0500
+
+    adding react-router-dom
+
+[33mcommit 3a2d1a5633eebb75bea54e4af90f491da109ee95[m
+Author: Amirxon <shokirovamir2006@gmail.com>
+Date:   Thu Jun 22 05:11:10 2023 +0500
+
+    list font-size updated
+
+[33mcommit 07b981e4cd6a3d856c5b73a6fd1dfe24c01daa8e[m
+Author: Amirxon <shokirovamir2006@gmail.com>
+Date:   Thu Jun 22 02:40:01 2023 +0500
+
+    Home page
+
+[33mcommit b7fa229840f16d6cb096faf02a777b69e4e109ce[m
+Merge: 89940c1 3331426
+Author: Amirxon <shokirovamir2006@gmail.com>
+Date:   Thu Jun 22 01:26:00 2023 +0500
+
+    Merge branch 'main' of https://github.com/developer-azamat/admin-dashboard-one
+
+[33mcommit 33314261b4817f26e61288d14909fcc2e39ddd54[m
+Author: nolonooojx23 <119511297+nolonooojx23@users.noreply.github.com>
+Date:   Thu Jun 22 01:15:43 2023 +0300
+
+    Update Home.jsx
+
+[33mcommit 593ad60dde49940597ccc28745319ea1c96fe3f0[m
+Author: nolonooojx23 <119511297+nolonooojx23@users.noreply.github.com>
+Date:   Thu Jun 22 00:57:31 2023 +0300
+
+    Update Home.css
+
+[33mcommit 89940c1c0acbb3da017e23548b71e004d46ef4ec[m
+Author: Amirxon <shokirovamir2006@gmail.com>
+Date:   Thu Jun 22 01:25:51 2023 +0500
+
+    Sidebar again
+
+[33mcommit f8bc4bd2b207ef5309baa9c96896fd96c3ba4399[m
+Merge: 0576969 593ad60
+Author: Amirxon <shokirovamir2006@gmail.com>
+Date:   Thu Jun 22 01:08:54 2023 +0500
+
+    Merge branch 'main' of https://github.com/developer-azamat/admin-dashboard-one
+
+[33mcommit 0576969a23c48c18c488ffe625eeefab24b85134[m
+Author: Amirxon <shokirovamir2006@gmail.com>
+Date:   Thu Jun 22 01:08:40 2023 +0500
+
+    Update Home.jsx
+    
+    list active
+
+[33mcommit c0f51e42e392a76046fd14d290d308c3e79db109[m
+Author: Amirxon <shokirovamir2006@gmail.com>
+Date:   Thu Jun 22 00:56:38 2023 +0500
+
+    SIdeber updated уже какой раз
+
+[33mcommit 004b84afb543507e7e6500634a5c2232dade8bab[m
+Merge: aaad317 0ede525
+Author: Amirxon <shokirovamir2006@gmail.com>
+Date:   Thu Jun 22 00:50:36 2023 +0500
+
+    Merge branch 'main' of https://github.com/developer-azamat/admin-dashboard-one
+
+[33mcommit 0ede5255faa8b1167db022435b6054ad119d265a[m
+Author: nolonooojx23 <119511297+nolonooojx23@users.noreply.github.com>
+Date:   Thu Jun 22 00:26:53 2023 +0300
+
+    coment222
+
+[33mcommit 003c64fb2339a059f040bbef043c278ff32425e5[m
+Merge: 40b4355 12e8c97
+Author: nolonooojx23 <119511297+nolonooojx23@users.noreply.github.com>
+Date:   Thu Jun 22 00:05:39 2023 +0300
+
+    Merge branch 'main' of https://github.com/developer-azamat/admin-dashboard-one
+
+[33mcommit 40b43550f532c9230fd44db47619819401b376b4[m
+Author: nolonooojx23 <119511297+nolonooojx23@users.noreply.github.com>
+Date:   Thu Jun 22 00:05:33 2023 +0300
+
+    comenttt
+
+[33mcommit aaad3179c376d34c3b330ba0b3365da5e6258d6f[m
+Author: Amirxon <shokirovamir2006@gmail.com>
+Date:   Thu Jun 22 00:48:24 2023 +0500
+
+    Sidebar updated
+
+[33mcommit 12e8c97a7585fda038d762291826132bec446cc5[m
+Author: Amirxon <shokirovamir2006@gmail.com>
+Date:   Wed Jun 21 23:45:07 2023 +0500
+
+    Sidebar updated
+
+[33mcommit cea6b362eb3cdc6b43e6c37d112c757b47f8cf19[m
+Author: Amirxon <shokirovamir2006@gmail.com>
+Date:   Wed Jun 21 23:42:40 2023 +0500
+
+    Sidebar
+
+[33mcommit 404d65140222976633805ae2226b79474bcfbb82[m
+Author: Amirxon <shokirovamir2006@gmail.com>
+Date:   Wed Jun 21 22:15:38 2023 +0500
+
+    g
+
+[33mcommit a01857818c41f732f5f5b6346dbb6821255b26a9[m
+Author: Amirxon <shokirovamir2006@gmail.com>
+Date:   Wed Jun 21 22:07:22 2023 +0500
+
+    t
+    
+    h
+
+[33mcommit 6d89a78735f054223a98a82749b2ed1037b027ce[m
+Author: Amirxon <shokirovamir2006@gmail.com>
+Date:   Wed Jun 21 21:57:03 2023 +0500
+
+    Update App.jsx
+
+[33mcommit 0002a0273d281035e6d41e738540a5456026019f[m
+Author: Amirxon <shokirovamir2006@gmail.com>
+Date:   Wed Jun 21 21:52:10 2023 +0500
+
+    smth
+    
+    smth
+
+[33mcommit 871cc7d03d3ebe315d1430bf9969b1c75d8837dc[m
+Author: azamat-developer <azamatjonazimov561@gmail.com>
+Date:   Wed Jun 21 19:14:43 2023 +0500
+
+    second commit
+
+[33mcommit f549c289634d4b3241ece585a2d3772ddd59e774[m
+Author: azamat-developer <azamatjonazimov561@gmail.com>
+Date:   Wed Jun 21 18:10:54 2023 +0500
+
+    new project
+
+[33mcommit c44abfcde5e3f6f6dc48336841686e0774415af5[m
+Author: azamat-developer <azamatjonazimov561@gmail.com>
+Date:   Wed Jun 21 17:47:07 2023 +0500
+
+    first commit
