@@ -41,7 +41,8 @@ function Sidebar() {
           <HomeIcon className="icons" />
           <li>Asosiy</li>
         </NavLink>
-        <div
+        <NavLink
+        to="/products"
           className={
             selectedItem === 1
               ? "flex items-center gap-5 hover:bg-slate-600 cursor-pointer transition-all bg-slate-600"
@@ -51,7 +52,7 @@ function Sidebar() {
         >
           <Inventory2Icon className="icons" />
           <li>Mahsulotlar</li>
-        </div>
+        </NavLink>
         <NavLink
           className={
             selectedItem === 2

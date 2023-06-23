@@ -1,0 +1,8 @@
+.chart-card{
+	cursor: pointer;
+	transition: all .3s ease;
+}
+
+.chart-card:hover{
+	transform: scale(1.05);
+}
