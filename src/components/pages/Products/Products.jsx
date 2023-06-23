@@ -34,7 +34,7 @@ function Products() {
 				<div className="charts w-full flex justify-between">
 					{chartCards.map(item => {
 						return(
-							<div className={`chart-card w-[250px] h-[140px] ${item.color} rounded-lg py-7 px-5`} key={item.id}>
+							<div className={`chart-card w-1/4 h-52 ${item.color} rounded-lg py-7 px-5`} key={item.id}>
 						<span className="bigNum text-4xl font-medium text-gray-100">
 							${item.price}
 						</span>
