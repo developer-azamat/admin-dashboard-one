@@ -25,7 +25,7 @@ function Sidebar() {
           : "Sidebar bg-slate-700 w-[400px] min-h-screen"
       }
     >
-      <div className="logo h-20 flex items-center justify-center bg-slate-800 text-3xl">
+      <div className="logo h-20 flex px-2 items-center justify-center bg-slate-800 text-3xl">
         <LocalAtmIcon /> Money <span>Manager</span>
       </div>
       <ul className="nav-items">

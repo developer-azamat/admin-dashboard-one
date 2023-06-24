@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "./Main.css";
+import AllStatics from "./AllStatics";
 
 function Main() {
-  const [activeLink, setActiveLink] = useState();
+  const [activeLink, setActiveLink] = useState(true);
   const [activeIcon, setActiveIcon] = useState(null);
 
   const handleLinkClick = (index) => {
@@ -37,7 +38,7 @@ function Main() {
   ];
 
   return (
-    <div className="Main-info w-full h-[10vh]">
+    <div className="Main-info w-full overflow-x-hidden h-[100vh] ease-out">
       <div className="current-page h-14  border-gray-300 border-[1px] flex items-center px-10 p-5 gap-3">
         <a href="" className="previous-page underline text-xl text-blue-600">
           Home
@@ -53,7 +54,7 @@ function Main() {
           Dashboard
         </a>
       </div>
-      <div className="all-info bg-gray-200 min-h-screen">
+      <div className="all-info bg-gray-200 min-h-screen px-2">
         <div className="top-charts flex gap-10 justify-between px-10 py-8">
           <div className="charts w-full flex justify-between">
             {chartCards.map((item) => {
@@ -73,6 +74,7 @@ function Main() {
             })}
           </div>
         </div>
+        <AllStatics />
       </div>
     </div>
   );

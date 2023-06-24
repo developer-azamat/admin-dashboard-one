@@ -11,12 +11,12 @@ import Statistics from "./components/pages/statistics/Statistics";
 
 const App = () => {
   return (
-    <div className="flex w-full overflow-x-hidden">
+    <div className="flex overflow-x-hidden">
       <BrowserRouter>
         <Sidebar />
         <div className='w-full'>
           <Navbar />
-          <div className="pages h-[90vh] overflow-y-scroll ">
+          <div className="pages h-[90vh]  overflow-y-scroll ">
             <Routes>
               <Route path="/" element={<Main />} />
               <Route path="/products" element={<Products />} />
