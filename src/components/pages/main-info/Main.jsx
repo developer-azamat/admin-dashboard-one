@@ -38,8 +38,8 @@ function Main() {
   ];
 
   return (
-    <div className="Main-info w-full overflow-x-hidden h-[100vh] ease-out">
-      <div className="current-page h-14  border-gray-300 border-[1px] flex items-center px-10 p-5 gap-3">
+    <div className="Main-info w-full h-[100vh] ease-out">
+      <div className="current-page h-14 border-gray-300 border-[1px] flex items-center px-10 p-5 gap-3">
         <a href="" className="previous-page underline text-xl text-blue-600">
           Home
         </a>

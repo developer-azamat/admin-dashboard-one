@@ -1,74 +1,27 @@
 import { DataGrid } from '@mui/x-data-grid'
 import React from 'react'
+import { useNavigate } from 'react-router-dom/dist';
+import { rows, columns } from './ProductArray';
 
-const columns = [
-	{
-		field: 'id',
-		headerName: 'T/r',
-		width: 70
-	},
-	{
-		field: 'product',
-		headerName: 'Mahsulot nomi',
-		type: 'text',
-		width: 250,
-	},
-	{
-		field: 'FirstCost',
-		headerName: 'Tannarx',
-		type: 'number',
-		width: 200,
-	},
-	{
-		field: 'SalePrice',
-		headerName: 'Sotuv Narx',
-		type: 'number',
-		width: 200,
-	},
-];
 
-const rows = [
-	{
-		id: 1,
-		FirstCost: '15000$',
-		SalePrice: "18000$",
-		product: "Bitcoin"
-	},
-	{
-		id: 2,
-		FirstCost: '13000$',
-		SalePrice: "15000$",
-		product: "Bitcoin"
-	},
-	{
-		id: 3,
-		FirstCost: '14000$',
-		SalePrice: "17500$",
-		product: "Bitcoin"
-	},
-	{
-		id: 4,
-		FirstCost: '13300$',
-		SalePrice: "15500$",
-		product: "Bitcoin"
-	},
-	{
-		id: 5,
-		FirstCost: '13300$',
-		SalePrice: "15500$",
-		product: "Bitcoin"
-	},
-];
 
 function ProductsData() {
+
+	const navigate = useNavigate();
+  const handleRow = (item) => {
+    const id = item.row.id
+    navigate(`/products/${id}`);
+  };
+
 	return (
 		<div className="">
 			<div className='products'>
-				<h1 className='text-3xl font-semibold my-5'>Mahsulot</h1>
+				<h1 className='text-3xl font-semibold my-5'>Mahsulotlar</h1>
 				<div style={{ background: "white", }} className='w-full'>
 					<DataGrid
 						rows={rows}
 						columns={columns}
+						onRowClick={handleRow}
 						initialState={{
 							pagination: {
 								paginationModel: { page: 0, pageSize: 4 },

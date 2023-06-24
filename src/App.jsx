@@ -8,6 +8,7 @@ import Filials from "./components/pages/filials/Filials";
 import Products from "./components/pages/Products/Products";
 import Navbar from "./components/Navbar";
 import Statistics from "./components/pages/statistics/Statistics";
+import Product from "./components/pages/Product/Product";
 
 const App = () => {
   return (
@@ -16,10 +17,11 @@ const App = () => {
         <Sidebar />
         <div className='w-full'>
           <Navbar />
-          <div className="pages h-[90vh]  overflow-y-scroll ">
+          <div className="pages h-[90vh] overflow-y-scroll ">
             <Routes>
               <Route path="/" element={<Main />} />
               <Route path="/products" element={<Products />} />
+              <Route path="/products/:id" element={<Product />} />
               <Route path="/worker" element={<Workers />} />
               <Route path="/filials" element={<Filials />} />
               <Route path="/static" element={<Statistics />} />
