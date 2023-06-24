@@ -10,7 +10,7 @@ import LocalAtmIcon from "@mui/icons-material/LocalAtm";
 import { NavLink } from "react-router-dom";
 
 function Sidebar() {
-  const [removeBar, setRemoveBar] = useState(false);
+  const [removeBar, setRemoveBar] = useState(true);
   const [selectedItem, setSelectedItem] = useState(0);
 
   const handleClick = (index) => {
@@ -77,7 +77,8 @@ function Sidebar() {
           <WarehouseIcon className="icons" />
           <li>Filiallar</li>
         </NavLink>
-        <div
+        <NavLink
+        to="/static"
           className={
             selectedItem === 4
               ? "flex items-center gap-5 hover:bg-slate-600 cursor-pointer transition-all bg-slate-600"
@@ -87,7 +88,7 @@ function Sidebar() {
         >
           <LeaderboardIcon className="icons" />
           <li>Statistika</li>
-        </div>
+        </NavLink>
       </ul>
       <div
         onClick={() => setRemoveBar(!removeBar)}
