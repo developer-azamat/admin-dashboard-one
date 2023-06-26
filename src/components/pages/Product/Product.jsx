@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { rows } from '../Products/ProductArray';
 
 function Product() {
 	const { id } = useParams();
+	const navigte = useNavigate()
 	const selectedRow = rows.find((row) => row.id === parseInt(id));
 
 	const [activeLink, setActiveLink] = useState();
@@ -11,26 +12,29 @@ function Product() {
 		setActiveLink(index);
 	};
 
-	const chartCards = [
-		{
-			id: 1,
-			price: 4255.32,
-			name: 'Umumiy Daromad',
-			color: "bg-blue-700",
-		},
-		{
-			id: 2,
-			price: 5734.32,
-			name: 'Jami Foyda',
-			color: "bg-red-500",
-		},
-		{
-			id: 3,
-			price: 9831.32,
-			name: 'Mahsulotlar',
-			color: "bg-amber-400",
-		},
-	]
+	// const chartCards = [
+	// 	{
+	// 		id: 1,
+	// 		price: 4255.32,
+	// 		name: 'Umumiy Daromad',
+	// 		color: "bg-blue-700",
+	// 	},
+	// 	{
+	// 		id: 2,
+	// 		price: 5734.32,
+	// 		name: 'Jami Foyda',
+	// 		color: "bg-red-500",
+	// 	},
+	// 	{
+	// 		id: 3,
+	// 		price: 9831.32,
+	// 		name: 'Mahsulotlar',
+	// 		color: "bg-amber-400",
+	// 	},
+	// ]
+	const handleReturn = ()=> {
+		navigte("/products")
+	}
 
 	return (
 		<div>
@@ -48,14 +52,14 @@ function Product() {
 					Dashboard
 				</a>
 			</div>
-			<div className='px-10 py-8'>
+			<div className='px-10 py-8' onClick={handleReturn}>
 				<div className="flex justify-between items-center my-5">
 				<h1 className='text-3xl font-semibold'>Mahsulot</h1>
 				<Link to='/products' className='px-5 py-2 bg-gray-600/90 hover:bg-gray-600/40 transition-all duration-200 ease-in hover:text-black text-base rounded-md text-white'>Orqaga qaytish</Link>
 				</div>
 				{selectedRow && (
-					<div className="w-full flex justify-center items-center">
-						<div className="product-card font-semibold w-[300px] rounded-lg ">
+					<div className="w-full flex justify-center items-center" key={selectedRow.id} >
+						<div className="product-card font-semibold w-[300px] rounded-lg " onClick={(e) => e.stopPropagation()}>
 							<div className="bg-[#ecf0ff] rounded-lg p-5">
 							<h1 className='text-3xl'>Product: </h1>
 							<h2 className='text-2xl'>{selectedRow.product}</h2>
