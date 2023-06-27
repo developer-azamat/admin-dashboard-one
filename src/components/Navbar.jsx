@@ -3,7 +3,7 @@ import { NotificationsNone } from "@mui/icons-material";
 import { FormatListBulleted } from "@mui/icons-material";
 import { MailOutline } from "@mui/icons-material";
 import "../components/pages/main-info/Main.css";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [activeLink, setActiveLink] = useState();
@@ -48,34 +48,36 @@ const Navbar = () => {
           <a href="" onClick={() => handleIconClick(0)}>
             <NotificationsNone
               className={`icon ${activeIcon === 0
-                  ? "text-black"
-                  : "text-gray-500 hover:text-black"
+                ? "text-black"
+                : "text-gray-500 hover:text-black"
                 }`}
             />
           </a>
           <a href="" onClick={() => handleIconClick(1)}>
             <FormatListBulleted
               className={`icon ${activeIcon === 1
-                  ? "text-black"
-                  : "text-gray-500 hover:text-black"
+                ? "text-black"
+                : "text-gray-500 hover:text-black"
                 }`}
             />
           </a>
           <a href="" onClick={() => handleIconClick(2)}>
             <MailOutline
               className={`icon ${activeIcon === 2
-                  ? "text-black"
-                  : "text-gray-500 hover:text-black"
+                ? "text-black"
+                : "text-gray-500 hover:text-black"
                 }`}
             />
           </a>
         </div>
         <div className="logo">
-          <img
-            className="rounded-full w-[50px] cursor-pointer"
-            src="https://coreui.io/demos/react/4.0/free/static/media/8.35ee8919.jpg"
-            alt=""
-          />
+          <Link to='/login'>
+            <img
+              className="rounded-full w-[50px] cursor-pointer"
+              src="https://coreui.io/demos/react/4.0/free/static/media/8.35ee8919.jpg"
+              alt=""
+            />
+          </Link>
         </div>
       </div>
     </div>
