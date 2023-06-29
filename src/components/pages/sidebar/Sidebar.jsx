@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import {useEffect, useState} from "react";
 import "./Sidebar.css";
 import HomeIcon from "@mui/icons-material/Home";
 import Inventory2Icon from "@mui/icons-material/Inventory2";
@@ -8,11 +8,11 @@ import LeaderboardIcon from "@mui/icons-material/Leaderboard";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import LocalAtmIcon from "@mui/icons-material/LocalAtm";
 import { NavLink } from "react-router-dom";
+import {Archive} from "@mui/icons-material";
 
 function Sidebar() {
   const [removeBar, setRemoveBar] = useState(true);
   const [selectedItem, setSelectedItem] = useState(0);
-
   const handleClick = (index) => {
     setSelectedItem(index);
   };
@@ -20,6 +20,7 @@ function Sidebar() {
   return (
     <div
       className={
+        // "bg-slate-400"
         removeBar
           ? "Sidebar active bg-slate-700 w-[400px] min-h-screen"
           : "Sidebar bg-slate-700 w-[400px] min-h-screen"
@@ -88,6 +89,18 @@ function Sidebar() {
         >
           <LeaderboardIcon className="icons" />
           <li>Statistika</li>
+        </NavLink>
+        <NavLink
+            className={
+              selectedItem === 5
+                  ? "flex items-center gap-5 hover:bg-slate-600 cursor-pointer transition-all bg-slate-600"
+                  : "flex items-center gap-5 p-6 hover:bg-slate-600 cursor-pointer transition-all"
+            }
+            to="/archives"
+            onClick={() => handleClick(5)}
+        >
+          <Archive className="icons" />
+          <li>Arxiv</li>
         </NavLink>
       </ul>
       <div

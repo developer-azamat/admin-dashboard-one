@@ -47,12 +47,12 @@
     display: none;
 }
 
-.Sidebar.active (.nav-items div, .nav-items a){
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px 10px;
-}
+/*.Sidebar.active>(.nav-items div, .nav-items a){*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    padding: 40px 10px;*/
+/*}*/
 
 .Sidebar.active .nav-items div li, .Sidebar.active .nav-items a li{
     display: none;

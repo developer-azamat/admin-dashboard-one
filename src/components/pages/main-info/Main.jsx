@@ -1,6 +1,7 @@
-import React, { useState } from "react";
 import "./Main.css";
 import AllStatics from "./AllStatics";
+import{ useState} from "react";
+
 
 function Main() {
   const [activeLink, setActiveLink] = useState(true);
@@ -38,8 +39,8 @@ function Main() {
   ];
 
   return (
-    <div className="Main-info w-full h-[100vh] ease-out">
-      <div className="current-page h-14 border-gray-300 border-[1px] flex items-center px-10 p-5 gap-3">
+    <div className="Main-info w-[100%]  h-[100vh] ease-linear ">
+      <div className="current-page h-14 border-gray-300 border-[1px] flex items-center px-10 gap-3">
         <a href="" className="previous-page underline text-xl text-blue-600">
           Home
         </a>
