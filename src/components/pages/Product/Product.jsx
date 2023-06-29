@@ -59,7 +59,7 @@ function Product() {
 				</div>
 				{selectedRow && (
 					<div className="w-full flex justify-center items-center" key={selectedRow.id} >
-						<div className="product-card font-semibold w-[300px] rounded-lg " onClick={(e) => e.stopPropagation()}>
+						<div className="product-card font-semibold w-[300px] rounded-lg border hover:border-black transition-all " onClick={(e) => e.stopPropagation()}>
 							<div className="bg-[#ecf0ff] rounded-lg p-5">
 							<h1 className='text-3xl'>Product: </h1>
 							<h2 className='text-2xl'>{selectedRow.product}</h2>
