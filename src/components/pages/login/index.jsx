@@ -33,13 +33,13 @@ const Login = () => {
 				<p className="title text-center text-[1.5rem] font-[700] ">Login</p>
 				<form className="form mt-[1.5rem]" onSubmit={handleSubmit}>
 					<div className="input-group mt-[0.25rem] text-[0.875rem]">
-						<label for="username" className='block mb-1'>Username</label>
+						<label htmlFor="username" className='block mb-1'>Username</label>
 						<input
 							onChange={e => setLogin(e.target.value)}
 							className='w-full rounded-md border border-[#334155] outline-none bg-[#d5ddf8] px-4 py-3' type="text" name="username" id="username" placeholder="" />
 					</div>
 					<div className="input-group mt-[0.25rem] text-[0.875rem]">
-						<label for="password" className='block mb-1'>Password</label>
+						<label htmlFor="password" className='block mb-1'>Password</label>
 						<input
 							onChange={e => setPassword(e.target.value)}
 							className='w-full rounded-md border border-[#334155] outline-none bg-[#d5ddf8] px-4 py-3' type="password" name="password" id="password" placeholder="" />

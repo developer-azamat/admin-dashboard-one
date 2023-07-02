@@ -1,5 +1,6 @@
 import { DataGrid } from '@mui/x-data-grid'
 import React from 'react'
+
 const columns = [
 	{
 		field: 'id',
@@ -60,7 +61,7 @@ const rows = [
 ];
 
 function SalesData() {
-	return (
+	return (	
 		<div>
 			<div className='Sales mt-20'>
 				<h1 className='text-3xl font-semibold my-5'>Sotuvlar</h1>
@@ -73,7 +74,7 @@ function SalesData() {
 								paginationModel: { page: 0, pageSize: 4 },
 							},
 						}}
-						getRowClassName={() => "text-lg text-cyan-900 font-[500] "}
+						getRowClassName={() => "text-lg text-cyan-900 font-[500]"}
 					/>
 				</div>
 			</div>

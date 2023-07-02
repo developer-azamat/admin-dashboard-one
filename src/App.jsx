@@ -15,12 +15,12 @@ import Statistics from './components/pages/statistics/Statistics'
 import Workers from './components/pages/workers/Workers'
 import { getItem } from './helpers/persistence-log'
 import { getUserDetails, signUserSuccess } from './reducers/auth'
-import ProductsAdd from './components/pages/ProductsAdd/ProductsAdd'
+
 
 const App = () => {
 	const { loggedIn, isLoading } = useSelector(state => state.reducer)
 	const dispatch = useDispatch()
-	const token = getItem('token')
+	const token = getItem('token') 
 
 
 	useEffect(() => {
@@ -50,7 +50,6 @@ const App = () => {
 							<Route path='/' element={<Main />} />
 							<Route path='/products' element={<Products />} />
 							<Route path='/products/:id' element={<Product />} />
-							<Route path='/productsAdd' element={<ProductsAdd />} />
 							<Route path='/worker' element={<Workers />} />
 							<Route path='/filials' element={<Filials />} />
 							<Route path='/static' element={<Statistics />} />

@@ -13,6 +13,10 @@ const authService = {
 	async getUser() {
 		const data = await axios.get('/user/xodim/details/')
 		return data
+	},
+	async getProducts() {
+		const data = await axios.get("/main/mahsulotlar/")
+		return data
 	}
 }
 

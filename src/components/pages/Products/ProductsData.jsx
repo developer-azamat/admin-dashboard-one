@@ -1,7 +1,9 @@
 import { DataGrid } from '@mui/x-data-grid'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom/dist';
 import { rows, columns } from './ProductArray';
+import { useDispatch } from 'react-redux'
+import authService from '../../api/axios'
 
 
 
@@ -14,9 +16,23 @@ function ProductsData() {
 	const [mainPrice, setMainPrice] = useState('');
 	const [addRow, setAddRows] = useState(rows);
 
+	const dispatch = useDispatch()
+
 	const handleClick = () => {
 		setIsActive(!isActive)
 	}
+
+	const getProductsData = async () => {
+		try {
+				const {data} = await authService.getProducts()
+				console.log(data)
+			} catch (error) {
+				console.log(error)
+			}
+	}
+	useEffect(()=> {
+		getProductsData()
+	},[])
 
 
 
