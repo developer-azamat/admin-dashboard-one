@@ -4,7 +4,7 @@ import { rows } from '../Products/ProductArray';
 
 function Product() {
 	const { id } = useParams();
-	const navigte = useNavigate()
+	const navigate = useNavigate()
 	const selectedRow = rows.find((row) => row.id === parseInt(id));
 
 	const [activeLink, setActiveLink] = useState();
@@ -33,7 +33,7 @@ function Product() {
 	// 	},
 	// ]
 	const handleReturn = ()=> {
-		navigte("/products")
+		navigate("/products")
 	}
 
 	return (

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { getUserDetails, signUserStart, signUserSuccess } from '../../../reducers/auth.js'
+import './Login.css'
 import authService from '../../api/axios.js'
 
 const Login = () => {
@@ -27,45 +28,32 @@ const Login = () => {
 		}
 	}
 	return (
-		<div className='flex mt-20 justify-center items-start w-[100%] bg-[white] min-h-[100vh]'>
-			<form
-				onSubmit={handleSubmit}
-				className='!z-5 relative flex flex-col rounded-[20px] max-w-[300px] md:max-w-[400px] gap-1 shadow-md 
-         shadow-white bg-black/10 bg-clip-border shadow-3xl shadow-shadow-500 w-full !p-6 3xl:p-![18px]'
-			>
-				<div className='relative flex flex-col justify-between'>
-					<span className='flex shadow-md mb-5 text-xs'>
-						<span className='bg-indigo-500 w-28 font-bold text-center text-gray-200 p-3 px-5 rounded-l'>
-							Login
-						</span>
+		<div className='login w-full h-[90vh] flex justify-center items-center'>
+			<div className="form-container w-[320px] rounded-[0.75rem] p-[2rem] bg-[#ECF0FF] text-black border hover:border-[black] transition-all">
+				<p className="title text-center text-[1.5rem] font-[700] ">Login</p>
+				<form className="form mt-[1.5rem]" onSubmit={handleSubmit}>
+					<div className="input-group mt-[0.25rem] text-[0.875rem]">
+						<label for="username" className='block mb-1'>Username</label>
 						<input
 							onChange={e => setLogin(e.target.value)}
-							className='field text-sm text-gray-600 p-2 px-3 rounded-r w-full'
-							type='text'
-							id='login'
-							placeholder=''
-						/>
-					</span>
-
-					<span className='flex shadow-md mb-5 text-xs'>
-						<span className='bg-indigo-500 w-28 font-bold text-center text-gray-200 p-3 px-5 rounded-l'>
-							Password
-						</span>
+							className='w-full rounded-md border border-[#334155] outline-none bg-[#d5ddf8] px-4 py-3' type="text" name="username" id="username" placeholder="" />
+					</div>
+					<div className="input-group mt-[0.25rem] text-[0.875rem]">
+						<label for="password" className='block mb-1'>Password</label>
 						<input
 							onChange={e => setPassword(e.target.value)}
-							className='field text-sm text-gray-600 p-2 px-3 rounded-r w-full'
-							type='password'
-							placeholder=''
-						/>
-					</span>
-					<button
-						type='submit'
-						className='border-2 border-indigo-500 hover:bg-indigo-500 hover:text-gray-100 mt-3 text-indigo-500 block text-center p-3 px-4 text-sm rounded cursor-pointer font-bold'
-					>
-						Add
-					</button>
-				</div>
-			</form>
+							className='w-full rounded-md border border-[#334155] outline-none bg-[#d5ddf8] px-4 py-3' type="password" name="password" id="password" placeholder="" />
+						<div className="forgot">
+							<a rel="noopener noreferrer" href="#">Forgot Password ?</a>
+						</div>
+					</div>
+					<button type='submit' className="sign bg-[#6558d3] hover:bg-[#4c43a0] transition-all text-white
+				">Sign in</button>
+				</form>
+				<p className="signup">Don't have an account?
+					<a rel="noopener noreferrer" href="#" className='font-semibold'>Sign up</a>
+				</p>
+			</div>
 		</div>
 	)
 }
