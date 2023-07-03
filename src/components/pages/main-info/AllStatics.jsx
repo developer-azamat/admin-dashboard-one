@@ -17,10 +17,14 @@ const options = {
     pointFormat: "{series.name}: <b>{point.percentage:.1f}%</b>",
   },
   accessibility: {
-    point: {
-      valueSuffix: "%",
-    },
+    enabled: false
   },
+  // accessibility: {
+  //   point: {
+  //     valueSuffix: "%",
+  //   },
+  // },
+  
   plotOptions: {
     pie: {
       allowPointSelect: true,
@@ -74,10 +78,6 @@ const newOptions = {
     align: "left",
     text: "<span class='text-lg ' style='color:blue; margin-bottom:10px; letter-spacing: 1px; font-family: system-ui;'>Filial statistikasi</span>",
   },
-  // subtitle: {
-  //   align: "left",
-  //   text: 'Click the columns to view versions. Source: <a href="http://statcounter.com" target="_blank">statcounter.com</a>',
-  // },
   accessibility: {
     announceNewData: {
       enabled: true,

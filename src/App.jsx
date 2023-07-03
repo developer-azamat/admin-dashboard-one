@@ -15,6 +15,7 @@ import Statistics from './components/pages/statistics/Statistics'
 import Workers from './components/pages/workers/Workers'
 import { getItem } from './helpers/persistence-log'
 import { getUserDetails, signUserSuccess } from './reducers/auth'
+import Loader from './components/loader'
 
 
 const App = () => {
@@ -23,26 +24,27 @@ const App = () => {
 	const token = getItem('token') 
 
 
-	useEffect(() => {
-		const getUser = async () => {
-			try {
-				const { data } = await authService.getUser()
-				dispatch(getUserDetails(data.details))
-			} catch (error) {
-				console.log(error)
-			}
-		}
+	// useEffect(() => {
+	// 	const getUser = async () => {
+	// 		try {
+	// 			const { data } = await authService.getUser()
+	// 			dispatch(getUserDetails(data.details))
+	// 		} catch (error) {
+	// 			console.log(error)
+	// 		}
+	// 	}
 
-		if (token) {
-			getUser()
-		}
+	// 	if (token) {
+	// 		getUser()
+	// 	}
 
-	}, [])
+	// }, [])
 
 	return (
 		<div className='flex w-full overflow-x-hidden main__container'>
 			<BrowserRouter>
 				{token && <Sidebar />}
+				{/* <Sidebar /> */}
 				<div className='w-[100%]'>
 					<Navbar />
 					<div className='pages h-[90vh] overflow-y-scroll '>

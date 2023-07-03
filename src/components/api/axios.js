@@ -15,8 +15,23 @@ const authService = {
 		return data
 	},
 	async getProducts() {
-		const data = await axios.get("/main/mahsulotlar/")
+		const data = await axios.get('/main/mahsulotlar/')
 		return data
+	},
+	async setProducts(post) {
+		const data = await axios.post('/main/mahsulotlar/', {
+			...post,
+		})
+		return data
+	},
+	async productMore(id) {
+		const data = await axios.get(`/main/mahsulot/${id}/`)
+
+		return data
+	},
+
+	async removeProduct(id){
+		await axios.delete(`/main/mahsulot/${id}/`)
 	}
 }
 

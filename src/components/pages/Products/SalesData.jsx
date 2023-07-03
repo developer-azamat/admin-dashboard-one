@@ -5,7 +5,7 @@ const columns = [
 	{
 		field: 'id',
 		headerName: 'T/r',
-		width: 70
+		width: 70,
 	},
 	{
 		field: 'product',
@@ -25,14 +25,14 @@ const columns = [
 		type: 'number',
 		width: 250,
 	},
-];
+]
 
 const rows = [
 	{
 		id: 1,
 		date: '22.08.2023',
 		amount: "18",
-		product: "Bitcoin"
+		product: "Bitcoin",
 	},
 	{
 		id: 2,
