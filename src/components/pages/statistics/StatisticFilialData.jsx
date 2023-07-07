@@ -1,65 +1,34 @@
 import { DataGrid } from '@mui/x-data-grid'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import authService from '../../api/axios';
+import { columns } from './ProductsArray';
 
-const columns = [
-	{
-		field: 'id',
-		headerName: 'T/r',
-		width: 70,
-	},
-	{
-		field: 'product',
-		headerName: 'Mahsulot nomi',
-		type: 'text',
-		width: 250,
-	},
-	{
-		field: 'cost',
-		headerName: 'Mahsulot miqdori',
-		type: 'number',
-		width: 200,
-	},
-	
-];
 
-const rows = [
-	{
-		id: 1,
-		cost: '15',
-		product: "Bitcoin"
-	},
-	{
-		id: 2,
-		cost: '13',
-		product: "Bitcoin"
-	},
-	{
-		id: 3,
-		cost: '14',
-		product: "Bitcoin"
-	},
-	{
-		id: 4,
-		cost: '13',
-		
-		product: "Bitcoin"
-	},
-	{
-		id: 5,
-		cost: '13',
-		
-		product: "Bitcoin"
-	},
-];
 
 function StatisticFilialData() {
+	const [addRow, setAddRows] = useState([])
+
+	const getProductsData = async () => {
+		try {
+			const { data } = await authService.getProducts()
+			setAddRows(data)
+			console.log(data);
+		} catch (error) {
+			console.log(error)
+		}
+	}
+	
+	useEffect(() => {
+		getProductsData()
+	}, [])
+
 	return (
 		<div className="px-10 py-4">
 			<div className='products'>
 				<h1 className='text-3xl font-semibold my-5'>Mahsulot</h1>
-				<div style={{ background: "white"}} className='w-full '>
+				<div style={{ background: "white" }} className='w-full '>
 					<DataGrid
-						rows={rows}
+						rows={addRow}
 						columns={columns}
 						initialState={{
 							pagination: {
