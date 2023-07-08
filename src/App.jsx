@@ -14,37 +14,33 @@ import Sidebar from './components/pages/sidebar/Sidebar'
 import Statistics from './components/pages/statistics/Statistics'
 import Workers from './components/pages/workers/Workers'
 import { getItem } from './helpers/persistence-log'
-import { getUserDetails, signUserSuccess } from './reducers/auth'
-import Loader from './components/loader'
-
+import { getUserDetails, signUserFailure, signUserStart } from './reducers/auth'
 
 const App = () => {
 	const { loggedIn, isLoading } = useSelector(state => state.reducer)
 	const dispatch = useDispatch()
-	const token = getItem('token') 
+	const token = getItem('token')
 
+	const getUser = async () => {
+		dispatch(signUserStart())
+		try {
+			const { data } = await authService.getUser()
+			dispatch(getUserDetails(data.details))
+		} catch (error) {
+			dispatch(signUserFailure(error))
+		}
+	}
 
-	// useEffect(() => {
-	// 	const getUser = async () => {
-	// 		try {
-	// 			const { data } = await authService.getUser()
-	// 			dispatch(getUserDetails(data.details))
-	// 		} catch (error) {
-	// 			console.log(error)
-	// 		}
-	// 	}
-
-	// 	if (token) {
-	// 		getUser()
-	// 	}
-
-	// }, [])
+	useEffect(() => {
+		if (token) {
+			getUser()
+		}
+	}, [])
 
 	return (
 		<div className='flex w-full overflow-x-hidden main__container'>
 			<BrowserRouter>
 				{token && <Sidebar />}
-				{/* <Sidebar /> */}
 				<div className='w-[100%]'>
 					<Navbar />
 					<div className='pages h-[90vh] overflow-y-scroll '>

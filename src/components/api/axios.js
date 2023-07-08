@@ -32,6 +32,16 @@ const authService = {
 
 	async removeProduct(id){
 		await axios.delete(`/main/mahsulot/${id}/`)
+	},
+
+	async getCash() {
+		const cash = await axios.get('/cash/sotuvlar/')
+
+		return cash
+	},
+
+	async sendCash(cash) {
+		await axios.post('/cash/sotuvlar/',)
 	}
 }
 

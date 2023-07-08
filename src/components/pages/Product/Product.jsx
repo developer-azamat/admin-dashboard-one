@@ -88,6 +88,7 @@ function Product() {
 					</div>
 				)}
 			</div>
+
 		</div>
 	)
 }
