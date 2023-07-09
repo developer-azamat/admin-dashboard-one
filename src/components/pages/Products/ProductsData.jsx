@@ -83,7 +83,7 @@ function ProductsData() {
               onClick={handleClick}
               className="py-3 px-4 border rounded-lg mt-8 bg-[#6558d3] text-white text-lg hover:bg-[#4c43a0] transition-all cursor-pointer"
             >
-              qaytish
+              Qaytish
             </button>
           )}
         </div>
