@@ -10,8 +10,9 @@ import '../components/pages/main-info/Main.css'
 import { logOutUser } from '../reducers/auth'
 
 const Navbar = () => {
-	const { loggedIn, user } = useSelector(auth => auth.reducer)
+	const { loggedIn, user } = useSelector(state => state.reducer)
 
+	console.log(loggedIn)
 	const navigate = useNavigate()
 
 	useEffect(() => {
@@ -34,6 +35,7 @@ const Navbar = () => {
 	const handleIconClick = index => {
 		setActiveIcon(index)
 	}
+
 	return (
 		<div className='navbar w-[100%] h-[10vh] px-10 p-5 flex items-center justify-between border-gray-300 border-[1px]'>
 			<div className='left-links flex items-center gap-5'>
@@ -47,7 +49,7 @@ const Navbar = () => {
 					Dashboard
 				</a>
 				<NavLink
-					to='/worker'
+					to='/'
 					className={`text-xl ${
 						activeLink === 1 ? 'text-black' : 'text-gray-500 hover:text-black'
 					}`}
@@ -96,7 +98,7 @@ const Navbar = () => {
 				</div>
 				{loggedIn ? (
 					<>
-						<p className='uppercase'>{user?.username}</p>
+						<p className='uppercase'>{user ? user.username : 'User'}</p>
 						<button
 							onClick={() => {
 								dispatch(logOutUser())

@@ -1,6 +1,11 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit'
 import { authSlice } from '../reducers/auth'
 
-export default configureStore ({
-	reducer: authSlice
+export default configureStore({
+	reducer: authSlice,
+	middleware: getDefaultMiddleware =>
+		getDefaultMiddleware({
+			serializableCheck: false,
+		}),
 })
+
