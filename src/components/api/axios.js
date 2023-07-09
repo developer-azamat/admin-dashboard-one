@@ -57,7 +57,7 @@ const authService = {
 		return data
 	},
 	async getArchiveProducts() {
-		const data = await axios.get(`/main/mahsulotlar/archive`)
+		const data = await axios.get(`/main/mahsulotlar/archive/`)
 		return data
 	},
 	async getArchiveWorkers() {
@@ -70,6 +70,11 @@ const authService = {
 
 		return data
 	},
+	async getStats() {
+		const data = await axios.get(`/stats/`)
+
+		return data
+	}
 }
 
 export default authService
