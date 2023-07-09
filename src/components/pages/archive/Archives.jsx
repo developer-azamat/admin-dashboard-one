@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
 import ArchivesProductsData from "./ArchivesProductsData.jsx";
+import ArchiveWorkers from './ArchiveWorkers.jsx';
+import ArchiveWarehouses from './ArchiveWarehouses.jsx';
 
 const Archives = () =>{
 	const [activeLink, setActiveLink] = useState();
@@ -59,6 +61,8 @@ const Archives = () =>{
 			</div>
 			<div className='text-xl p-10'>
 				<ArchivesProductsData />
+				<ArchiveWorkers/>
+				<ArchiveWarehouses/>
 			</div>
 		</div>
 	)

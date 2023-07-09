@@ -56,6 +56,16 @@ const authService = {
 		});
 		return data
 	},
+	async getArchiveWorkers() {
+		const data = await axios.get(`/user/xodimlar/archive/`);
+
+		return data
+	},
+	async getArchiveWarehouses() {
+		const data = await axios.get(`/main/omborlar/archive/`);
+
+		return data
+	},
 }
 
 export default authService
