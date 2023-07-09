@@ -29,6 +29,9 @@ const Filials = () => {
   ];
 
   const [isActive, setIsActive] = useState(false);
+  const handleClick = () => {
+		setIsActive(!isActive)
+	}
 
   return (
     <div className="w-full">
@@ -54,15 +57,24 @@ const Filials = () => {
           ))}
         </div>
         <a href="#" className="flex justify-end">
-          <button
-            className="px-5 py-2 bg-gray-600/90 hover:bg-gray-600/40 transition-all duration-200 ease-in hover:text-black mb-2 text-base rounded-md  text-white"
-            onClick={() => setIsActive((prev) => !prev)}
-          >
-            {!isActive ? "Add filial" : "List filials"}
-          </button>
+        {!isActive ? (
+						<button
+							onClick={handleClick}
+							className='py-3 px-4 border rounded-lg mt-8 bg-[#6558d3] text-white text-lg hover:bg-[#4c43a0] transition-all cursor-pointer'
+						>
+							Mahsulotlar qoshish
+						</button>
+					) : (
+						<button
+							onClick={handleClick}
+							className='py-3 px-4 border rounded-lg mt-8 bg-[#6558d3] text-white text-lg hover:bg-[#4c43a0] transition-all cursor-pointer'
+						>
+							qaytish
+						</button>
+					)}
         </a>
         <div className="text-xl p-10">
-        {!isActive ? <FilialsData /> : <AddingFilials />}
+        {!isActive ? <FilialsData /> : <AddingFilials setIsActive={setIsActive} isActive={isActive} />}
         </div>
       </div>
     </div>

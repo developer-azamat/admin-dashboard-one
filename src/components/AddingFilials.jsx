@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import productService from './api/productsApi'
-const AddingFilials = ({ setIsActive }) => {
+const AddingFilials = ({ setIsActive, isActive }) => {
 	const [nom, setNom] = useState('')
 	const [manzil, setManzil] = useState('')
 	const [tel, setTel] = useState('')
@@ -20,6 +20,7 @@ const AddingFilials = ({ setIsActive }) => {
 		} catch (error) {
 			console.log('error setting')
 		}
+		setIsActive(false);
 	}
 	return (
 		<>
@@ -65,7 +66,7 @@ const AddingFilials = ({ setIsActive }) => {
 								onChange={e => setTel(e.target.value)}
 							/>
 						</span>
-						<button className='border-2 border-indigo-500 hover:bg-indigo-500 hover:text-gray-100 mt-3 text-indigo-500 block text-center p-3 px-4 text-sm rounded cursor-pointer font-bold'>
+						<button type='submit' className='border-2 border-indigo-500 hover:bg-indigo-500 hover:text-gray-100 mt-3 text-indigo-500 block text-center p-3 px-4 text-sm rounded cursor-pointer font-bold'>
 							Add
 						</button>
 					</div>
