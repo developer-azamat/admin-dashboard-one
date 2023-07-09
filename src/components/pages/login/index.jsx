@@ -16,13 +16,13 @@ const Login = () => {
 		}
 		dispatch(signUserStart())
 		try {
-			// console.log(user)
+			console.log('start sign user');
 			const response = await authService.userLogin(user)
-
 			dispatch(signUserSuccess(response.data))
-			const res = await authService.getUser()
-
-			dispatch(getUserDetails(res.details))
+			
+			console.log(response)
+			// const res = await authService.getUser()
+			// dispatch(getUserDetails(res.details))
 		} catch (error) {
 			console.log(error)
 		}

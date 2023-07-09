@@ -17,22 +17,22 @@ import { getItem } from './helpers/persistence-log'
 import { getUserDetails, signUserFailure, signUserStart } from './reducers/auth'
 
 const App = () => {
-	const { loggedIn, isLoading } = useSelector(state => state.reducer)
 	const dispatch = useDispatch()
 	const token = getItem('token')
+	const { loggedIn} = useSelector(state=> state.reducer)
 
 	const getUser = async () => {
 		dispatch(signUserStart())
 		try {
 			const { data } = await authService.getUser()
-			dispatch(getUserDetails(data.details))
+			dispatch(getUserDetails(data))
 		} catch (error) {
 			dispatch(signUserFailure(error))
 		}
 	}
 
 	useEffect(() => {
-		if (token) {
+		if(token) {
 			getUser()
 		}
 	}, [])

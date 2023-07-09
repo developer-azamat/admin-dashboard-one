@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom/dist'
 import authService from '../../api/axios'
 import { columns } from './ProductArray'
 import { useDispatch } from 'react-redux'
-import { authSlice } from '../../../reducers/auth'
+import { getProductsFailure, getProductsStarted, getProductsSuccess } from '../../../reducers/product'
 
 function ProductsData() {
 	const navigate = useNavigate()
@@ -18,15 +18,15 @@ function ProductsData() {
 	const handleClick = () => {
 		setIsActive(!isActive)
 	}
-	const dispatch = useDispatch(auth=> auth.reducer)
+	const dispatch = useDispatch()
 
 	const getProductsData = async () => {
+		dispatch(getProductsStarted())
 		try {
-			// authSlice()
 			const { data } = await authService.getProducts()
 			setAddRows(data)
 		} catch (error) {
-			console.log(error)
+			dispatch(getProductsFailure(error))
 		}
 	}
 	useEffect(() => {
