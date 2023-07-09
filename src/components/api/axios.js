@@ -32,7 +32,7 @@ const authService = {
 
 	async removeProduct(id){
 		await axios.delete(`/main/mahsulot/${id}/`)
-	}
+	},
 }
 
 export default authService

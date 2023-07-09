@@ -1,38 +1,78 @@
-import * as React from 'react';
-import { DataGrid } from '@mui/x-data-grid';
+import * as React from "react";
+import { useState, useEffect } from "react";
+import { DataGrid } from "@mui/x-data-grid";
+const [data, setData] = useState(null);
+const getWhareHouses = async () => {
+  try {
+    const { data } = await authService.getWhareHouses();
+    console.log(data);
+    setData(data)
+    rows.adress = data.mazil;
+    rows.filial = data.nom;
+  } catch (error) {
+    console.log(error);
+  }
+};
+useEffect(() => {
+  getWhareHouses();
+}, []);
 
 const columns = [
-  { field: 'id', headerName: 'T/r', width: 70 },
+  { field: "id", headerName: "T/r", width: 70 },
   {
-    field: 'filial',
-    headerName: 'Filial nomi',
-    type: 'text',
+    field: "filial",
+    headerName: "Filial nomi",
+    type: "text",
     width: 150,
   },
   {
-    field: 'adress',
-    headerName: 'Manzil',
-    type: 'text',
+    field: "adress",
+    headerName: "Manzil",
+    type: "text",
     width: 130,
   },
   {
-    field: 'telnumber',
-    headerName: 'Telefon raqami',
-    type: 'number',
+    field: "telnumber",
+    headerName: "Telefon raqami",
+    type: "number",
     width: 130,
   },
 ];
 
 const rows = [
-  { id: 1, adress: 'Snow', firstName: 'Jon', telnumber: "+998908749223", filial: "Toshkent" },
-  { id: 2, adress: 'Lannister', firstName: 'Cersei', telnumber: "+998908749223" , filial: "Farg'ona" },
-  { id: 3, adress: 'Lannister', firstName: 'Jaime', telnumber: "+998908749223" , filial: "Farg'ona" },
-  { id: 4, adress: 'Stark', firstName: 'Arya', telnumber: "+998908749223" , filial: "Farg'ona" },
+  {
+    id: 1,
+    adress: "Snow",
+    firstName: "Jon",
+    telnumber: "+998908749223",
+    filial: "Toshkent",
+  },
+  {
+    id: 2,
+    adress: "Lannister",
+    firstName: "Cersei",
+    telnumber: "+998908749223",
+    filial: "Farg'ona",
+  },
+  {
+    id: 3,
+    adress: "Lannister",
+    firstName: "Jaime",
+    telnumber: "+998908749223",
+    filial: "Farg'ona",
+  },
+  {
+    id: 4,
+    adress: "Stark",
+    firstName: "Arya",
+    telnumber: "+998908749223",
+    filial: "Farg'ona",
+  },
 ];
 
 export default function FilialTable() {
   return (
-    <div style={{ height: 400, background:"white",}}  className='w-full'>
+    <div style={{ height: 400, background: "white" }} className="w-full">
       <DataGrid
         rows={rows}
         columns={columns}
@@ -41,8 +81,8 @@ export default function FilialTable() {
             paginationModel: { page: 0, pageSize: 5 },
           },
         }}
-				getRowClassName={()=> "text-sm text-cyan-900 font-[500] "}
-				autoPageSize={true}
+        getRowClassName={() => "text-sm text-cyan-900 font-[500] "}
+        autoPageSize={true}
         pageSizeOptions={[5, 10]}
       />
     </div>
