@@ -40,8 +40,11 @@ const authService = {
 		return cash
 	},
 
-	async sendCash(cash) {
-		await axios.post('/cash/sotuvlar/',)
+	async sendCash(post) {
+		const data = await axios.post('/cash/sotuvlar/', {
+			...post,
+		})
+		return data
 	},
 
 	async getWorkers() {
@@ -75,7 +78,7 @@ const authService = {
 		const data = await axios.get(`/stats/`)
 
 		return data
-	}
+	},
 }
 
 export default authService
