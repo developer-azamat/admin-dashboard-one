@@ -51,8 +51,9 @@ const authService = {
 	},
 
 	async setWorkers(workers) {
+		console.log(workers);
 		const data = await axios.post(`/user/xodimlar/`, {
-			...workers,
+				...workers
 		});
 		return data
 	},

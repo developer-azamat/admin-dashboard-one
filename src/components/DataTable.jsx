@@ -29,7 +29,7 @@ export default function DataTable() {
   const [name, setName] = useState('')
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [filial, setFilial] = useState('')
+  const [filial, setFilial] = useState(null)
   const [tel, setTel] = useState('')
   const [isActive, setIsActive] = useState(false);
 
@@ -50,16 +50,19 @@ export default function DataTable() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newRow = {
-      username: username,
-      password: password,
-      ism: name,
-      ombor: filial,
-      tel: tel,
+      username: "german",
+      password: "1234",
+      ism: "dreamer",
+      ombor: 1,
+      tel: "+998905673422",
+      kpi: 1.08,
+      fam: "germiona",
     }
 
       try {
         await authService.setWorkers(newRow)
-        setAddRows(prew => !prew)
+
+        console.log('Successfully')
       } catch (error) {
         console.log(error)
       }
