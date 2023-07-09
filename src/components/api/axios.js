@@ -56,6 +56,10 @@ const authService = {
 		});
 		return data
 	},
+	async getArchiveProducts() {
+		const data = await axios.get(`/main/mahsulotlar/archive`)
+		return data
+	},
 	async getArchiveWorkers() {
 		const data = await axios.get(`/user/xodimlar/archive/`);
 

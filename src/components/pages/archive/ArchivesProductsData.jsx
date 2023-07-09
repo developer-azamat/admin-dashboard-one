@@ -6,17 +6,18 @@ import { columns } from './ProductsArray.js';
 function ArchivesProductsData() {
   const [addRow, setAddRows] = useState([]);
 
-  useEffect(() => {
-    const getProductsData = async () => {
-      try {
-        const response = await authService.getProducts();
-        setAddRows(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
+  const getArchiveProducts = async () => {
+    try {
+      const { data } = await authService.getArchiveProducts();
+      setAddRows(data);
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-    getProductsData();
+  useEffect(() => {
+    getArchiveProducts();
   }, []);
 
   return (
