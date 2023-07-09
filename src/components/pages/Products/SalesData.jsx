@@ -2,6 +2,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import React, { useState, useEffect } from "react";
 import authService from "../../api/axios";
 import { columns } from "./SalesArray";
+import { useNavigate } from "react-router-dom/dist";
 
 function SalesData() {
   const [addRow, setAddRows] = useState([]);
@@ -31,11 +32,11 @@ function SalesData() {
   };
 
   const newRow = {
-	miqdor: miqdor,
-	sana: sana,
-	mahsulot: mahsulot,
-	ombor: ombor,
-	xodim: xodim,
+    miqdor: ombor,
+    sana: sana,
+    mahsulot: ombor,
+    ombor: ombor,
+    xodim: xodim,
   };
 
   const handleSubmit = async (e) => {
@@ -50,7 +51,7 @@ function SalesData() {
         console.log(error);
       }
     };
-    sendCash(newRow);
+    await sendCash(newRow);
 
     setMahsulot("");
     setMiqdor("");
@@ -61,7 +62,7 @@ function SalesData() {
 
   const handleRow = (item) => {
     const id = item.row.id;
-    navigate(`/sales/${id}`);
+    navigate(`/cash/sotuv/${id}`);
   };
 
   return (
@@ -114,7 +115,7 @@ function SalesData() {
                   onChange={(e) => setMahsulot(e.target.value)}
                   value={mahsulot}
                   className="w-full rounded-md border border-[#334155] outline-none bg-[#d5ddf8] px-4 py-3"
-                  type="text"
+                  type="number"
                   name="mahsulot"
                   id="mahsulot"
                   placeholder=""
@@ -127,7 +128,7 @@ function SalesData() {
                 <input
                   onChange={(e) => setMiqdor(e.target.value)}
                   value={miqdor}
-                  type="text"
+                  type="number"
                   className="w-full rounded-md border border-[#334155] outline-none bg-[#d5ddf8] px-4 py-3"
                   name="miqdor"
                   placeholder=""
@@ -140,7 +141,7 @@ function SalesData() {
                 <input
                   onChange={(e) => setOmbor(e.target.value)}
                   value={ombor}
-                  type="text"
+                  type="number"
                   className="w-full rounded-md border border-[#334155] outline-none bg-[#d5ddf8] px-4 py-3"
                   name="ombor"
                   placeholder=""
@@ -152,8 +153,8 @@ function SalesData() {
                 </label>
                 <input
                   onChange={(e) => setXodim(e.target.value)}
-				  value={xodim}
-                  type="text"
+                  value={xodim}
+                  type="number"
                   className="w-full rounded-md border border-[#334155] outline-none bg-[#d5ddf8] px-4 py-3"
                   name="xodim"
                   placeholder=""
@@ -165,8 +166,8 @@ function SalesData() {
                 </label>
                 <input
                   onChange={(e) => setSana(e.target.value)}
-				  value={sana}
-                  type="text"
+                  value={sana}
+                  type="date"
                   className="w-full rounded-md border border-[#334155] outline-none bg-[#d5ddf8] px-4 py-3"
                   name="sana"
                   placeholder=""
