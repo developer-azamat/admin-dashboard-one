@@ -30,7 +30,7 @@ const authService = {
 		return data
 	},
 
-	async removeProduct(id){
+	async removeProduct(id) {
 		await axios.delete(`/main/mahsulot/${id}/`)
 	},
 
@@ -42,6 +42,19 @@ const authService = {
 
 	async sendCash(cash) {
 		await axios.post('/cash/sotuvlar/',)
+	},
+
+	async getWorkers() {
+		const data = await axios.get(`/user/xodimlar/`);
+
+		return data
+	},
+
+	async setWorkers(workers) {
+		const data = await axios.post(`/user/xodimlar/`, {
+			...workers,
+		});
+		return data
 	}
 }
 

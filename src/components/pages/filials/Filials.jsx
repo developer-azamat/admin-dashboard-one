@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import Example from "../../Example";
-import DataTable from "../../DataTable";
-import AddingWorkers from "../addworkers/AddingWorkers";
 import "./Filials.css";
 import FilialTable from "../../FilialTable";
 import AddingFilials from "../../AddingFilials";
