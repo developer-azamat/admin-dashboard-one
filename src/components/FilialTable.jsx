@@ -1,21 +1,5 @@
-import * as React from "react";
-import { useState, useEffect } from "react";
-import { DataGrid } from "@mui/x-data-grid";
-const [data, setData] = useState(null);
-const getWhareHouses = async () => {
-  try {
-    const { data } = await authService.getWhareHouses();
-    console.log(data);
-    setData(data)
-    rows.adress = data.mazil;
-    rows.filial = data.nom;
-  } catch (error) {
-    console.log(error);
-  }
-};
-useEffect(() => {
-  getWhareHouses();
-}, []);
+import * as React from 'react';
+import { DataGrid } from '@mui/x-data-grid';
 
 const columns = [
   { field: "id", headerName: "T/r", width: 70 },
@@ -71,6 +55,17 @@ const rows = [
 ];
 
 export default function FilialTable() {
+  const [rows, setRows] = React.useState([])
+  const getRowsWhare = async () => {
+		console.log('iksansjans')
+		const {data} = await productService.getWhareHouses()
+    setRows(data)
+		console.log(data)
+	}
+
+	React.useEffect(() => {
+		getRowsWhare()
+	}, [])
   return (
     <div style={{ height: 400, background: "white" }} className="w-full">
       <DataGrid

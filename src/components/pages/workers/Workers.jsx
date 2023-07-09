@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Example from "../../Example";
 import DataTable from "../../DataTable";
-import AddingWorkers from "../addworkers/AddingWorkers";
 function Workers() {
   const [activeLink, setActiveLink] = useState();
 	const handleLink2Click = (index) => {
@@ -25,7 +24,7 @@ function Workers() {
     },
   ];
 
-  const [isActive, setIsActive] = useState(false);
+
 
   return (
     <div className="w-full">
@@ -49,15 +48,7 @@ function Workers() {
           <Example key={worker.id} worker={worker} />
         ))}
       </div>
-      <a href="#" className="flex justify-end">
-        <button
-          className="px-5 py-2 bg-gray-600/90 hover:bg-gray-600/40 transition-all duration-200 ease-in hover:text-black mb-2 text-base rounded-md  text-white"
-          onClick={() => setIsActive((prev) => !prev)}
-        >
-          {!isActive ? "Add worker" : "List workers"}
-        </button>
-      </a>
-      {!isActive ? <DataTable /> : <AddingWorkers />}
+      <DataTable />
       </div>
     </div>
   );

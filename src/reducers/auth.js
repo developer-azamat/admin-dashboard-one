@@ -36,7 +36,12 @@ export const authSlice = createSlice({
 	},
 })
 
-export const { logOutUser, signUserStart, signUserSuccess, getUserDetails } =
-	authSlice.actions
+export const {
+	logOutUser,
+	signUserStart,
+	signUserSuccess,
+	getUserDetails,
+	signUserFailure,
+} = authSlice.actions
 
 export default authSlice.reducer
