@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import HighchartsReact from "highcharts-react-official";
 import Highcharts, { keys } from "highcharts";
 
@@ -88,6 +88,11 @@ const AllStatics = ({data}) => {
   // products data 
 
   const newData = {...data.mahsulot_diagram}
+
+  let keys = []
+	for (let key in newData) {
+		keys.push({ name: key, y: newData[key] })
+	}
   const options = {
 		chart: {
 			plotBackgroundColor: null,
@@ -125,19 +130,9 @@ const AllStatics = ({data}) => {
 			{
 				name: 'Mahsulotlar',
 				colorByPoint: true,
-				data: [
-					newData
-				],
+				data:keys
 			},
 		],
-	}
-
-  
-	for (let key in newData) {
-		// {
-    //   name: key,
-    //   y: newData[key]
-    // }
 	}
 
   return <div className="flex overflow-x-hidden w-[99%] justify-between items-center gap-3 border min-h-[500px] px-9 border-transparent">
