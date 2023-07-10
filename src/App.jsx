@@ -51,7 +51,7 @@ const App = () => {
 				<BrowserRouter>
 					{token && <Sidebar role={role} />}
 					<div className='w-[100%]'>
-						<Navbar />
+						<Navbar role={role} />
 						<div className='pages h-[90vh] overflow-y-scroll '>
 							{role === 'admin' ? (
 								<Routes>

@@ -9,7 +9,7 @@ import { Link, NavLink, useNavigate } from 'react-router-dom'
 import '../components/pages/main-info/Main.css'
 import { logOutUser } from '../reducers/auth'
 
-const Navbar = () => {
+const Navbar = ({role}) => {
 	const { loggedIn, user } = useSelector(state => state.reducer)
 
 	console.log(loggedIn)

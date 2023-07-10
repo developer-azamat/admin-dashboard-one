@@ -39,8 +39,8 @@ const Login = () => {
 		<div className='login w-full h-[90vh] flex justify-center items-center'>
 			<div className='form-container w-[320px] rounded-[0.75rem] p-[2rem] bg-[#ECF0FF] text-black border hover:border-[black] transition-all'>
 				<select className='outline-none rounded-md bg-transparent w-full m-1 border border-cyan-600' onChange={handleChange}>
-					<option value='admin'>Admin</option>
 					<option value='user'>Xodim</option>
+					<option value='admin'>Admin</option>
 				</select>
 				<p className='title text-center text-[1.5rem] font-[700] '>Login</p>
 				<form className='form mt-[1.5rem]' onSubmit={handleSubmit}>
