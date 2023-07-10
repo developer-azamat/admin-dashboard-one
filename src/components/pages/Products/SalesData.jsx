@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import authService from "../../api/axios";
 import { columns } from "./SalesArray";
 import { useNavigate } from "react-router-dom/dist";
+import productService from "../../api/productsApi";
 
 function SalesData({ role }) {
   const [addRow, setAddRows] = useState([]);
@@ -12,12 +13,13 @@ function SalesData({ role }) {
   const [xodim, setXodim] = useState("");
   const [sana, setSana] = useState("");
   const [isActive, setIsActive] = useState(false);
+  const navigate = useNavigate()
 
   const getCash = async () => {
     try {
       const { data } = await authService.getCash();
-      setAddRows(data);
       console.log(data);
+      setAddRows(data);
     } catch (error) {
       console.log(error);
     }
@@ -31,43 +33,36 @@ function SalesData({ role }) {
     setIsActive(!isActive);
   };
 
-  const newRow = {
-    miqdor: ombor,
-    sana: sana,
-    mahsulot: ombor,
-    ombor: ombor,
-    xodim: xodim,
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const sendCash = async (cash) => {
-      try {
-        const { data } = await authService.sendCash(cash);
-        setAddRows((prev) => [...prev, data]);
-        setIsActive(!isActive);
-      } catch (error) {
-        console.log(error);
-      }
+    const cash = {
+      mahsulot: mahsulot,
+      miqdor: miqdor,
+      ombor: ombor,
+      sana: sana,
+      xodim: 1
     };
-    await sendCash(newRow);
 
-    setMahsulot("");
-    setMiqdor("");
-    setOmbor("");
-    setXodim("");
-    setSana("");
+    try {
+      const { data } = await productService.setCash(cash);
+      setAddRows((prev) => [...prev, data]);
+    } catch (error) {
+      console.log('error setting');
+    }
+
+    setIsActive(!isActive);
   };
 
   const handleRow = (item) => {
     const id = item.row.id;
-    navigate(`/cash/sotuv/${id}`);
+    navigate(`/products/sales/${id}`);
   };
 
   return (
     <div>
-      <div className="Sales mt-20">
+      <div className="Sales mt-20  flex flex-col justify-center items-center">
         <div className="products-text w-full flex justify-between my-5 items-center">
           <h1 className="text-3xl font-semibold">Mahsulotlar</h1>
           {role === 'admin' ? !isActive ? (
@@ -114,7 +109,6 @@ function SalesData({ role }) {
                   </label>
                   <input
                     onChange={(e) => setMahsulot(e.target.value)}
-                    value={mahsulot}
                     className="w-full rounded-md border border-[#334155] outline-none bg-[#d5ddf8] px-4 py-3"
                     type="number"
                     name="mahsulot"
@@ -128,7 +122,6 @@ function SalesData({ role }) {
                   </label>
                   <input
                     onChange={(e) => setMiqdor(e.target.value)}
-                    value={miqdor}
                     type="number"
                     className="w-full rounded-md border border-[#334155] outline-none bg-[#d5ddf8] px-4 py-3"
                     name="miqdor"
@@ -141,37 +134,23 @@ function SalesData({ role }) {
                   </label>
                   <input
                     onChange={(e) => setOmbor(e.target.value)}
-                    value={ombor}
                     type="number"
                     className="w-full rounded-md border border-[#334155] outline-none bg-[#d5ddf8] px-4 py-3"
                     name="ombor"
                     placeholder=""
                   />
                 </div>
-                <div className="input-group mt-[0.25rem] text-[0.875rem]">
-                  <label htmlFor="xodim" className="block mb-1">
-                    Xodim
-                  </label>
-                  <input
-                    onChange={(e) => setXodim(e.target.value)}
-                    value={xodim}
-                    type="number"
-                    className="w-full rounded-md border border-[#334155] outline-none bg-[#d5ddf8] px-4 py-3"
-                    name="xodim"
-                    placeholder=""
-                  />
-                </div>
+               
                 <div className="input-group mt-[0.25rem] text-[0.875rem]">
                   <label htmlFor="sana" className="block mb-1">
                     Sana
                   </label>
                   <input
                     onChange={(e) => setSana(e.target.value)}
-                    value={sana}
-                    type="date"
                     className="w-full rounded-md border border-[#334155] outline-none bg-[#d5ddf8] px-4 py-3"
                     name="sana"
-                    placeholder=""
+                    
+                    placeholder="00-00-0000"
                   />
                 </div>
                 <button

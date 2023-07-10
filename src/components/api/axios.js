@@ -40,12 +40,6 @@ const authService = {
 		return cash
 	},
 
-	async sendCash(post) {
-		const data = await axios.post('/cash/sotuvlar/', {
-			...post,
-		})
-		return data
-	},
 
 	async getWorkers() {
 		const data = await axios.get(`/user/xodimlar/`);

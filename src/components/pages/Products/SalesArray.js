@@ -8,13 +8,13 @@ const columns = [
 		field: 'mahsulot',
 		headerName: 'Mahsulot',
 		type: 'number',
-		width: 250,
+		width: 200,
 	},
 	{
 		field: 'miqdor',
 		headerName: 'Miqdor',
 		type: 'number',
-		width: 200,
+		width: 150,
 	},
 	{
 		field: 'ombor',

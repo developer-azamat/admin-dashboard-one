@@ -20,6 +20,7 @@ import Worker from './components/pages/workers/Worker/Worker'
 
 import Filial from './components/pages/filials/filial/Filial'
 import Statistic from './components/pages/statistics/statistic/Statistic'
+import ProductSales from './components/pages/Products/ProductSales/ProductSales'
 
 
 const App = () => {
@@ -57,6 +58,7 @@ const App = () => {
 									<Route path='/' element={<Main />} />
 									<Route path='/products' element={<Products role={role} />} />
 									<Route path='/products/:id' element={<Product role={role} />} />
+									<Route path='/products/sales/:id' element={<ProductSales role={role} />} />
 									<Route path='/worker' element={<Workers role={role} />} />
 									<Route path='/worker/:id' element={<Worker role={role} />} />
 									<Route path='/filials' element={<Filials role={role} />} />
