@@ -5,6 +5,10 @@ const helperDate = {
 		const month = date_start.getMonth()
 		const year = date_start.getFullYear()
 
+		// return `${year}-${month < 10 ? "0" + month : month}-${
+		// 	day < 10 ? "0" + day : day
+		// }`
+
 		return `${year}-${month}-${day}`
 	},
 }
