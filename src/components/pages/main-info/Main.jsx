@@ -53,10 +53,10 @@ function Main() {
 	]
 
 	return (
-		<div className='Main-info w-[100%]  h-[100vh] ease-linear '>
+		<div className='Main-info w-[100%] h-[100vh] ease-linear '>
 			<div className='all-info bg-gray-200 min-h-screen px-2'>
 				<form
-					className='flex px-3 py-2 border justify-between gap-2'
+					className='flex px-10 py-2 justify-between gap-2'
 					onSubmit={getStats}
 				>
 					<input
@@ -81,10 +81,11 @@ function Main() {
 						<option value={2}>2</option>
 						<option value={3}>3</option>
 					</select>
-					<input
+					<button
 						type='submit'
-						className='bg-red-600 text-white p-2 rounded-md hover:bg-red-300 duration-300 cursor-pointer'
-					/>
+						className='bg-red-600 text-white p-2 px-5 rounded-md hover:bg-red-300 duration-300 cursor-pointer'
+						
+					>Jonatish</button>
 				</form>
 				{data && (
 					<div className='top-charts flex gap-10 justify-between px-10 py-8'>
@@ -107,7 +108,7 @@ function Main() {
 						</div>
 					</div>
 				)}
-				{data ? <AllStatics data={data} /> : <p>Loading...</p>}
+				{data ? <AllStatics data={data} /> : <div className='w-full h-[90vh] flex justify-center items-center text-4xl font-semibold'>Sanani Tering</div>}
 			</div>
 		</div>
 	)
