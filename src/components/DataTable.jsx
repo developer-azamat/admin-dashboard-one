@@ -3,6 +3,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import authService from './api/axios';
+import { useNavigate } from 'react-router-dom';
 
 const columns = [
   { field: 'id', headerName: 'T/r', width: 70 },
@@ -32,6 +33,7 @@ export default function DataTable() {
   const [filial, setFilial] = useState('')
   const [tel, setTel] = useState('')
   const [isActive, setIsActive] = useState(false);
+  const navigate = useNavigate()
 
 
   const getWorkersData = async () => {
@@ -67,6 +69,11 @@ export default function DataTable() {
     setIsActive(!isActive)
   };
 
+  const handleRow = item => {
+		const id = item.row.id
+		navigate(`/worker/${id}`)
+	}
+
 
   return (
     <div>
@@ -83,6 +90,7 @@ export default function DataTable() {
       {!isActive ? <div style={{ height: 400, background: "white", }} className='w-full'>
         <DataGrid
           rows={addRow}
+          onRowClick={handleRow}
           columns={columns}
           initialState={{
             pagination: {

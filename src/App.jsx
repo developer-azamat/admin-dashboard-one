@@ -15,6 +15,7 @@ import Statistics from './components/pages/statistics/Statistics'
 import Workers from './components/pages/workers/Workers'
 import { getItem } from './helpers/persistence-log'
 import { getUserDetails, signUserFailure, signUserStart } from './reducers/auth'
+import Worker from './components/pages/Worker/Worker'
 
 const App = () => {
 	const dispatch = useDispatch()
@@ -49,6 +50,7 @@ const App = () => {
 							<Route path='/products' element={<Products />} />
 							<Route path='/products/:id' element={<Product />} />
 							<Route path='/worker' element={<Workers />} />
+							<Route path='/worker/:id' element={<Worker />} />
 							<Route path='/filials' element={<Filials />} />
 							<Route path='/static' element={<Statistics />} />
 							<Route path='/archives' element={<Archives />} />

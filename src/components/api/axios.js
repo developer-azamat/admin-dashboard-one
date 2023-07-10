@@ -2,7 +2,7 @@ import axios from './api'
 
 const authService = {
 	async userLogin(user) {
-		const data = await axios.post('/user/token/', {...user})
+		const data = await axios.post('/user/token/', { ...user })
 		return data
 	},
 	async getWhareHouses() {
@@ -55,7 +55,17 @@ const authService = {
 			...workers,
 		});
 		return data
-	}
+	},
+
+	async WorkersMore(id) {
+		const data = await axios.get(`/user/xodim/${id}/`)
+
+		return data
+	},
+
+	async WorkersRemove(id) {
+		await axios.delete(`/user/xodim/${id}/`)
+	},
 }
 
 export default authService
