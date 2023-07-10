@@ -40,8 +40,11 @@ const authService = {
 		return cash
 	},
 
-	async sendCash(cash) {
-		await axios.post('/cash/sotuvlar/',)
+	async sendCash(post) {
+		const data = await axios.post('/cash/sotuvlar/', {
+			...post,
+		})
+		return data
 	},
 
 	async getWorkers() {
@@ -51,12 +54,35 @@ const authService = {
 	},
 
 	async setWorkers(workers) {
+		console.log(workers);
 		const data = await axios.post(`/user/xodimlar/`, {
-			...workers,
+				...workers
 		});
 		return data
 	},
 
+
+	async getArchiveProducts() {
+		const data = await axios.get(`/main/mahsulotlar/archive/`)
+		return data
+	},
+
+	async getArchiveWorkers() {
+		const data = await axios.get(`/user/xodimlar/archive/`);
+
+		return data
+	},
+	
+	async getArchiveWarehouses() {
+		const data = await axios.get(`/main/omborlar/archive/`);
+
+		return data
+	},
+	async getStats() {
+		const data = await axios.get(`/stats/`)
+
+		return data
+	},
 	async WorkersMore(id) {
 		const data = await axios.get(`/user/xodim/${id}/`)
 
@@ -65,7 +91,7 @@ const authService = {
 
 	async WorkersRemove(id) {
 		await axios.delete(`/user/xodim/${id}/`)
-	},
+	}
 }
 
 export default authService

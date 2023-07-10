@@ -1,1 +1,9 @@
-.main__container::-webkit-scrollbar {    width: 0;}.pages::-webkit-scrollbar {    width: 10px;}.pages::-webkit-scrollbar-thumb {    background: gray;}
+.main__container::-webkit-scrollbar {
+    width: 0;
+}
+.pages::-webkit-scrollbar {
+    width: 10px;
+}
+.pages::-webkit-scrollbar-thumb {
+    background: gray;
+}

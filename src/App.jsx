@@ -15,7 +15,11 @@ import Statistics from './components/pages/statistics/Statistics'
 import Workers from './components/pages/workers/Workers'
 import { getItem } from './helpers/persistence-log'
 import { getUserDetails, signUserFailure, signUserStart } from './reducers/auth'
+
 import Worker from './components/pages/Worker/Worker'
+
+import Profile from './user/profile'
+
 
 const App = () => {
 	const dispatch = useDispatch()
@@ -38,29 +42,41 @@ const App = () => {
 		}
 	}, [])
 
-	return (
-		<div className='flex w-full overflow-x-hidden main__container'>
-			<BrowserRouter>
-				{token && <Sidebar />}
-				<div className='w-[100%]'>
-					<Navbar />
-					<div className='pages h-[90vh] overflow-y-scroll '>
-						<Routes>
-							<Route path='/' element={<Main />} />
-							<Route path='/products' element={<Products />} />
-							<Route path='/products/:id' element={<Product />} />
-							<Route path='/worker' element={<Workers />} />
-							<Route path='/worker/:id' element={<Worker />} />
-							<Route path='/filials' element={<Filials />} />
-							<Route path='/static' element={<Statistics />} />
-							<Route path='/archives' element={<Archives />} />
-							<Route path='/login' element={<Login />} />
-						</Routes>
+	 const role = getItem('role') ? getItem('role') : 'user'
+
+		return (
+			<div className='flex w-full overflow-x-hidden main__container'>
+				<BrowserRouter>
+					{token && <Sidebar role={role} />}
+					<div className='w-[100%]'>
+						<Navbar />
+						<div className='pages h-[90vh] overflow-y-scroll '>
+							{role === 'admin' ? (
+								<Routes>
+									<Route path='/' element={<Main />} />
+									<Route path='/products' element={<Products />} />
+									<Route path='/products/:id' element={<Product />} />
+									<Route path='/worker' element={<Workers />} />
+									<Route path='/worker/:id' element={<Worker />} />
+									<Route path='/filials' element={<Filials />} />
+									<Route path='/static' element={<Statistics />} />
+									<Route path='/archives' element={<Archives />} />
+									<Route path='/login' element={<Login />} />
+								</Routes>
+							) : (
+								<Routes>
+									<Route path='/' element={<Main />} />
+									<Route path='/products' element={<Products />} />
+									<Route path='/login' element={<Login />} />
+									<Route path='/profile' element={<Profile/>} />
+								</Routes>
+							)}
+						</div>
+
 					</div>
-				</div>
-			</BrowserRouter>
-		</div>
-	)
+				</BrowserRouter>
+			</div>
+		)
 }
 
 export default App

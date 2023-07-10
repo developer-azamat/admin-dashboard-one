@@ -1,29 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import authService from '../../api/axios.js';
-import { columns } from './ProductsArray.js';
+import { columns } from './WarehouseData.js'
 
-function ArchivesProductsData() {
+function ArchiveWarehouses() {
   const [addRow, setAddRows] = useState([]);
 
-  const getArchiveProducts = async () => {
+  const getArchiveWarehouses = async () => {
     try {
-      const { data } = await authService.getArchiveProducts();
+      const { data } = await authService.getArchiveWarehouses();
       setAddRows(data);
-      console.log(data);
     } catch (error) {
       console.log(error);
     }
   };
 
   useEffect(() => {
-    getArchiveProducts();
+    getArchiveWarehouses();
   }, []);
 
   return (
     <div className="">
-      <div className='products'>
-        <h1 className='text-3xl font-semibold my-5'>Arxiv Mahsulotlar</h1>
+      <div className='workers'>
+        <h1 className='text-3xl font-semibold my-5'>Arxiv Omborlar</h1>
         <div style={{ background: "white" }} className='w-full'>
           {addRow.length > 0 ? (
             <DataGrid
@@ -43,4 +42,4 @@ function ArchivesProductsData() {
   );
 }
 
-export default ArchivesProductsData;
+export default ArchiveWarehouses;
