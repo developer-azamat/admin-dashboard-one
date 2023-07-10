@@ -108,7 +108,7 @@ function Main() {
 						</div>
 					</div>
 				)}
-				{data ? <AllStatics data={data} /> : <div className='w-full h-[90vh] flex justify-center items-center text-4xl font-semibold'>Sanani Tering</div>}
+				{data ? <AllStatics data={data} /> : <div className='w-full h-[90vh] flex justify-center items-center text-4xl font-semibold'>Sanani Kiriting</div>}
 			</div>
 		</div>
 	)
