@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
-import authService from '../../api/axios'
+import authService from '../../../api/axios'
 
 function Product({role}) {
 	const { id } = useParams()
@@ -20,10 +20,7 @@ function Product({role}) {
 	}, [])
 
 	const navigate = useNavigate()
-	const [activeLink, setActiveLink] = useState()
-	const handleLink2Click = index => {
-		setActiveLink(index)
-	}
+
 
 	const handleReturn = () => {
 		navigate('/products')
@@ -37,21 +34,7 @@ function Product({role}) {
 
 	return (
 		<div>
-			<div className='current-page w-full h-14 border-gray-300 border-[1px] flex items-center px-10 p-5 gap-3'>
-				<a href='' className='previous-page underline text-xl text-blue-600'>
-					Home
-				</a>
-				<span className='text-1xl'>/</span>
-				<a
-					href=''
-					className={`text-xl ${
-						activeLink === 6 ? 'text-black' : 'text-gray-500 hover:text-black'
-					}`}
-					onClick={() => handleLink2Click(6)}
-				>
-					Dashboard
-				</a>
-			</div>
+
 			<div className='px-10 py-8' onClick={handleReturn}>
 				<div className='flex justify-between items-center my-5'>
 					<h1 className='text-3xl font-semibold'>Mahsulot</h1>

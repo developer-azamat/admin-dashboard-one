@@ -56,7 +56,7 @@ const authService = {
 	async setWorkers(workers) {
 		console.log(workers);
 		const data = await axios.post(`/user/xodimlar/`, {
-				...workers
+			...workers
 		});
 		return data
 	},
@@ -72,7 +72,7 @@ const authService = {
 
 		return data
 	},
-	
+
 	async getArchiveWarehouses() {
 		const data = await axios.get(`/main/omborlar/archive/`);
 
@@ -91,6 +91,16 @@ const authService = {
 
 	async WorkersRemove(id) {
 		await axios.delete(`/user/xodim/${id}/`)
+	},
+
+	async WhareHouseMore(id) {
+		const data = await axios.get(`/main/ombor/${id}/`)
+
+		return data
+	},
+
+	async WhareHouseRemove(id) {
+		await axios.delete(`/main/ombor/${id}/`)
 	}
 }
 

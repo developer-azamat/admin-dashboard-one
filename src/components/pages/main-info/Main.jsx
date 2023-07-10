@@ -3,19 +3,7 @@ import AllStatics from './AllStatics'
 import './Main.css'
 
 function Main() {
-	const [activeLink, setActiveLink] = useState(true)
-	const [activeIcon, setActiveIcon] = useState(null)
 
-	const handleLinkClick = index => {
-		setActiveLink(index)
-	}
-
-	const handleIconClick = index => {
-		setActiveIcon(index)
-	}
-	const handleLink2Click = index => {
-		setActiveIcon(index)
-	}
 	const chartCards = [
 		{
 			id: 1,
@@ -39,21 +27,6 @@ function Main() {
 
 	return (
 		<div className='Main-info w-[100%]  h-[100vh] ease-linear '>
-			<div className='current-page h-14 border-gray-300 border-[1px] flex items-center px-10 gap-3'>
-				<a href='' className='previous-page underline text-xl text-blue-600'>
-					Home
-				</a>
-				<span className='text-1xl'>/</span>
-				<a
-					href=''
-					className={`text-xl ${
-						activeLink === 6 ? 'text-black' : 'text-gray-500 hover:text-black'
-					}`}
-					onClick={() => handleLink2Click(6)}
-				>
-					Dashboard
-				</a>
-			</div>
 			<div className='all-info bg-gray-200 min-h-screen px-2'>
 				<div className='top-charts flex gap-10 justify-between px-10 py-8'>
 					<div className='charts w-full flex justify-between'>

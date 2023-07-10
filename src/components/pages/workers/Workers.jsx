@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import Example from "../../Example";
-import DataTable from "../../DataTable";
+import DataTable from "./DataTable";
 
 function Workers({role}) {
-  const [activeLink, setActiveLink] = useState();
-	const handleLink2Click = (index) => {
-		setActiveLink(index);
-	  };
+
   const dataWorkers = [
     {
       name: "Umumiy daromad",
@@ -29,20 +26,7 @@ function Workers({role}) {
 
   return (
     <div className="w-full">
-      <div className="current-page w-full h-14 border-gray-300 border-[1px] flex items-center px-10 p-5 gap-3">
-        <a href="" className="previous-page underline text-xl text-blue-600">
-          Home
-        </a>
-        <span className="text-1xl">/</span>
-        <a
-          href=""
-          className={`text-xl ${activeLink === 6 ? "text-black" : "text-gray-500 hover:text-black"
-            }`}
-          onClick={() => handleLink2Click(6)}
-        >
-          Dashboard
-        </a>
-      		</div>
+
       <div className="px-10 py-8">
       <div className="flex w-full justify-between items-center mb-10 gap-5 bg-white/20 ">
         {dataWorkers.map((worker) => (

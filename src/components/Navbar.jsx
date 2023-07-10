@@ -5,7 +5,7 @@ import {
 } from '@mui/icons-material'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import '../components/pages/main-info/Main.css'
 import { logOutUser } from '../reducers/auth'
 
@@ -39,60 +39,55 @@ const Navbar = () => {
 	return (
 		<div className='navbar w-[100%] h-[10vh] px-10 p-5 flex items-center justify-between border-gray-300 border-[1px]'>
 			<div className='left-links flex items-center gap-5'>
-				<a
-					href=''
-					className={`text-xl ${
-						activeLink === 0 ? 'text-black' : 'text-gray-500 hover:text-black'
-					}`}
+				<NavLink
+					to='/'
+					className={`text-xl ${activeLink === 0 ? 'text-black' : 'text-gray-500 hover:text-black'
+						}`}
 					onClick={() => handleLinkClick(0)}
 				>
 					Dashboard
-				</a>
-				<NavLink
-					to='/'
-					className={`text-xl ${
-						activeLink === 1 ? 'text-black' : 'text-gray-500 hover:text-black'
-					}`}
-				>
-					Ishchilar
 				</NavLink>
-				<a
-					href=''
-					className={`text-xl ${
-						activeLink === 2 ? 'text-black' : 'text-gray-500 hover:text-black'
-					}`}
+				<NavLink
+					to='/worker'
+					onClick={() => handleLinkClick(1)}
+					className={`text-xl ${activeLink === 1 ? 'text-black' : 'text-gray-500 hover:text-black'
+						}`}
+				>
+					Xodimlar
+				</NavLink>
+				<NavLink
+				to='/archives'
+					className={`text-xl ${activeLink === 2 ? 'text-black' : 'text-gray-500 hover:text-black'
+						}`}
 					onClick={() => handleLinkClick(2)}
 				>
-					Settings
-				</a>
+					Arxiv
+				</NavLink>
 			</div>
 			<div className='right-links flex items-center gap-8'>
 				<div className='icons flex items-center gap-5'>
 					<a href='' onClick={() => handleIconClick(0)}>
 						<NotificationsNone
-							className={`icon ${
-								activeIcon === 0
+							className={`icon ${activeIcon === 0
 									? 'text-black'
 									: 'text-gray-500 hover:text-black'
-							}`}
+								}`}
 						/>
 					</a>
 					<a href='' onClick={() => handleIconClick(1)}>
 						<FormatListBulleted
-							className={`icon ${
-								activeIcon === 1
+							className={`icon ${activeIcon === 1
 									? 'text-black'
 									: 'text-gray-500 hover:text-black'
-							}`}
+								}`}
 						/>
 					</a>
 					<a href='' onClick={() => handleIconClick(2)}>
 						<MailOutline
-							className={`icon ${
-								activeIcon === 2
+							className={`icon ${activeIcon === 2
 									? 'text-black'
 									: 'text-gray-500 hover:text-black'
-							}`}
+								}`}
 						/>
 					</a>
 				</div>

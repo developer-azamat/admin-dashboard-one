@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import authService from "../../api/axios.js";
 import { columns } from "./FilialsArray.js";
+import { useNavigate } from "react-router-dom";
 
 function FilialsData() {
   const [addRow, setAddRows] = useState([]);
+  const navigate = useNavigate()
 
   const getWhareHouses = async () => {
     try {
@@ -20,6 +22,11 @@ function FilialsData() {
     getWhareHouses();
   }, []);
 
+  const handleRow = item => {
+		const id = item.row.id
+		navigate(`/filials/${id}`)
+	}
+
   return (
     <div className="">
       <div className="filials">
@@ -30,6 +37,7 @@ function FilialsData() {
               key={addRow.length}
               rows={addRow}
               columns={columns}
+              onRowClick={handleRow}
               initialState={{
                 pagination: {
                   paginationModel: { page: 0, pageSize: 5 },

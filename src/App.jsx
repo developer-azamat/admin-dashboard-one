@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import Navbar from './components/Navbar'
 import authService from './components/api/axios'
-import Product from './components/pages/Product/Product'
+import Product from './components/pages/Products/Product/Product'
 import Products from './components/pages/Products/Products'
 import Archives from './components/pages/archive/Archives.jsx'
 import Filials from './components/pages/filials/Filials'
@@ -16,9 +16,11 @@ import Workers from './components/pages/workers/Workers'
 import { getItem } from './helpers/persistence-log'
 import { getUserDetails, signUserFailure, signUserStart } from './reducers/auth'
 
-import Worker from './components/pages/Worker/Worker'
+import Worker from './components/pages/workers/Worker/Worker'
 
 import Profile from './user/profile'
+import Filial from './components/pages/filials/filial/Filial'
+import Statistic from './components/pages/statistics/statistic/Statistic'
 
 
 const App = () => {
@@ -59,7 +61,9 @@ const App = () => {
 									<Route path='/worker' element={<Workers role={role} />} />
 									<Route path='/worker/:id' element={<Worker role={role} />} />
 									<Route path='/filials' element={<Filials role={role} />} />
+									<Route path='/filials/:id' element={<Filial role={role} />} />
 									<Route path='/static' element={<Statistics />} />
+									<Route path='/static/:id' element={<Statistic />} />
 									<Route path='/archives' element={<Archives />} />
 									<Route path='/login' element={<Login />} />
 								</Routes>
@@ -71,6 +75,7 @@ const App = () => {
 									<Route path='/worker' element={<Workers role={role} />} />
 									<Route path='/worker/:id' element={<Worker role={role} />} />
 									<Route path='/filials' element={<Filials role={role} />} />
+									<Route path='/filials/:id' element={<Filial role={role} />} />
 									<Route path='/login' element={<Login />} />
 									<Route path='/profile' element={<Profile/>} />
 								</Routes>

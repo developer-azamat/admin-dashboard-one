@@ -1,5 +1,6 @@
 import { DataGrid } from '@mui/x-data-grid'
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import authService from '../../api/axios';
 import { columns } from './ProductsArray';
 
@@ -7,6 +8,7 @@ import { columns } from './ProductsArray';
 
 function StatisticFilialData() {
 	const [addRow, setAddRows] = useState([])
+	const navigate = useNavigate()
 
 	const getProductsData = async () => {
 		try {
@@ -22,6 +24,11 @@ function StatisticFilialData() {
 		getProductsData()
 	}, [])
 
+	const handleRow = (item) => {
+    const id = item.row.id;
+    navigate(`/static/${id}`);
+  };
+
 	return (
 		<div className="px-10 py-4">
 			<div className='products'>
@@ -30,6 +37,7 @@ function StatisticFilialData() {
 					<DataGrid
 						rows={addRow}
 						columns={columns}
+						onRowClick={handleRow}
 						initialState={{
 							pagination: {
 								paginationModel: { page: 0, pageSize: 4 },

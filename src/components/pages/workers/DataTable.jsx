@@ -2,7 +2,7 @@ import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import authService from './api/axios';
+import authService from '../../api/axios';
 import { useNavigate } from 'react-router-dom';
 
 const columns = [
