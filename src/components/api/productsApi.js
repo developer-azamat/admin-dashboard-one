@@ -10,7 +10,22 @@ const productService = {
 			,
 			{ ...filial })
 		return data
-	}
+	},
+	async setCash(cash) {
+		const data = await axios.post('/cash/sotuvlar/'
+			,
+			{ ...cash }
+		)
+		return data
+	},
+	async CashMore(id) {
+		const data = await axios.get(`/cash/sotuv/${id}/`)
+
+		return data
+	},
+	async CashRemove(id) {
+		await axios.delete(`/cash/sotuv/${id}/`)
+	},
 }
 
 export default productService
