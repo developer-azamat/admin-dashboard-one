@@ -10,7 +10,6 @@ function ArchiveWarehouses() {
     try {
       const { data } = await authService.getArchiveWarehouses();
       setAddRows(data);
-      console.log(data);
     } catch (error) {
       console.log(error);
     }
