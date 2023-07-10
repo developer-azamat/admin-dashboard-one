@@ -3,7 +3,7 @@ import ProductsData from './ProductsData';
 import SalesData from './SalesData';
 import "./Products.css"
 
-function Products() {
+function Products({role}) {
 	const [activeLink, setActiveLink] = useState();
 	const handleLink2Click = (index) => {
 		setActiveLink(index);
@@ -62,8 +62,8 @@ function Products() {
 						})}
 					</div>
 				</div>
-				<ProductsData />
-				<SalesData />
+				<ProductsData role={role} />
+				<SalesData role={role} />
 			</div>
 		</div>
 	);

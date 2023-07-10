@@ -25,7 +25,7 @@ const columns = [
 ];
 
 
-export default function DataTable() {
+export default function DataTable({role}) {
   const [addRow, setAddRows] = useState([])
   const [name, setName] = useState('')
   const [username, setUsername] = useState('')
@@ -81,14 +81,14 @@ export default function DataTable() {
   return (
     <div>
       <div className="flex justify-end">
-        <button
+        {role === 'admin'? <button
           onClick={() => {
             setIsActive(!isActive)
           }}
           className="px-5 py-2 bg-gray-600/90 hover:bg-gray-600/40 transition-all duration-200 ease-in hover:text-black mb-2 text-base rounded-md text-white"
         >
           {!isActive ? 'Xodim qoshish' : 'orqaga'}
-        </button>
+        </button>: ''}
       </div>
       {!isActive ? <div style={{ height: 400, background: "white", }} className='w-full'>
         <DataGrid

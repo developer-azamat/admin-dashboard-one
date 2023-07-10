@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import authService from '../../api/axios'
 
-function Product() {
+function Product({role}) {
 	const { id } = useParams()
 	const [product, setProduct] = useState(null)
 
@@ -77,12 +77,19 @@ function Product() {
 								<p className='mt-2'>{product?.batafsil}</p>
 								<p className='mt-8 text-xl'>Tannarx: {product.narx1}</p>
 								<p className='mt-3 text-xl'>Sotuv Narx: {product.narx2}</p>
-								<button
+								<p className='mt-3 text-xl'>Brend: {product.brand}</p>
+								{role === 'admin' ? <button
 									onClick={() => handleRemove(product.id)}
 									className='w-full py-3 border rounded-lg mt-8 bg-[#6558d3] text-white text-lg hover:bg-[#4c43a0] transition-all'
 								>
 									O'chirish
-								</button>
+								</button> 
+								: <button
+								onClick={handleReturn}
+								className='w-full py-3 border rounded-lg mt-8 bg-[#6558d3] text-white text-lg hover:bg-[#4c43a0] transition-all'
+							>
+								Qaytish
+							</button>}
 							</div>
 						</div>
 					</div>

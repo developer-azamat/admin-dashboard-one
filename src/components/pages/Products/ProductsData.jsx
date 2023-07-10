@@ -10,7 +10,7 @@ import {
   getProductsSuccess,
 } from "../../../reducers/product";
 
-function ProductsData() {
+function ProductsData({role}) {
   const navigate = useNavigate();
 
   const [isActive, setIsActive] = useState(false);
@@ -71,7 +71,7 @@ function ProductsData() {
       <div className="products flex flex-col justify-center items-center">
         <div className="products-text w-full flex justify-between my-5 items-center">
           <h1 className="text-3xl font-semibold">Mahsulotlar</h1>
-          {!isActive ? (
+          {role === 'admin'? !isActive ? (
             <button
               onClick={handleClick}
               className="py-3 px-4 border rounded-lg mt-8 bg-[#6558d3] text-white text-lg hover:bg-[#4c43a0] transition-all cursor-pointer"
@@ -85,7 +85,7 @@ function ProductsData() {
             >
               Qaytish
             </button>
-          )}
+          ): ''}
         </div>
 
         {!isActive ? (

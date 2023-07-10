@@ -107,6 +107,18 @@ function Sidebar({ role }) {
 			) : (
 				<ul className='nav-items'>
 					<NavLink
+						className={
+							selectedItem === 0
+								? 'flex items-center gap-5 hover:bg-slate-600 cursor-pointer transition-all bg-slate-600'
+								: 'flex items-center gap-5 p-6 hover:bg-slate-600 cursor-pointer transition-all'
+						}
+						to='/'
+						onClick={() => handleClick(0)}
+					>
+						<HomeIcon className='icons' />
+						<li>Asosiy</li>
+					</NavLink>
+					<NavLink
 						to='/products'
 						className={
 							selectedItem === 1
@@ -120,15 +132,27 @@ function Sidebar({ role }) {
 					</NavLink>
 					<NavLink
 						className={
-							selectedItem === 0
+							selectedItem === 2
 								? 'flex items-center gap-5 hover:bg-slate-600 cursor-pointer transition-all bg-slate-600'
-								: 'flex items-center gap-5 p-6 hover:bg-slate-600 cursor-pointer transition-all'
+								: 'flex items-center gap-5 hover:bg-slate-600 cursor-pointer transition-all'
 						}
-						to='/'
-						onClick={() => handleClick(0)}
+						onClick={() => handleClick(2)}
+						to='/worker'
 					>
-						<HomeIcon className='icons' />
-						<li>Asosiy</li>
+						<PeopleAltIcon className='icons' />
+						<li>Ishchilar</li>
+					</NavLink>
+					<NavLink
+						to='/filials'
+						className={
+							selectedItem === 3
+								? 'flex items-center gap-5 hover:bg-slate-600 cursor-pointer transition-all bg-slate-600'
+								: 'flex items-center gap-5 hover:bg-slate-600 cursor-pointer transition-all'
+						}
+						onClick={() => handleClick(3)}
+					>
+						<WarehouseIcon className='icons' />
+						<li>Filiallar</li>
 					</NavLink>
 				</ul>
 			)}

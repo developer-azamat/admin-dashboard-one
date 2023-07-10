@@ -30,8 +30,11 @@ function FilialsData() {
               key={addRow.length}
               rows={addRow}
               columns={columns}
-              pagination
-              pageSize={4}
+              initialState={{
+                pagination: {
+                  paginationModel: { page: 0, pageSize: 5 },
+                },
+              }}
               rowsPerPageOptions={[4]}
               className="text-lg text-cyan-900 font-[500]"
             />

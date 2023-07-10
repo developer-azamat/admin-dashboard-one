@@ -4,7 +4,7 @@ import "./Filials.css";
 import AddingFilials from "../../AddingFilials";
 import FilialsData from "./FilialsData";
 
-const Filials = () => {
+const Filials = ({role}) => {
   const [activeLink, setActiveLink] = useState();
   const handleLink2Click = (index) => {
     setActiveLink(index);
@@ -57,7 +57,7 @@ const Filials = () => {
           ))}
         </div>
         <a href="#" className="flex justify-end">
-        {!isActive ? (
+        {role === 'admin' ? !isActive ? (
 						<button
 							onClick={handleClick}
 							className='py-3 px-4 border rounded-lg mt-8 bg-[#6558d3] text-white text-lg hover:bg-[#4c43a0] transition-all cursor-pointer'
@@ -71,7 +71,7 @@ const Filials = () => {
 						>
 							Qaytish
 						</button>
-					)}
+					) : ''}
         </a>
         <div className="text-xl p-10">
         {!isActive ? <FilialsData /> : <AddingFilials setIsActive={setIsActive} isActive={isActive} />}

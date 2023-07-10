@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Example from "../../Example";
 import DataTable from "../../DataTable";
-function Workers() {
+
+function Workers({role}) {
   const [activeLink, setActiveLink] = useState();
 	const handleLink2Click = (index) => {
 		setActiveLink(index);
@@ -48,7 +49,7 @@ function Workers() {
           <Example key={worker.id} worker={worker} />
         ))}
       </div>
-      <DataTable />
+      <DataTable role={role} />
       </div>
     </div>
   );

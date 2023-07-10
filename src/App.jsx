@@ -54,11 +54,11 @@ const App = () => {
 							{role === 'admin' ? (
 								<Routes>
 									<Route path='/' element={<Main />} />
-									<Route path='/products' element={<Products />} />
-									<Route path='/products/:id' element={<Product />} />
-									<Route path='/worker' element={<Workers />} />
-									<Route path='/worker/:id' element={<Worker />} />
-									<Route path='/filials' element={<Filials />} />
+									<Route path='/products' element={<Products role={role} />} />
+									<Route path='/products/:id' element={<Product role={role} />} />
+									<Route path='/worker' element={<Workers role={role} />} />
+									<Route path='/worker/:id' element={<Worker role={role} />} />
+									<Route path='/filials' element={<Filials role={role} />} />
 									<Route path='/static' element={<Statistics />} />
 									<Route path='/archives' element={<Archives />} />
 									<Route path='/login' element={<Login />} />
@@ -66,7 +66,11 @@ const App = () => {
 							) : (
 								<Routes>
 									<Route path='/' element={<Main />} />
-									<Route path='/products' element={<Products />} />
+									<Route path='/products' element={<Products role={role} />} />
+									<Route path='/products/:id' element={<Product role={role} />} />
+									<Route path='/worker' element={<Workers role={role} />} />
+									<Route path='/worker/:id' element={<Worker role={role} />} />
+									<Route path='/filials' element={<Filials role={role} />} />
 									<Route path='/login' element={<Login />} />
 									<Route path='/profile' element={<Profile/>} />
 								</Routes>

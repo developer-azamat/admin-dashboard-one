@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import authService from '../../api/axios';
 
-function Worker() {
+function Worker({role}) {
 	const { id } = useParams();
 	const [worker, setWorker] = useState()
 	const [activeLink, setActiveLink] = useState()
@@ -78,12 +78,18 @@ function Worker() {
 								<p className='mt-2'>username: {worker.username}</p>
 								<p className='mt-8 text-xl'>password: {worker.password}</p>
 								<p className='mt-3 text-xl'>Telefon: {worker.tel} </p>
-								<button
+								{role === 'admin' ? <button
 									onClick={() => handleRemove(worker.id)}
 									className='w-full py-3 border rounded-lg mt-8 bg-[#6558d3] text-white text-lg hover:bg-[#4c43a0] transition-all'
 								>
 									O'chirish
-								</button>
+								</button> 
+								:<button
+								onClick={handleReturn}
+								className='w-full py-3 border rounded-lg mt-8 bg-[#6558d3] text-white text-lg hover:bg-[#4c43a0] transition-all'
+							>
+								Qaytish
+							</button>}
 							</div>
 						</div>
 					</div>
