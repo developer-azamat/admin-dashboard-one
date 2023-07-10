@@ -1,8 +1,20 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import AllStatics from './AllStatics'
 import './Main.css'
+import helperDate from '../../../helpers/date-now'
 
 function Main() {
+	const [start_date, setStart_date] = useState()
+	const [end_date, setEnd_date] = useState()
+	const [id, setId] = useState(1)
+
+	const getStats = async (e) => {
+		e.preventDefault()
+		const starting = helperDate.nowDate(start_date)
+		const ending = helperDate.nowDate(end_date)
+		console.log(starting, ending, id);
+	}
+
 
 	const chartCards = [
 		{
@@ -24,10 +36,29 @@ function Main() {
 			color: 'bg-amber-400',
 		},
 	]
+	
 
 	return (
 		<div className='Main-info w-[100%]  h-[100vh] ease-linear '>
 			<div className='all-info bg-gray-200 min-h-screen px-2'>
+				<form className='flex justify-between gap-2' onSubmit={getStats}>
+					<input
+						type='date'
+						placeholder='start_date'
+						onChange={e => setStart_date(e.target.value)}
+					/>
+					<input
+						type='date'
+						placeholder='end_date'
+						onChange={e => setEnd_date(e.target.value)}
+					/>
+					<select onChange={e=>setId(e.target.value)}>
+						<option value={1}>1</option>
+						<option value={2}>2</option>
+						<option value={3}>3</option>
+					</select>
+					<input type='submit' className='bg-red-600 text-white p-2 rounded-md hover:bg-red-300 duration-300 cursor-pointer' />
+				</form>
 				<div className='top-charts flex gap-10 justify-between px-10 py-8'>
 					<div className='charts w-full flex justify-between'>
 						{chartCards.map(item => {

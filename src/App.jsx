@@ -18,7 +18,6 @@ import { getUserDetails, signUserFailure, signUserStart } from './reducers/auth'
 
 import Worker from './components/pages/workers/Worker/Worker'
 
-import Profile from './user/profile'
 import Filial from './components/pages/filials/filial/Filial'
 import Statistic from './components/pages/statistics/statistic/Statistic'
 
@@ -77,7 +76,6 @@ const App = () => {
 									<Route path='/filials' element={<Filials role={role} />} />
 									<Route path='/filials/:id' element={<Filial role={role} />} />
 									<Route path='/login' element={<Login />} />
-									<Route path='/profile' element={<Profile/>} />
 								</Routes>
 							)}
 						</div>
