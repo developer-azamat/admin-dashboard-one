@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import productService from '../../../api/productsApi';
 
-function ProductSales() {
+function ProductSales({role}) {
 	const { id } = useParams();
 	const [cash, setCash] = useState()
 	const navigate = useNavigate()

@@ -62,7 +62,7 @@ function SalesData({ role }) {
 
   return (
     <div>
-      <div className="Sales mt-20">
+      <div className="Sales mt-20  flex flex-col justify-center items-center">
         <div className="products-text w-full flex justify-between my-5 items-center">
           <h1 className="text-3xl font-semibold">Mahsulotlar</h1>
           {role === 'admin' ? !isActive ? (
@@ -149,8 +149,8 @@ function SalesData({ role }) {
                     onChange={(e) => setSana(e.target.value)}
                     className="w-full rounded-md border border-[#334155] outline-none bg-[#d5ddf8] px-4 py-3"
                     name="sana"
-                    type='text'
-                    placeholder=""
+                    
+                    placeholder="00-00-0000"
                   />
                 </div>
                 <button
