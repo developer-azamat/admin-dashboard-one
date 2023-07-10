@@ -16,6 +16,7 @@ function ProductsData({role}) {
   const [isActive, setIsActive] = useState(false);
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
+  const [brand, setBrand] = useState("");
   const [mainPrice, setMainPrice] = useState("");
   const [addRow, setAddRows] = useState([]);
 
@@ -44,8 +45,7 @@ function ProductsData({role}) {
       narx1: price,
       narx2: mainPrice,
       nom: name,
-      brand: "brand",
-      batafsil: "lore sndhbs dsgdsdtsfbdbshgdvs",
+      brand: brand,
       deleted: false,
     };
 
@@ -116,6 +116,19 @@ function ProductsData({role}) {
                 </label>
                 <input
                   onChange={(e) => setName(e.target.value)}
+                  className="w-full rounded-md border border-[#334155] outline-none bg-[#d5ddf8] px-4 py-3"
+                  type="text"
+                  name="username"
+                  id="username"
+                  placeholder=""
+                />
+              </div>
+              <div className="input-group mt-[0.25rem] text-[0.875rem]">
+                <label htmlFor="username" className="block mb-1">
+                  Mahsulot Brendi
+                </label>
+                <input
+                  onChange={(e) => setBrand(e.target.value)}
                   className="w-full rounded-md border border-[#334155] outline-none bg-[#d5ddf8] px-4 py-3"
                   type="text"
                   name="username"

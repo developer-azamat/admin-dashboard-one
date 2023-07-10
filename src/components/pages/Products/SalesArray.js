@@ -31,7 +31,6 @@ const columns = [
 	{
 		field: 'sana',
 		headerName: 'Sana',
-		type: 'text',
 		width: 150,
 	},
 ]

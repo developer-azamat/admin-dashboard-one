@@ -37,21 +37,23 @@ function SalesData({ role }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const cash = {
+    const newRow = {
       mahsulot: mahsulot,
       miqdor: miqdor,
       ombor: ombor,
       sana: sana,
-      xodim: 1
+      xodim: xodim,
     };
 
-    try {
-      const { data } = await productService.setCash(cash);
-      setAddRows((prev) => [...prev, data]);
-    } catch (error) {
-      console.log('error setting');
-    }
-
+    const settingCash = async (post) => {
+      try {
+        const { data } = await authService.setCash(post);
+        setAddRows((prew) => [...prew, data]);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    settingCash(newRow);
     setIsActive(!isActive);
   };
 
@@ -140,6 +142,18 @@ function SalesData({ role }) {
                     placeholder=""
                   />
                 </div>
+                <div className="input-group mt-[0.25rem] text-[0.875rem]">
+                  <label htmlFor="ombor" className="block mb-1">
+                    Xodim
+                  </label>
+                  <input
+                    onChange={(e) => setXodim(e.target.value)}
+                    type="number"
+                    className="w-full rounded-md border border-[#334155] outline-none bg-[#d5ddf8] px-4 py-3"
+                    name="ombor"
+                    placeholder=""
+                  />
+                </div>
                
                 <div className="input-group mt-[0.25rem] text-[0.875rem]">
                   <label htmlFor="sana" className="block mb-1">
@@ -147,10 +161,11 @@ function SalesData({ role }) {
                   </label>
                   <input
                     onChange={(e) => setSana(e.target.value)}
+                    type="date"
                     className="w-full rounded-md border border-[#334155] outline-none bg-[#d5ddf8] px-4 py-3"
                     name="sana"
                     
-                    placeholder="00-00-0000"
+                    placeholder="0000-00-00"
                   />
                 </div>
                 <button
