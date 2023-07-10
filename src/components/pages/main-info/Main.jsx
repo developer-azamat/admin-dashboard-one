@@ -24,7 +24,7 @@ function Main() {
 		const {data} = await productService.getAllStats(db)
 
 		setData(data)
-		console.log(data)
+		localStorage.setItem("total", JSON.stringify(data))
 	}
 	
 	// useEffect(()=> {
@@ -86,25 +86,27 @@ function Main() {
 						className='bg-red-600 text-white p-2 rounded-md hover:bg-red-300 duration-300 cursor-pointer'
 					/>
 				</form>
-				<div className='top-charts flex gap-10 justify-between px-10 py-8'>
-					<div className='charts w-full flex justify-between'>
-						{chartCards.map((item, key) => {
-							return (
-								<div
-									className={`chart-card w-1/4 h-52 ${item.color} rounded-lg py-7 px-5`}
-									key={key}
-								>
-									<span className='bigNum text-4xl font-medium text-gray-100'>
-										{item.price}
-									</span>
-									<div className='info-type text-gray-100 text-xl mt-1'>
-										{item.name}
+				{data && (
+					<div className='top-charts flex gap-10 justify-between px-10 py-8'>
+						<div className='charts w-full flex justify-between'>
+							{chartCards.map((item, key) => {
+								return (
+									<div
+										className={`chart-card w-1/4 h-52 ${item.color} rounded-lg py-7 px-5`}
+										key={key}
+									>
+										<span className='bigNum text-4xl font-medium text-gray-100'>
+											{item.price}
+										</span>
+										<div className='info-type text-gray-100 text-xl mt-1'>
+											{item.name}
+										</div>
 									</div>
-								</div>
-							)
-						})}
+								)
+							})}
+						</div>
 					</div>
-				</div>
+				)}
 				{data ? <AllStatics data={data} /> : <p>Loading...</p>}
 			</div>
 		</div>

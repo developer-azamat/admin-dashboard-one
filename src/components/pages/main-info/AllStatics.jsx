@@ -135,8 +135,8 @@ const AllStatics = ({data}) => {
 		],
 	}
 
-  return <div className="flex overflow-x-hidden w-[99%] justify-between items-center gap-3 border min-h-[500px] px-9 border-transparent">
-		<HighchartsReact highcharts={Highcharts} options={newOptions} />
+  return <div className="flex overflow-x-hidden w-[100%] justify-between items-center gap-3 border min-h-[500px] px-9 border-transparent">
+		{/* <HighchartsReact highcharts={Highcharts} options={newOptions} /> */}
 		<HighchartsReact highcharts={Highcharts} options={options} />
 	</div>;
 };
