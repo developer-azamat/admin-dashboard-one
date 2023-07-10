@@ -8,13 +8,13 @@ const columns = [
 		field: 'ism',
 		headerName: 'Ism',
 		type: 'text',
-		width: 250,
+		width: 200,
 	},
 	{
 		field: 'fam',
 		headerName: 'Familiya',
 		type: 'text',
-		width: 200,
+		width: 150,
 	},
 	{
 		field: 'username',

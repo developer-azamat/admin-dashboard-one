@@ -8,13 +8,13 @@ const columns = [
 		field: 'nom',
 		headerName: 'Mahsulot nomi',
 		type: 'text',
-		width: 250,
+		width: 200,
 	},
 	{
 		field: 'narx1',
 		headerName: 'Tannarx',
 		type: 'number',
-		width: 200,
+		width: 150,
 	},
 	{
 		field: 'narx2',

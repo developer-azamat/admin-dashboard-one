@@ -52,18 +52,17 @@ export default function DataTable({role}) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newRow = {
-      username: "german",
-      password: "1234",
-      ism: "dreamer",
+      username: username,
+      password: password,
+      ism: name,
       ombor: 1,
-      tel: "+998905673422",
+      tel: tel,
       kpi: 1.08,
       fam: "germiona",
     }
 
       try {
         await authService.setWorkers(newRow)
-
         console.log('Successfully')
       } catch (error) {
         console.log(error)

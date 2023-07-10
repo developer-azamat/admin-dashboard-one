@@ -40,12 +40,6 @@ const authService = {
 		return cash
 	},
 
-	async sendCash(post) {
-		const data = await axios.post('/cash/sotuvlar/', {
-			...post,
-		})
-		return data
-	},
 
 	async getWorkers() {
 		const data = await axios.get(`/user/xodimlar/`);
@@ -101,6 +95,10 @@ const authService = {
 
 	async WhareHouseRemove(id) {
 		await axios.delete(`/main/ombor/${id}/`)
+	},
+
+	async cashDelete(id) {
+		await axios.delete(`/main/ombor/cash-delete/${id}/`)
 	}
 }
 
