@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import HighchartsReact from "highcharts-react-official";
-import Highcharts, { keys } from "highcharts";
+import Highcharts from "highcharts";
 
 
 const newOptions = {

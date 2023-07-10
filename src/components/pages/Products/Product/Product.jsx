@@ -27,9 +27,17 @@ function Product({role}) {
 	}
 
 	const handleRemove = async id => {
-		await authService.removeProduct(id)
+		const bool = confirm("Butunlay bazadan o'chirishni istaysizmi ?")
 
-		handleReturn()
+		if(bool) {
+			await authService.removeProduct(id)
+
+			handleReturn()
+		} else {
+			await authService.cashDelete(id)
+
+			handleReturn()
+		}
 	}
 
 	return (

@@ -107,7 +107,7 @@ function Main() {
 						</div>
 					</div>
 				)}
-				{data ? <AllStatics data={data} /> : <p>Loading...</p>}
+				{data ? <AllStatics data={data} /> : <p>Iltimos data kiriting !</p>}
 			</div>
 		</div>
 	)

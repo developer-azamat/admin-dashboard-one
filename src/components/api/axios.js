@@ -95,6 +95,10 @@ const authService = {
 
 	async WhareHouseRemove(id) {
 		await axios.delete(`/main/ombor/${id}/`)
+	},
+
+	async cashDelete(id) {
+		await axios.delete(`/main/ombor/cash-delete/${id}/`)
 	}
 }
 

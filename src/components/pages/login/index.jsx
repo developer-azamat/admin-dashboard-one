@@ -20,16 +20,10 @@ const Login = () => {
 			console.log('start sign user');
 			const {data} = await authService.userLogin(user)
 			dispatch(signUserSuccess(data))
-
-
-			// const res = await authService.getUser()
-			// dispatch(getUserDetails(res.details))
 		} catch (error) {
 			console.log(error)
 		}
 	}
-
-	const [isAdmin, setAdmin] = useState('')
 
 	const handleChange = (e)=> {
 		const role = e.target.value
