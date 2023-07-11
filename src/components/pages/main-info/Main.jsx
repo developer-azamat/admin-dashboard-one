@@ -5,54 +5,70 @@ import AllStatics from './AllStatics'
 import './Main.css'
 
 function Main() {
-	const [start_date, setStart_date] = useState()
-	const [end_date, setEnd_date] = useState()
 	const [id, setId] = useState(1)
+	const [nowDay, setNowDay] = useState('')
+	const [nowMonth, setNowMonth] = useState('')
 
 	const[data, setData] = useState(null)
 
 	const getStats = async (e) => {
 		e.preventDefault()
-		const starting = helperDate.nowDate(start_date)
-		const ending = helperDate.nowDate(end_date)
+		
+		// const starting = helperDate.nowDate(start_date ? start_date : '2023-05-06')
+		// const ending = helperDate.nowDate(end_date ? end_date : "2023-07-10")
 
 
 		const db = {
-			start_date: starting ? starting : '2023-06-10',
-			end_date: ending ? ending : '2023-07-10',
+			start_date: nowDay ,
+			end_date: nowMonth ,
 			id: id ? id : 1,
 		}
+		console.log(db)
 
 		const { data } = await productService.getAllStats(db)
 
 		setData(data)
 		localStorage.setItem("total", JSON.stringify(data))
+
+		console.log(data)
 	}
-	
-	useEffect(()=> {
-		getStats()
-	},[])
+
 
 	const chartCards = [
 		{
 			id: 1,
-			price: '$'+data?.umumiy_daromad,
+			price: data?.umumiy_daromad + " so'm",
 			name: 'Umumiy Daromad',
 			color: 'bg-blue-700',
 		},
 		{
 			id: 2,
-			price: '$'+data?.jami_foyda,
+			price: data?.jami_foyda + " so'm",
 			name: 'Jami Foyda',
 			color: 'bg-red-500',
 		},
 		{
 			id: 3,
-			price: data?.mahsulotlar_soni + " dona",
+			price: data?.mahsulotlar_soni + ' dona',
 			name: 'Mahsulotlar',
 			color: 'bg-amber-400',
 		},
 	]
+
+	
+
+	const updateDate = ()=> {
+		const startin =	helperDate.newDate()
+		const endin = helperDate.lastMonth()
+
+		setNowDay(endin)
+		setNowMonth(startin)
+	}
+		
+	useEffect(() => {
+		updateDate()
+		getStats()		
+	}, [])
 
 	return (
 		<div className='Main-info w-[100%] h-[100vh] ease-linear '>
@@ -61,7 +77,13 @@ function Main() {
 					className='flex px-10 py-2 justify-between gap-2'
 					onSubmit={getStats}
 				>
-					<input
+					<select>
+						<option value={nowDay + ',' + nowMonth}>
+							{nowDay + ',' + nowMonth}
+						</option>
+						{/* <option value={'20020'}>kdjsjd</option> */}
+					</select>
+					{/* <input
 						type='date'
 						required
 						className='bg-transparent'
@@ -76,7 +98,7 @@ function Main() {
 						placeholder='end_date'
 						className='bg-transparent'
 						onChange={e => setEnd_date(e.target.value)}
-					/>
+					/> */}
 					<select
 						className='bg-transparent'
 						onChange={e => setId(e.target.value)}
@@ -88,8 +110,9 @@ function Main() {
 					<button
 						type='submit'
 						className='bg-red-600 text-white p-2 px-5 rounded-md hover:bg-red-300 duration-300 cursor-pointer'
-						
-					>Jonatish</button>
+					>
+						Jonatish
+					</button>
 				</form>
 				{data && (
 					<div className='top-charts flex gap-10 justify-between px-10 py-8'>
@@ -112,7 +135,13 @@ function Main() {
 						</div>
 					</div>
 				)}
-				{data ? <AllStatics data={data} /> : <div className='w-full h-[90vh] flex justify-center items-center text-4xl font-semibold'>Sanani Kiriting</div>}
+				{data ? (
+					<AllStatics data={data} />
+				) : (
+					<div className='w-full h-[90vh] flex justify-center items-center text-4xl font-semibold'>
+						Sanani Kiriting
+					</div>
+				)}
 			</div>
 		</div>
 	)

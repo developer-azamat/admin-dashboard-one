@@ -11,8 +11,6 @@ import { logOutUser } from '../reducers/auth'
 
 const Navbar = ({role}) => {
 	const { loggedIn, user } = useSelector(state => state.reducer)
-
-	console.log(loggedIn)
 	const navigate = useNavigate()
 
 	useEffect(() => {

@@ -119,7 +119,7 @@ const Statistics = () => {
 				{
 					name: 'Mahsulotlar',
 					colorByPoint: true,
-					data:keys
+					data: keys
 				},
 			],
 		})
