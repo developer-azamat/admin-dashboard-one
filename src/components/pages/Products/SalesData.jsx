@@ -66,13 +66,13 @@ function SalesData({ role }) {
     <div>
       <div className="Sales mt-20  flex flex-col justify-center items-center">
         <div className="products-text w-full flex justify-between my-5 items-center">
-          <h1 className="text-3xl font-semibold">Mahsulotlar</h1>
+          <h1 className="text-3xl font-semibold">Sotuvlar</h1>
           {role === 'admin' ? !isActive ? (
             <button
               onClick={handleClick}
               className="py-3 px-4 border rounded-lg mt-8 bg-[#6558d3] text-white text-lg hover:bg-[#4c43a0] transition-all cursor-pointer"
             >
-              Mahsulotlar qoshish
+              Sotuv qoshish
             </button>
           ) : (
             <button
@@ -161,11 +161,11 @@ function SalesData({ role }) {
                   </label>
                   <input
                     onChange={(e) => setSana(e.target.value)}
-                    type="date"
+                    type="text"
                     className="w-full rounded-md border border-[#334155] outline-none bg-[#d5ddf8] px-4 py-3"
                     name="sana"
                     
-                    placeholder="0000-00-00"
+                    placeholder="00.00.0000"
                   />
                 </div>
                 <button
