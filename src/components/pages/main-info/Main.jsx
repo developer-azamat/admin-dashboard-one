@@ -9,7 +9,7 @@ function Main() {
 	const [nowDay, setNowDay] = useState('')
 	const [nowMonth, setNowMonth] = useState('')
 
-	const[data, setData] = useState(null)
+	const [data, setData] = useState(JSON.parse(localStorage.getItem('total'))? JSON.parse(localStorage.getItem("total")) : null)
 
 	const getStats = async (e) => {
 		e.preventDefault()
@@ -30,7 +30,6 @@ function Main() {
 		setData(data)
 		localStorage.setItem("total", JSON.stringify(data))
 
-		console.log(data)
 	}
 
 
@@ -103,9 +102,9 @@ function Main() {
 						className='bg-transparent'
 						onChange={e => setId(e.target.value)}
 					>
-						<option value={1}>1</option>
-						<option value={2}>2</option>
-						<option value={3}>3</option>
+						<option value={1}>1 Andijon</option>
+						<option value={2}>2 Namangan</option>
+						<option value={3}>3 Toshkent</option>
 					</select>
 					<button
 						type='submit'
