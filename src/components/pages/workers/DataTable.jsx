@@ -35,13 +35,13 @@ export default function DataTable({ role }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newRow = {
-      fam: fam,
-      ism: name,
-      kpi: 1,
-      ombor: 1,
-      password: password,
-      tel: tel,
       username: username,
+      password: password,
+      ism: name,
+      fam: fam,
+      ombor: ombor,
+      tel: tel,
+      kpi: kpi,
       deleted: false
     };
 
