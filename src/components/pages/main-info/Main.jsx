@@ -11,25 +11,27 @@ function Main() {
 
 	const[data, setData] = useState(null)
 
-	const getStats = async e => {
+	const getStats = async (e) => {
 		e.preventDefault()
 		const starting = helperDate.nowDate(start_date)
 		const ending = helperDate.nowDate(end_date)
 
+
 		const db = {
-			start_date: "2023-05-07",
-			end_date: "2023-07-07",
-			id: id
+			start_date: starting ? starting : '2023-06-10',
+			end_date: ending ? ending : '2023-07-10',
+			id: id ? id : 1,
 		}
-		const {data} = await productService.getAllStats(db)
+
+		const { data } = await productService.getAllStats(db)
 
 		setData(data)
 		localStorage.setItem("total", JSON.stringify(data))
 	}
 	
-	// useEffect(()=> {
-	// 	getStats()
-	// },[])
+	useEffect(()=> {
+		getStats()
+	},[])
 
 	const chartCards = [
 		{
@@ -63,12 +65,14 @@ function Main() {
 						type='date'
 						required
 						className='bg-transparent'
+						// value={start_date}
 						placeholder='start_date'
 						onChange={e => setStart_date(e.target.value)}
 					/>
 					<input
 						type='date'
 						required
+						//	value={end_date}
 						placeholder='end_date'
 						className='bg-transparent'
 						onChange={e => setEnd_date(e.target.value)}

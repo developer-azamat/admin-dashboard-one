@@ -10,11 +10,11 @@ export default function DataTable({ role }) {
   const [addRow, setAddRows] = useState([]);
   const [name, setName] = useState("");
   const [fam, setFam] = useState("");
-  const [kpi, setKpi] = useState("");
-  const [ombor, setOmbor] = useState("");
+  const [kpi, setKpi] = useState(0);
+  const [ombor, setOmbor] = useState(0);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [filial, setFilial] = useState(null);
+  // const [filial, setFilial] = useState(null);
   const [tel, setTel] = useState("");
   const [isActive, setIsActive] = useState(false);
   const navigate = useNavigate();
@@ -37,16 +37,18 @@ export default function DataTable({ role }) {
     const newRow = {
       fam: fam,
       ism: name,
-      kpi: kpi,
-      ombor: ombor,
+      kpi: 1,
+      ombor: 1,
       password: password,
       tel: tel,
       username: username,
+      deleted: false
     };
 
     try {
-      await authService.setWorkers(newRow);
-      console.log("Successfully");
+      console.log(newRow)
+      const data =  await authService.setWorkers(newRow);
+      console.log(data);
     } catch (error) {
       console.log(error);
     }

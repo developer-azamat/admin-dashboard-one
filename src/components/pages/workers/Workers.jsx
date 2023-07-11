@@ -29,8 +29,6 @@ function Workers({role}) {
 		},
 	]
 
-
-
   return (
 		<div className='w-full'>
 			<div className='px-10 py-8'>

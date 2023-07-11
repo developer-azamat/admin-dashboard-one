@@ -44,7 +44,7 @@ const App = () => {
 		}
 	}, [])
 
-	 const role = getItem('role') ? getItem('role') : 'admin'
+	 const role = getItem('role') ? getItem('role') : 'user'
 
 		return (
 			<div className='flex w-full overflow-x-hidden main__container'>
