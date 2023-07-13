@@ -11,13 +11,13 @@ const Archives = () =>{
 	const chartCards = [
 		{
 			id: 1,
-			price: '$' + umumiy_daromad,
+			price: umumiy_daromad + " so'm",
 			name: 'Umumiy Daromad',
 			color: 'bg-blue-700',
 		},
 		{
 			id: 2,
-			price: '$' + jami_foyda,
+			price: jami_foyda + " so'm",
 			name: 'Jami Foyda',
 			color: 'bg-red-500',
 		},

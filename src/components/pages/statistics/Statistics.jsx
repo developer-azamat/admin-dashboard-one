@@ -73,12 +73,16 @@ const Statistics = () => {
 		],
 	})
 
-	const [data, setData] = useState(null)
+	const [data, setData] = useState(
+		JSON.parse(localStorage.getItem('total'))
+			? JSON.parse(localStorage.getItem('total'))
+			: null
+	)
 	useEffect(() => {
 		const stats = JSON.parse(localStorage.getItem('total'))
 		setData(stats)
 		if(data){
-			
+			console.log('total')
 		const newData = { ...data.mahsulot_diagram }
 
 		let keys = []
@@ -119,7 +123,7 @@ const Statistics = () => {
 				{
 					name: 'Mahsulotlar',
 					colorByPoint: true,
-					data:keys
+					data: keys
 				},
 			],
 		})
