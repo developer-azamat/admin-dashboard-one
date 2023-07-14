@@ -11,7 +11,6 @@ function Filial({role}) {
 		try {
 			const { data } = await authService.WhareHouseMore(id)
 			setFilial(data)
-			console.log(data);
 		} catch (error) {
 			console.log(error)
 		}

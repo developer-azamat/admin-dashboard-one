@@ -10,7 +10,6 @@ function ArchivesProductsData() {
     try {
       const { data } = await authService.getArchiveProducts();
       setAddRows(data);
-      console.log(data);
     } catch (error) {
       console.log(error);
     }

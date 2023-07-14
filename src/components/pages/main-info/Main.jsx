@@ -8,8 +8,18 @@ function Main() {
 	const [id, setId] = useState(1)
 	const [nowDay, setNowDay] = useState('')
 	const [nowMonth, setNowMonth] = useState('')
+  const [houses, setHouses] = useState([])
 
 	const [data, setData] = useState(JSON.parse(localStorage.getItem('total'))? JSON.parse(localStorage.getItem("total")) : null)
+	const getFilialsName = async () => {
+		try {
+			const { data } = await productService.getWhareHouses()
+
+			setHouses(data)
+		} catch (error) {
+			console.log('Xatolik !')
+		}
+	}
 
 	const getStats = async (e) => {
 		e.preventDefault()
@@ -23,7 +33,6 @@ function Main() {
 			end_date: nowMonth ,
 			id: id ? id : 1,
 		}
-		console.log(db)
 
 		const { data } = await productService.getAllStats(db)
 
@@ -67,6 +76,7 @@ function Main() {
 	useEffect(() => {
 		updateDate()
 		getStats()		
+		getFilialsName()
 	}, [])
 
 	return (
@@ -76,7 +86,7 @@ function Main() {
 					className='flex px-10 py-2 justify-between gap-2'
 					onSubmit={getStats}
 				>
-					<select>
+					<select className='hover:text-white bg-transparent border-cyan-500 border-2 rounded-md outline-none hover:bg-cyan-500 duration-300 hover:border-white '>
 						<option value={nowDay + ',' + nowMonth}>
 							{nowDay + ',' + nowMonth}
 						</option>
@@ -98,14 +108,25 @@ function Main() {
 						className='bg-transparent'
 						onChange={e => setEnd_date(e.target.value)}
 					/> */}
+
 					<select
-						className='bg-transparent'
+						onChange={e => setId(e.target.value)}
+						value={id}
+						className='hover:text-white bg-transparent border-cyan-500 border-2 rounded-md  outline-none hover:bg-cyan-500 duration-300 hover:border-white'
+					>
+						{(houses &&
+							houses.map(item => (
+								<option value={item.id}>{item.nom}</option>
+							))) || <option value=''>Loading data...</option>}
+					</select>
+					{/* <select
+						className='hover:text-white bg-transparent border-cyan-500 border-2 rounded-md  outline-none hover:bg-cyan-500 duration-300 hover:border-white '
 						onChange={e => setId(e.target.value)}
 					>
 						<option value={1}>1 Andijon</option>
 						<option value={2}>2 Namangan</option>
 						<option value={3}>3 Toshkent</option>
-					</select>
+					</select> */}
 					<button
 						type='submit'
 						className='bg-red-600 text-white p-2 px-5 rounded-md hover:bg-red-300 duration-300 cursor-pointer'

@@ -6,9 +6,7 @@ const productService = {
 		return data
 	},
 	async setWhareHouse(filial) {
-		const data = await axios.post('/main/omborlar/'
-			,
-			{ ...filial })
+		const data = await axios.post('/main/omborlar/', { ...filial })
 		return data
 	},
 	async getAllStats(db) {
@@ -20,10 +18,7 @@ const productService = {
 		return data
 	},
 	async setCash(cash) {
-		const data = await axios.post('/cash/sotuvlar/'
-			,
-			{ ...cash }
-		)
+		const data = await axios.post('/cash/sotuvlar/', { ...cash })
 		return data
 	},
 	async CashMore(id) {

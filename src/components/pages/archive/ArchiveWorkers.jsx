@@ -10,7 +10,6 @@ function ArchiveWorkers() {
     try {
       const { data } = await authService.getArchiveWorkers();
       setAddRows(data);
-      console.log(data);
     } catch (error) {
       console.log(error);
     }

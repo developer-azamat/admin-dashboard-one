@@ -5,7 +5,7 @@ const columns = [
 		width: 70,
 	},
 	{
-		field: 'mahsulot',
+		field: 'mahsulot_nomi',
 		headerName: 'Mahsulot',
 		type: 'number',
 		width: 200,
@@ -17,13 +17,13 @@ const columns = [
 		width: 150,
 	},
 	{
-		field: 'ombor',
+		field: 'ombor_nomi',
 		headerName: 'Ombor',
 		type: 'number',
 		width: 200,
 	},
-    {
-		field: 'xodim',
+	{
+		field: 'xodim_ism',
 		headerName: 'Xodim',
 		type: 'number',
 		width: 150,

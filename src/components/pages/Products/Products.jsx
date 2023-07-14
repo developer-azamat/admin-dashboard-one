@@ -33,7 +33,7 @@ function Products({role}) {
 			<div className='px-10 py-8'>
 				<div className="flex items-center justify-between mb-10 gap-5 bg-white/20 ">
 					<div className="charts w-full flex justify-between">
-						{chartCards.map((item,key) => {
+						{chartCards.map((item, key) => {
 							return (
 								<div className={`chart-card w-1/4 h-52 ${item.color} rounded-lg py-7 px-5`} key={key}>
 									<span className="bigNum text-4xl font-medium text-gray-100">

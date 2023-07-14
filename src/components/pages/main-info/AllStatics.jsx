@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import HighchartsReact from "highcharts-react-official";
 import Highcharts from "highcharts";
+import Chart from './Chart'
 
 
 const newOptions = {
@@ -88,6 +89,8 @@ const AllStatics = ({data}) => {
   // products data 
 
   const newData = {...data.mahsulot_diagram}
+  const f_diagram = {...data.filial_diagram}
+
 
   let keys = []
 	for (let key in newData) {
@@ -110,11 +113,6 @@ const AllStatics = ({data}) => {
 		accessibility: {
 			enabled: false,
 		},
-		// accessibility: {
-		//   point: {
-		//     valueSuffix: "%",
-		//   },
-		// },
 
 		plotOptions: {
 			pie: {
@@ -135,10 +133,14 @@ const AllStatics = ({data}) => {
 		],
 	}
 
-  return <div className="flex overflow-x-hidden w-[100%] justify-between items-center gap-3 border min-h-[500px] px-9 border-transparent">
-		{/* <HighchartsReact highcharts={Highcharts} options={newOptions} /> */}
-		<HighchartsReact highcharts={Highcharts} options={options} />
-	</div>;
+  return (
+		<div className='flex overflow-x-hidden w-[100%] justify-between items-center gap-3 border min-h-[500px] px-9 border-transparent'>
+			<Chart f_diagram={f_diagram} />
+			<div className='w-[50%]'>
+				<HighchartsReact highcharts={Highcharts} options={options} />
+			</div>
+		</div>
+	)
 };
 
 export default AllStatics;

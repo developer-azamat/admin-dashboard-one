@@ -57,10 +57,8 @@ const rows = [
 export default function FilialTable() {
   const [rows, setRows] = React.useState([])
   const getRowsWhare = async () => {
-		console.log('iksansjans')
 		const {data} = await productService.getWhareHouses()
     setRows(data)
-		console.log(data)
 	}
 
 	React.useEffect(() => {

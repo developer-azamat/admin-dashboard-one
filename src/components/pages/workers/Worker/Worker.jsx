@@ -12,7 +12,6 @@ function Worker({role}) {
 		try {
 			const { data } = await authService.WorkersMore(id)
 			setWorker(data)
-			console.log(data);
 		} catch (error) {
 			console.log(error)
 		}

@@ -2,6 +2,7 @@ import Highcharts from 'highcharts'
 import { HighchartsReact } from 'highcharts-react-official'
 import React, { useEffect, useState } from 'react'
 import StatisticFilialData from './StatisticFilialData'
+import Chart from '../main-info/Chart'
 
 
 const Statistics = () => {
@@ -78,13 +79,17 @@ const Statistics = () => {
 			? JSON.parse(localStorage.getItem('total'))
 			: null
 	)
+	const [diagram, setDiagram] = useState({})
 	useEffect(() => {
 		const stats = JSON.parse(localStorage.getItem('total'))
 		setData(stats)
 		if(data){
-			console.log('total')
 		const newData = { ...data.mahsulot_diagram }
+		const newDiagram = { ...data.filial_diagram }
+		setDiagram(newDiagram)
 
+		console.log(diagram, newDiagram)
+		
 		let keys = []
 		for (let key in newData) {
 			keys.push({ name: key, y: newData[key] })
@@ -133,8 +138,10 @@ const Statistics = () => {
 	return (
 		<div>
 			<div className=' overflow-x-hidden w-[100%]  gap-2 border min-h-[500px] border-transparent'>
-				{/* <HighchartsReact highcharts={Highcharts} options={newOptions} />; */}
-				<HighchartsReact highcharts={Highcharts} options={options} />;
+				{/* {diagram && <Chart filial_diagram={diagram} /> || <p>Loading...</p>} */}
+				<div className='w-[50%]'>
+					<HighchartsReact highcharts={Highcharts} options={options} />
+				</div>
 			</div>
 			<StatisticFilialData />
 		</div>

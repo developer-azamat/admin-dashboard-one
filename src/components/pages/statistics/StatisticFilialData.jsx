@@ -14,7 +14,6 @@ function StatisticFilialData() {
 		try {
 			const { data } = await authService.getProducts()
 			setAddRows(data)
-			console.log(data);
 		} catch (error) {
 			console.log(error)
 		}
