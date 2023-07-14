@@ -1,15 +1,22 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { getUserDetails, signUserStart, signUserSuccess } from '../../../reducers/auth.js'
-import './Login.css'
+import { getItem, setItem } from '../../../helpers/persistence-log.js'
+import { signUserStart, signUserSuccess } from '../../../reducers/auth.js'
 import authService from '../../api/axios.js'
-import { setItem } from '../../../helpers/persistence-log.js'
+import './Login.css'
 
 const Login = () => {
 	const [username, setLogin] = useState('')
 	const [password, setPassword] = useState('')
 	const dispatch = useDispatch()
-	const handleSubmit = async (e) => {
+
+	const [isAdmin, setAdmin] = useState(getItem('role'))
+
+	useEffect(() => {
+		setItem('role', 'admin')
+	}, [])
+
+	const handleSubmit = async e => {
 		e.preventDefault()
 		const user = {
 			username: username,
@@ -17,23 +24,42 @@ const Login = () => {
 		}
 		dispatch(signUserStart())
 		try {
-			const {data} = await authService.userLogin(user)
-			dispatch(signUserSuccess(data))
+			if (isAdmin === 'admin') {
+				if (user.username === 'admin' && user.password === '123') {
+					const { data } = await authService.userLogin(user)
+					dispatch(signUserSuccess(data))
+				} else {
+					alert("Siz admin nomidan kira olishingiz uchun sizda ruxsat yo'q !")
+				}
+			} else if (isAdmin === 'user') {
+				if(user.username !== "admin" && user.password !== "123"){
+					const { data } = await authService.userLogin(user)
+					dispatch(signUserSuccess(data))
+					console.log(data)
+				}else {
+					alert("Siz rolni noto'g'ri tanladingiz !")
+				}
+				// dispatch(getUserDetails(data))
+			}
+			return
 		} catch (error) {
-			console.log(error)
+			alert(error.request.response)
 		}
 	}
 
-	const handleChange = (e)=> {
-		const role = e.target.value
-		setItem("role", role)
-	}
 	return (
 		<div className='login w-full h-[90vh] flex justify-center items-center'>
 			<div className='form-container w-[320px] rounded-[0.75rem] p-[2rem] bg-[#ECF0FF] text-black border hover:border-[black] transition-all'>
-				<select className='outline-none rounded-md bg-transparent w-full m-1 border border-cyan-600' onChange={handleChange}>
-					<option value='user'>Xodim</option>
+				<select
+					className='outline-none rounded-md bg-transparent w-full m-1 border border-cyan-600'
+					onChange={e => {
+						setAdmin(e.target.value)
+						setItem('role', e.target.value)
+					}}
+					// value={isAdmin}
+				>
 					<option value='admin'>Admin</option>
+					<option value='user'>Xodim</option>
 				</select>
 				<p className='title text-center text-[1.5rem] font-[700] '>Login</p>
 				<form className='form mt-[1.5rem]' onSubmit={handleSubmit}>
