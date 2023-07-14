@@ -4,13 +4,17 @@ import productService from '../../api/productsApi'
 import AllStatics from './AllStatics'
 import './Main.css'
 
-function Main() {
-	const [id, setId] = useState(1)
+function Main({ ombor_id, role }) {
+	const [id, setId] = useState(ombor_id ? ombor_id : 1)
 	const [nowDay, setNowDay] = useState('')
 	const [nowMonth, setNowMonth] = useState('')
-  const [houses, setHouses] = useState([])
+	const [houses, setHouses] = useState([])
 
-	const [data, setData] = useState(JSON.parse(localStorage.getItem('total'))? JSON.parse(localStorage.getItem("total")) : null)
+	const [data, setData] = useState(
+		JSON.parse(localStorage.getItem('total'))
+			? JSON.parse(localStorage.getItem('total'))
+			: null
+	)
 	const getFilialsName = async () => {
 		try {
 			const { data } = await productService.getWhareHouses()
@@ -21,26 +25,23 @@ function Main() {
 		}
 	}
 
-	const getStats = async (e) => {
+	const getStats = async e => {
 		e.preventDefault()
-		
+
 		// const starting = helperDate.nowDate(start_date ? start_date : '2023-05-06')
 		// const ending = helperDate.nowDate(end_date ? end_date : "2023-07-10")
 
-
 		const db = {
-			start_date: nowDay ,
-			end_date: nowMonth ,
+			start_date: nowDay,
+			end_date: nowMonth,
 			id: id ? id : 1,
 		}
 
 		const { data } = await productService.getAllStats(db)
 
 		setData(data)
-		localStorage.setItem("total", JSON.stringify(data))
-
+		localStorage.setItem('total', JSON.stringify(data))
 	}
-
 
 	const chartCards = [
 		{
@@ -63,19 +64,17 @@ function Main() {
 		},
 	]
 
-	
-
-	const updateDate = ()=> {
-		const startin =	helperDate.newDate()
+	const updateDate = () => {
+		const startin = helperDate.newDate()
 		const endin = helperDate.lastMonth()
 
 		setNowDay(endin)
 		setNowMonth(startin)
 	}
-		
+
 	useEffect(() => {
 		updateDate()
-		getStats()		
+		getStats()
 		getFilialsName()
 	}, [])
 
@@ -109,16 +108,25 @@ function Main() {
 						onChange={e => setEnd_date(e.target.value)}
 					/> */}
 
-					<select
-						onChange={e => setId(e.target.value)}
-						value={id}
-						className='hover:text-white bg-transparent border-cyan-500 border-2 rounded-md  outline-none hover:bg-cyan-500 duration-300 hover:border-white'
-					>
-						{(houses &&
-							houses.map(item => (
-								<option value={item.id}>{item.nom}</option>
-							))) || <option value=''>Loading data...</option>}
-					</select>
+					{role === 'admin' ? (
+						<select
+							onChange={e => setId(e.target.value)}
+							value={id}
+							className='hover:text-white bg-transparent border-cyan-500 border-2 rounded-md  outline-none hover:bg-cyan-500 duration-300 hover:border-white'
+						>
+							{(houses &&
+								houses.map(item => (
+									<option value={item.id}>{item.nom}</option>
+								))) || <option value=''>Loading data...</option>}
+						</select>
+					) : (
+						<select
+							className='hover:text-white bg-transparent border-cyan-500 border-2 rounded-md  outline-none hover:bg-cyan-500 duration-300 hover:border-white'
+							value={id}
+						>
+							<option value={ombor_id && ombor_id}>Filial</option>
+						</select>
+					)}
 					{/* <select
 						className='hover:text-white bg-transparent border-cyan-500 border-2 rounded-md  outline-none hover:bg-cyan-500 duration-300 hover:border-white '
 						onChange={e => setId(e.target.value)}

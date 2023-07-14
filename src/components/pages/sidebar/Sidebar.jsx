@@ -6,16 +6,21 @@ import LeaderboardIcon from '@mui/icons-material/Leaderboard'
 import LocalAtmIcon from '@mui/icons-material/LocalAtm'
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt'
 import WarehouseIcon from '@mui/icons-material/Warehouse'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import './Sidebar.css'
+import { getItem } from '../../../helpers/persistence-log'
 
-function Sidebar({ role }) {
+function Sidebar() {
 	const [removeBar, setRemoveBar] = useState(true)
 	const [selectedItem, setSelectedItem] = useState(0)
+	const [role, setRole] = useState(getItem("role"))
 	const handleClick = index => {
 		setSelectedItem(index)
 	}
+	useEffect(()=>{
+		setRole(getItem('role'))
+	},[])
 
 	return (
 		<div
@@ -137,13 +142,13 @@ function Sidebar({ role }) {
 								: 'flex items-center gap-5 hover:bg-slate-600 cursor-pointer transition-all'
 						}
 						onClick={() => handleClick(2)}
-						to='/worker'
+						to='/profile'
 					>
 						<PeopleAltIcon className='icons' />
-						<li>Ishchilar</li>
+						<li>Profile</li>
 					</NavLink>
 					<NavLink
-						to='/filials'
+						to='/'
 						className={
 							selectedItem === 3
 								? 'flex items-center gap-5 hover:bg-slate-600 cursor-pointer transition-all bg-slate-600'
@@ -152,7 +157,7 @@ function Sidebar({ role }) {
 						onClick={() => handleClick(3)}
 					>
 						<WarehouseIcon className='icons' />
-						<li>Filiallar</li>
+						<li>Profile</li>
 					</NavLink>
 				</ul>
 			)}

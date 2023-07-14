@@ -10,11 +10,11 @@ const Login = () => {
 	const [password, setPassword] = useState('')
 	const dispatch = useDispatch()
 
-	const [isAdmin, setAdmin] = useState(getItem('role'))
+	const [isAdmin, setAdmin] = useState(getItem('role') ? getItem("role"): "")
 
-	useEffect(() => {
-		setItem('role', 'admin')
-	}, [])
+	// useEffect(() => {
+	// 	setItem('role', 'admin')
+	// }, [])
 
 	const handleSubmit = async e => {
 		e.preventDefault()

@@ -29,6 +29,20 @@ const productService = {
 	async CashRemove(id) {
 		await axios.delete(`/cash/sotuv/${id}/`)
 	},
+	async getTarqatmalar () {
+		const data = await axios.get('/main/xodim/mahsulot_tarqatishlar/')
+
+		return data
+	},
+	async updateProfileUser (user){
+		const data = await axios.put('/user/xodim/details/', {...user})
+		return data
+	},
+	async getProductsXodim () {
+		const data = await axios.get('/main/xodim/mahsulotlar/')
+
+		return data
+	}
 }
 
 export default productService

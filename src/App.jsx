@@ -22,6 +22,10 @@ import ProductSales from './components/pages/Products/ProductSales/ProductSales'
 import Filial from './components/pages/filials/filial/Filial'
 import Statistic from './components/pages/statistics/statistic/Statistic'
 import Tarqatma from './user/pages/Tarqatma'
+import MainUser from './user/pages/MainUser'
+import Profile from './user/pages/Profile'
+import ProductXodim from './user/pages/Products'
+
 
 
 const App = () => {
@@ -77,7 +81,7 @@ const App = () => {
 								</Routes>
 							) : (
 								<Routes>
-									<Route path='/' element={<Main />} />
+									<Route path='/' element={<MainUser />} />
 									<Route path='/tarqatmalar' element={<Tarqatma />} />
 									{/* <Route
 										path='/products/:id'
@@ -92,6 +96,9 @@ const App = () => {
 									<Route path='/filials' element={<Filials role={role} />} />
 									<Route path='/filials/:id' element={<Filial role={role} />} /> */}
 									<Route path='/login' element={<Login />} />
+									<Route path='/profile' element={<Profile />} />
+
+									{/* <Route path='/products' element={	<ProductXodim />}/> */}
 									<Route
 										path='*'
 										element={
