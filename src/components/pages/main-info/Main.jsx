@@ -83,7 +83,7 @@ function Main() {
 		<div className='Main-info w-[100%] h-[100vh] ease-linear '>
 			<div className='all-info bg-gray-200 min-h-screen px-2'>
 				<form
-					className='flex px-10 py-2 justify-between gap-2'
+					className='flex px-10 py-3 justify-between gap-2'
 					onSubmit={getStats}
 				>
 					<select className='hover:text-white bg-transparent border-cyan-500 border-2 rounded-md outline-none hover:bg-cyan-500 duration-300 hover:border-white '>
@@ -162,6 +162,7 @@ function Main() {
 						Sanani Kiriting
 					</div>
 				)}
+				{data ? <AllStatics data={data} /> : <div className='w-full h-[80vh] flex justify-center items-center text-4xl font-semibold'>Sanani Kiriting</div>}
 			</div>
 		</div>
 	)

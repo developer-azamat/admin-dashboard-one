@@ -11,7 +11,7 @@ import { NavLink } from 'react-router-dom'
 import './Sidebar.css'
 
 function Sidebar({ role }) {
-	const [removeBar, setRemoveBar] = useState(true)
+	const [removeBar, setRemoveBar] = useState(false)
 	const [selectedItem, setSelectedItem] = useState(0)
 	const handleClick = index => {
 		setSelectedItem(index)
