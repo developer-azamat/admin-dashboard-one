@@ -18,15 +18,16 @@ import { getUserDetails, signUserFailure, signUserStart } from './reducers/auth'
 
 import Worker from './components/pages/workers/Worker/Worker'
 
+import ProductSales from './components/pages/Products/ProductSales/ProductSales'
 import Filial from './components/pages/filials/filial/Filial'
 import Statistic from './components/pages/statistics/statistic/Statistic'
-import ProductSales from './components/pages/Products/ProductSales/ProductSales'
+import Tarqatma from './user/pages/Tarqatma'
 
 
 const App = () => {
 	const dispatch = useDispatch()
 	const token = getItem('token')
-	const { loggedIn} = useSelector(state=> state.reducer)
+	const { loggedIn } = useSelector(state=> state.reducer)
 
 	const getUser = async () => {
 		dispatch(signUserStart())
@@ -57,8 +58,14 @@ const App = () => {
 								<Routes>
 									<Route path='/' element={<Main />} />
 									<Route path='/products' element={<Products role={role} />} />
-									<Route path='/products/:id' element={<Product role={role} />} />
-									<Route path='/products/sales/:id' element={<ProductSales role={role} />} />
+									<Route
+										path='/products/:id'
+										element={<Product role={role} />}
+									/>
+									<Route
+										path='/products/sales/:id'
+										element={<ProductSales role={role} />}
+									/>
 									<Route path='/worker' element={<Workers role={role} />} />
 									<Route path='/worker/:id' element={<Worker role={role} />} />
 									<Route path='/filials' element={<Filials role={role} />} />
@@ -71,18 +78,31 @@ const App = () => {
 							) : (
 								<Routes>
 									<Route path='/' element={<Main />} />
-									<Route path='/products' element={<Products role={role} />} />
-									<Route path='/products/:id' element={<Product role={role} />} />
-									<Route path='/products/sales/:id' element={<ProductSales role={role} />} />
+									<Route path='/tarqatmalar' element={<Tarqatma />} />
+									{/* <Route
+										path='/products/:id'
+										element={<Product role={role} />}
+									/>
+									<Route
+										path='/products/sales/:id'
+										element={<ProductSales role={role} />}
+									/>
 									<Route path='/worker' element={<Workers role={role} />} />
 									<Route path='/worker/:id' element={<Worker role={role} />} />
 									<Route path='/filials' element={<Filials role={role} />} />
-									<Route path='/filials/:id' element={<Filial role={role} />} />
+									<Route path='/filials/:id' element={<Filial role={role} />} /> */}
 									<Route path='/login' element={<Login />} />
+									<Route
+										path='*'
+										element={
+											<p className='flex w-full h-screen items-center justify-center text-3xl'>
+												Page not found
+											</p>
+										}
+									/>
 								</Routes>
 							)}
 						</div>
-
 					</div>
 				</BrowserRouter>
 			</div>

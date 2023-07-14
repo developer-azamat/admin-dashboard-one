@@ -11,7 +11,7 @@ import { NavLink } from 'react-router-dom'
 import './Sidebar.css'
 
 function Sidebar({ role }) {
-	const [removeBar, setRemoveBar] = useState(false)
+	const [removeBar, setRemoveBar] = useState(true)
 	const [selectedItem, setSelectedItem] = useState(0)
 	const handleClick = index => {
 		setSelectedItem(index)
@@ -119,7 +119,7 @@ function Sidebar({ role }) {
 						<li>Asosiy</li>
 					</NavLink>
 					<NavLink
-						to='/products'
+						to='/tarqatmalar'
 						className={
 							selectedItem === 1
 								? 'flex items-center gap-5 hover:bg-slate-600 cursor-pointer transition-all bg-slate-600'
