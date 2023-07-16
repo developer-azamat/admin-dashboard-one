@@ -14,6 +14,11 @@ const helperDate = {
 
 		// return `${year}-${month}-${day}`
 	},
+	cashDate (date) {
+		const arr = date.split('-');
+
+		return arr.reverse().join(".")
+	},
 	newDate() {
 		const getDate = new Date()
 		const year = getDate.getFullYear()

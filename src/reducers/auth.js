@@ -32,6 +32,7 @@ export const authSlice = createSlice({
 		logOutUser: state => {
 			;(state.isLoading = false), (state.user = null), (state.loggedIn = false)
 			removeItem('token')
+			removeItem("total")
 		},
 	},
 })

@@ -105,7 +105,7 @@ export default function DataTable({ role }) {
 								paginationModel: { page: 0, pageSize: 5 },
 							},
 						}}
-						getRowClassName={() => 'text-sm text-cyan-900 font-[500] '}
+						getRowClassName={() => 'text-xl text-cyan-900 font-[500] '}
 						autoPageSize={true}
 						pageSizeOptions={[5, 10]}
 					/>
@@ -120,11 +120,24 @@ export default function DataTable({ role }) {
 						<div className='relative flex flex-col justify-between'>
 							<span className='flex shadow-md mb-5 text-xs'>
 								<span className='bg-indigo-500 w-28 font-bold text-center text-gray-200 p-3 px-5 rounded-l'>
-									Lastname
+									Username
 								</span>
 								<input
-									onChange={e => setFam(e.target.value)}
-									value={fam}
+									onChange={e => setUsername(e.target.value)}
+									value={username}
+									className='field text-sm text-gray-600 p-2 px-3 rounded-r w-full'
+									type='text'
+									placeholder=''
+								/>
+							</span>
+
+							<span className='flex shadow-md mb-5 text-xs'>
+								<span className='bg-indigo-500 w-28 font-bold text-center text-gray-200 p-3 px-5 rounded-l'>
+									Ism
+								</span>
+								<input
+									onChange={e => setName(e.target.value)}
+									value={name}
 									className='field text-sm text-gray-600 p-2 px-3 rounded-r w-full'
 									type='text'
 									id='fullname'
@@ -133,11 +146,11 @@ export default function DataTable({ role }) {
 							</span>
 							<span className='flex shadow-md mb-5 text-xs'>
 								<span className='bg-indigo-500 w-28 font-bold text-center text-gray-200 p-3 px-5 rounded-l'>
-									Fullname
+									Familiya
 								</span>
 								<input
-									onChange={e => setName(e.target.value)}
-									value={name}
+									onChange={e => setFam(e.target.value)}
+									value={fam}
 									className='field text-sm text-gray-600 p-2 px-3 rounded-r w-full'
 									type='text'
 									id='fullname'
@@ -159,7 +172,7 @@ export default function DataTable({ role }) {
 							</span>
 							<span className='flex shadow-md mb-5 text-xs'>
 								<span className='bg-indigo-500 w-28 font-bold text-center text-gray-200 p-3 px-5 rounded-l'>
-									Ombor
+									Filial
 								</span>
 								<select
 									onChange={e => setOmbor(e.target.value)}
@@ -171,18 +184,10 @@ export default function DataTable({ role }) {
 											<option value={item.id}>{item.nom}</option>
 										))) || <option value=''>Loading data...</option>}
 								</select>
-								{/* <input
-                  onChange={e => setOmbor(e.target.value)}
-                  value={ombor}
-                  className="field text-sm text-gray-600 p-2 px-3 rounded-r w-full"
-                  type="number"
-                  id="fullname"
-                  placeholder=""
-                /> */}
 							</span>
 							<span className='flex shadow-md mb-5 text-xs'>
 								<span className='bg-indigo-500 w-28 font-bold text-center text-gray-200 p-3 px-5 rounded-l'>
-									Password
+									Parol
 								</span>
 								<input
 									onChange={e => setPassword(e.target.value)}
@@ -195,7 +200,7 @@ export default function DataTable({ role }) {
 							</span>
 							<span className='flex shadow-md mb-5 text-xs'>
 								<span className='bg-indigo-500 w-28 font-bold text-center text-gray-200 p-3 px-5 rounded-l'>
-									Tel
+									Telefon
 								</span>
 								<input
 									onChange={e => setTel(e.target.value)}
@@ -205,18 +210,7 @@ export default function DataTable({ role }) {
 									placeholder=''
 								/>
 							</span>
-							<span className='flex shadow-md mb-5 text-xs'>
-								<span className='bg-indigo-500 w-28 font-bold text-center text-gray-200 p-3 px-5 rounded-l'>
-									Username
-								</span>
-								<input
-									onChange={e => setUsername(e.target.value)}
-									value={username}
-									className='field text-sm text-gray-600 p-2 px-3 rounded-r w-full'
-									type='text'
-									placeholder=''
-								/>
-							</span>
+
 							<button
 								type='submit'
 								className='border-2 border-indigo-500 hover:bg-indigo-500 hover:text-gray-100 mt-3 text-indigo-500 block text-center p-3 px-4 text-sm rounded cursor-pointer font-bold'

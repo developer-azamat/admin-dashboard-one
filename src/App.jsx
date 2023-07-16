@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import './App.css'
 import Navbar from './components/Navbar'
 import authService from './components/api/axios'
@@ -24,7 +24,7 @@ import Statistic from './components/pages/statistics/statistic/Statistic'
 import Tarqatma from './user/pages/Tarqatma'
 import MainUser from './user/pages/MainUser'
 import Profile from './user/pages/Profile'
-import ProductXodim from './user/pages/Products'
+import TarqatmaSingle from './components/pages/Products/TarqatmaSingle'
 
 
 
@@ -60,45 +60,93 @@ const App = () => {
 						<div className='pages h-[90vh] overflow-y-scroll '>
 							{role === 'admin' ? (
 								<Routes>
-									<Route path='/' element={<Main />} />
-									<Route path='/products' element={<Products role={role} />} />
-									<Route
-										path='/products/:id'
-										element={<Product role={role} />}
-									/>
-									<Route
-										path='/products/sales/:id'
-										element={<ProductSales role={role} />}
-									/>
-									<Route path='/worker' element={<Workers role={role} />} />
-									<Route path='/worker/:id' element={<Worker role={role} />} />
-									<Route path='/filials' element={<Filials role={role} />} />
-									<Route path='/filials/:id' element={<Filial role={role} />} />
-									<Route path='/static' element={<Statistics />} />
-									<Route path='/static/:id' element={<Statistic />} />
-									<Route path='/archives' element={<Archives />} />
+									{(loggedIn && (
+										<Route path='/' element={<Main role={'admin'} />} />
+									)) || (
+										<Route path='/login' element={<Login role={'admin'} />} />
+									)}
+									{(loggedIn && (
+										<Route
+											path='/products'
+											element={<Products role={role} />}
+										/>
+									)) || <Route path='/login' element={<Login role={role} />} />}
+									{(loggedIn && (
+										<Route
+											path='/products/:id'
+											element={<Product role={role} />}
+										/>
+									)) || <Route path='/login' element={<Login role={role} />} />}
+									{(loggedIn && (
+										<Route
+											path='/products/sales/:id'
+											element={<ProductSales role={role} />}
+										/>
+									)) || <Route path='/login' element={<Login role={role} />} />}
+									{(loggedIn && (
+										<Route path='/worker' element={<Workers role={role} />} />
+									)) || <Route path='/login' element={<Login />} />}
+									{(loggedIn && (
+										<Route
+											path='/worker/:id'
+											element={<Worker role={role} />}
+										/>
+									)) || <Route path='/login' element={<Login />} />}
+									{(loggedIn && (
+										<Route path='/filials' element={<Filials role={role} />} />
+									)) || <Route path='/login' element={<Login />} />}
+									{(loggedIn && (
+										<Route
+											path='/filials/:id'
+											element={<Filial role={role} />}
+										/>
+									)) || <Route path='/login' element={<Login />} />}
+									{(loggedIn && (
+										<Route
+											path='/tarqatma/:id'
+											element={<TarqatmaSingle />}
+										/>
+									)) || <Route path='/login' element={<Login />} />}
+									{(loggedIn && (
+										<Route path='/static' element={<Statistics />} />
+									)) || <Route path='/login' element={<Login />} />}
+									{(loggedIn && (
+										<Route path='/static/:id' element={<Statistic />} />
+									)) || <Route path='/login' element={<Login />} />}
+									{(loggedIn && (
+										<Route path='/archives' element={<Archives />} />
+									)) || <Route path='/login' element={<Login />} />}
 									<Route path='/login' element={<Login />} />
+									<Route
+										path='*'
+										element={
+											<p className='flex w-full h-screen items-center justify-center text-3xl'>
+												Page not found
+											</p>
+										}
+									/>
 								</Routes>
 							) : (
 								<Routes>
-									<Route path='/' element={<MainUser />} />
-									<Route path='/tarqatmalar' element={<Tarqatma />} />
-									{/* <Route
-										path='/products/:id'
-										element={<Product role={role} />}
-									/>
-									<Route
-										path='/products/sales/:id'
-										element={<ProductSales role={role} />}
-									/>
-									<Route path='/worker' element={<Workers role={role} />} />
-									<Route path='/worker/:id' element={<Worker role={role} />} />
-									<Route path='/filials' element={<Filials role={role} />} />
-									<Route path='/filials/:id' element={<Filial role={role} />} /> */}
+									{(loggedIn && <Route path='/' element={<MainUser />} />) || (
+										<Route path='/login' element={<Login />} />
+									)}
+									{(loggedIn && (
+										<Route path='/tarqatmalar' element={<Tarqatma />} />
+									)) || <Route path='/login' element={<Login />} />}
 									<Route path='/login' element={<Login />} />
-									<Route path='/profile' element={<Profile />} />
-
-									{/* <Route path='/products' element={	<ProductXodim />}/> */}
+									{(loggedIn && (
+										<Route path='/profile' element={<Profile />} />
+									)) || (
+											<Route
+												path='*'
+												element={
+													<p className='flex w-full h-screen items-center justify-center text-3xl'>
+														Page not found
+													</p>
+												}
+											/>
+										) || <Route path='/login' element={<Login />} />}
 									<Route
 										path='*'
 										element={

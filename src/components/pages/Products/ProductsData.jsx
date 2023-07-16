@@ -4,11 +4,6 @@ import { useNavigate } from "react-router-dom/dist";
 import authService from "../../api/axios";
 import { columns } from "./ProductArray";
 import { useDispatch } from "react-redux";
-import {
-  getProductsFailure,
-  getProductsStarted,
-  getProductsSuccess,
-} from "../../../reducers/product";
 
 function ProductsData({role}) {
   const navigate = useNavigate();
@@ -26,12 +21,12 @@ function ProductsData({role}) {
   const dispatch = useDispatch();
 
   const getProductsData = async () => {
-    dispatch(getProductsStarted());
+    // dispatch(getProductsStarted());
     try {
       const { data } = await authService.getProducts();
       setAddRows(data);
     } catch (error) {
-      dispatch(getProductsFailure(error));
+      console.log(error);
     }
   };
   useEffect(() => {

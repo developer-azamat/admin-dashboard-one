@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom';
-import productService from '../../../api/productsApi';
+import { Link, useNavigate, useParams } from 'react-router-dom'
+import productService from '../../../api/productsApi'
 
-function ProductSales({role}) {
-	const { id } = useParams();
+function ProductSales({ role }) {
+	const { id } = useParams()
 	const [cash, setCash] = useState()
 	const navigate = useNavigate()
 
@@ -11,7 +11,7 @@ function ProductSales({role}) {
 		try {
 			const { data } = await productService.CashMore(id)
 			setCash(data)
-			console.log(data);
+			console.log(data)
 		} catch (error) {
 			console.log(error)
 		}
@@ -32,7 +32,7 @@ function ProductSales({role}) {
 
 	return (
 		<div>
-<div className='px-10 py-8' onClick={handleReturn} >
+			<div className='px-10 py-8' onClick={handleReturn}>
 				<div className='flex justify-between items-center my-5'>
 					<h1 className='text-3xl font-semibold'>Xodim</h1>
 					<Link
@@ -42,9 +42,9 @@ function ProductSales({role}) {
 						Orqaga qaytish
 					</Link>
 				</div>
-				
-					{cash && (
-						<div
+
+				{cash && (
+					<div
 						key={cash.id}
 						className='w-full flex justify-center items-center'
 					>
@@ -53,28 +53,21 @@ function ProductSales({role}) {
 							onClick={e => e.stopPropagation()}
 						>
 							<div className='bg-[#ecf0ff] rounded-lg p-5'>
-								<h1 className='text-3xl'>miqdor: {cash.miqdor} </h1>
-								<h2 className='text-2xl'>mahsulot: {cash.mahsulot}</h2>
-								<p className='mt-2'>ombor: {cash.ombor}</p>
-								<p className='mt-8 text-xl'>xodim: {cash.xodim}</p>
-								<p className='mt-3 text-xl'>sana: {cash.sana} </p>
-								{role === 'admin' ? <button
+								<h1 className='text-xl'>Miqdor: {cash.miqdor} </h1>
+								<h2 className='text-xl'>Mahsulot: {cash.mahsulot_nomi}</h2>
+								<p className='mt-2 text-xl'>Filial: {cash.ombor_nomi}</p>
+								<p className='mt-8 text-xl'>Xodim: {cash.xodim_ism}</p>
+								<p className='mt-3 text-xl'>Sana: {cash.sana} </p>
+								<button
 									onClick={() => handleRemove(cash.id)}
 									className='w-full py-3 border rounded-lg mt-8 bg-[#6558d3] text-white text-lg hover:bg-[#4c43a0] transition-all'
 								>
 									O'chirish
-								</button> 
-								:<button
-								onClick={handleReturn}
-								className='w-full py-3 border rounded-lg mt-8 bg-[#6558d3] text-white text-lg hover:bg-[#4c43a0] transition-all'
-							>
-								Qaytish
-							</button>}
+								</button>
 							</div>
 						</div>
 					</div>
-					)}
-
+				)}
 			</div>
 		</div>
 	)

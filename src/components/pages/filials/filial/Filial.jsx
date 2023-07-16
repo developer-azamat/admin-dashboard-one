@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom';
-import authService from '../../../api/axios';
+import { Link, useNavigate, useParams } from 'react-router-dom'
+import Modal from '../../../Modal'
+import authService from '../../../api/axios'
+import productService from '../../../api/productsApi'
 
-function Filial({role}) {
-	const { id } = useParams();
+function Filial({ role }) {
+	const [modal, setModal] = useState(false)
+	const { id } = useParams()
 	const [filial, setFilial] = useState()
 	const navigate = useNavigate()
 
@@ -19,7 +22,6 @@ function Filial({role}) {
 		getFilialrById()
 	}, [])
 
-
 	const handleReturn = () => {
 		navigate('/filials')
 	}
@@ -29,14 +31,28 @@ function Filial({role}) {
 
 		handleReturn()
 	}
-	
+	const cashDelete = async id => {
+		try {
+			await productService.mainOmborCashDelete(id)
+
+			handleReturn()
+		} catch (error) {
+			console.log(error)
+		}
+	}
 
 	return (
 		<div>
-
-			<div className='px-10 py-8' onClick={handleReturn} >
+			<Modal
+				modal={modal}
+				setModal={setModal}
+				cashDelete={cashDelete}
+				handleRemove={handleRemove}
+				id={filial?.id}
+			/>
+			<div className='px-10 py-8' onClick={handleReturn}>
 				<div className='flex justify-between items-center my-5'>
-					<h1 className='text-3xl font-semibold'>Omborxona</h1>
+					<h1 className='text-3xl font-semibold'>Filiallar</h1>
 					<Link
 						to='/filials'
 						className='px-5 py-2 bg-gray-600/90 hover:bg-gray-600/40 transition-all duration-200 ease-in hover:text-black text-base rounded-md text-white'
@@ -44,9 +60,9 @@ function Filial({role}) {
 						Orqaga qaytish
 					</Link>
 				</div>
-				
-					{filial && (
-						<div
+
+				{filial && (
+					<div
 						key={filial.id}
 						className='w-full flex justify-center items-center'
 					>
@@ -55,26 +71,19 @@ function Filial({role}) {
 							onClick={e => e.stopPropagation()}
 						>
 							<div className='bg-[#ecf0ff] rounded-lg p-5'>
-								<h1 className='text-3xl'>Nomi: {filial.nom} </h1>
-								<h2 className='text-2xl mt-5'>Manzil: {filial.manzil}</h2>
+								<h1 className='text-2xl'>Nomi: {filial.nom} </h1>
+								<h2 className='text-xl mt-5'>Manzil: {filial.manzil}</h2>
 								<p className='mt-5 text-xl'>Telefon: {filial.tel} </p>
-								{role === 'admin' ? <button
-									onClick={() => handleRemove(filial.id)}
+								<button
+									onClick={() => setModal(true)}
 									className='w-full py-3 border rounded-lg mt-8 bg-[#6558d3] text-white text-lg hover:bg-[#4c43a0] transition-all'
 								>
 									O'chirish
-								</button> 
-								:<button
-								onClick={handleReturn}
-								className='w-full py-3 border rounded-lg mt-8 bg-[#6558d3] text-white text-lg hover:bg-[#4c43a0] transition-all'
-							>
-								Qaytish
-							</button>}
+								</button>
 							</div>
 						</div>
 					</div>
-					)}
-
+				)}
 			</div>
 		</div>
 	)

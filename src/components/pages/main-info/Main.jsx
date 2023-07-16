@@ -4,14 +4,14 @@ import productService from '../../api/productsApi'
 import AllStatics from './AllStatics'
 import './Main.css'
 
-function Main({ ombor_id, role }) {
-	const [id, setId] = useState(ombor_id ? ombor_id : 1)
-	const [nowDay, setNowDay] = useState('')
-	const [nowMonth, setNowMonth] = useState('')
+function Main({ ombor_id , role}) {
+	const [id, setId] = useState()
+	const [start_date, setStart_date] = useState('')
+	const [end_date, setEnd_date] = useState('')
 	const [houses, setHouses] = useState([])
 
 	const [data, setData] = useState(
-		JSON.parse(localStorage.getItem('total'))
+		JSON.parse(localStorage.getItem('total')) !== undefined
 			? JSON.parse(localStorage.getItem('total'))
 			: null
 	)
@@ -28,21 +28,38 @@ function Main({ ombor_id, role }) {
 	const getStats = async e => {
 		e.preventDefault()
 
-		// const starting = helperDate.nowDate(start_date ? start_date : '2023-05-06')
-		// const ending = helperDate.nowDate(end_date ? end_date : "2023-07-10")
+		const starting = helperDate.nowDate(start_date ? start_date : '2023-05-06')
+		const ending = helperDate.nowDate(end_date ? end_date : "2023-07-10")
 
 		const db = {
-			start_date: nowDay,
-			end_date: nowMonth,
-			id: id ? id : 1,
+			start_date: starting,
+			end_date: ending,
+			id: id ? id : '',
 		}
 
-		const { data } = await productService.getAllStats(db)
+		console.log(db);
 
+
+		const { data } = await productService.getAllStats(db)
 		setData(data)
 		localStorage.setItem('total', JSON.stringify(data))
 	}
 
+		const getStatsDefault = async () => {
+
+			const db = {
+				start_date: "2023-05-06",
+				end_date: "2023-07-10",
+				id: '',
+			}
+
+			console.log(db)
+
+			const { data } = await productService.getAllStats(db)
+			console.log(data)
+			setData(data)
+			localStorage.setItem('total', JSON.stringify(data))
+		}
 	const chartCards = [
 		{
 			id: 1,
@@ -63,50 +80,44 @@ function Main({ ombor_id, role }) {
 			color: 'bg-amber-400',
 		},
 	]
-
-	const updateDate = () => {
-		const startin = helperDate.newDate()
-		const endin = helperDate.lastMonth()
-
-		setNowDay(endin)
-		setNowMonth(startin)
-	}
-
 	useEffect(() => {
-		updateDate()
-		getStats()
-		getFilialsName()
+		if(role !== "user"){
+			getFilialsName()
+			getStatsDefault()
+		}else {
+			console.log("olerances")
+		}
 	}, [])
 
 	return (
 		<div className='Main-info w-[100%] h-[100vh] ease-linear '>
 			<div className='all-info bg-gray-200 min-h-screen px-2'>
 				<form
-					className='flex px-10 py-3 justify-between gap-2'
+					className='flex items-center px-10 py-3 justify-between gap-2'
 					onSubmit={getStats}
 				>
-					<select className='hover:text-white bg-transparent border-cyan-500 border-2 rounded-md outline-none hover:bg-cyan-500 duration-300 hover:border-white '>
-						<option value={nowDay + ',' + nowMonth}>
-							{nowDay + ',' + nowMonth}
-						</option>
-						{/* <option value={'20020'}>kdjsjd</option> */}
-					</select>
-					{/* <input
-						type='date'
-						required
-						className='bg-transparent'
-						// value={start_date}
-						placeholder='start_date'
-						onChange={e => setStart_date(e.target.value)}
-					/>
-					<input
-						type='date'
-						required
-						//	value={end_date}
-						placeholder='end_date'
-						className='bg-transparent'
-						onChange={e => setEnd_date(e.target.value)}
-					/> */}
+					<div>
+						<p className='font-semibold'>Boshlang'ich sana</p>
+						<input
+							type='date'
+							required
+							className='hover:text-white bg-transparent border-cyan-500 border-2 rounded-md outline-none hover:bg-cyan-500 duration-300 hover:border-white'
+							value={start_date}
+							placeholder='start_date'
+							onChange={e => setStart_date(e.target.value)}
+						/>
+					</div>
+					<div>
+						<p className='font-semibold'>Tugash sanasi</p>
+						<input
+							type='date'
+							required
+							value={end_date}
+							placeholder='end_date'
+							className='hover:text-white bg-transparent border-cyan-500 border-2 rounded-md outline-none hover:bg-cyan-500 duration-300 hover:border-white'
+							onChange={e => setEnd_date(e.target.value)}
+						/>
+					</div>
 
 					{role === 'admin' ? (
 						<select
@@ -114,32 +125,21 @@ function Main({ ombor_id, role }) {
 							value={id}
 							className='hover:text-white bg-transparent border-cyan-500 border-2 rounded-md  outline-none hover:bg-cyan-500 duration-300 hover:border-white'
 						>
+							<option value=''>Barcha Filiallar</option>
 							{(houses &&
 								houses.map(item => (
 									<option value={item.id}>{item.nom}</option>
 								))) || <option value=''>Loading data...</option>}
 						</select>
 					) : (
-						<select
-							className='hover:text-white bg-transparent border-cyan-500 border-2 rounded-md  outline-none hover:bg-cyan-500 duration-300 hover:border-white'
-							value={id}
-						>
-							<option value={ombor_id && ombor_id}>Filial</option>
-						</select>
+						''
 					)}
-					{/* <select
-						className='hover:text-white bg-transparent border-cyan-500 border-2 rounded-md  outline-none hover:bg-cyan-500 duration-300 hover:border-white '
-						onChange={e => setId(e.target.value)}
-					>
-						<option value={1}>1 Andijon</option>
-						<option value={2}>2 Namangan</option>
-						<option value={3}>3 Toshkent</option>
-					</select> */}
+					
 					<button
 						type='submit'
 						className='bg-red-600 text-white p-2 px-5 rounded-md hover:bg-red-300 duration-300 cursor-pointer'
 					>
-						Jonatish
+						Jo'natish
 					</button>
 				</form>
 				{data && (

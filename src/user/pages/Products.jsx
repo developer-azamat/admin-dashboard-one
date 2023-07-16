@@ -2,16 +2,19 @@ import { DataGrid } from '@mui/x-data-grid'
 import React, { useEffect, useState } from 'react'
 import { columns } from './ProductsData'
 import productService from '../../components/api/productsApi'
-import { getRowEl } from '@mui/x-data-grid/utils/domUtils'
 
 const ProductXodim = () => {
 	const [rows, setRows] = useState([]) 
+	const [errors, setErrors] = useState()
 	const getProRow = async ()=> {
 		try {
-			const {data} = await productService.getProductsXodim()
-
-			// setRows(data)
-			setRows(data.mahsulotlar)
+			const { data } = await productService.getProductsXodim()
+			console.log(data.success);
+			if(!data.success){
+				setErrors(data.message)
+			}else {
+				setRows(data.mahsulotlar)
+			}
 		} catch (error) {
 			console.log(error)
 		}
@@ -22,10 +25,8 @@ const ProductXodim = () => {
 	return (
 		<div>
 			<DataGrid
-				// rows={addRow}
 				columns={columns}
 				rows={rows}
-				// onRowClick={handleRow}
 				initialState={{
 					pagination: {
 						paginationModel: { page: 0, pageSize: 5 },
@@ -33,7 +34,6 @@ const ProductXodim = () => {
 				}}
 				pageSizeOptions={[5, 10]}
 				getRowClassName={() => 'text-lg text-cyan-900 font-[500] '}
-				// checkboxSelection
 			/>
 		</div>
 	)

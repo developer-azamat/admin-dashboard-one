@@ -77,11 +77,6 @@ const authService = {
 
 		return data
 	},
-	async getStats() {
-		const data = await axios.get(`/stats/`)
-
-		return data
-	},
 	async WorkersMore(id) {
 		const data = await axios.get(`/user/xodim/${id}/`)
 
@@ -103,8 +98,8 @@ const authService = {
 	},
 
 	async cashDelete(id) {
-		await axios.delete(`/main/ombor/cash-delete/${id}/`)
-	}
+		await axios.delete(`/main/mahsulot/cash-delete/${id}/`)
+	},
 }
 
 export default authService

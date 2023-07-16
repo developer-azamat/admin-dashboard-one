@@ -8,7 +8,7 @@ function ArchivesProductsData() {
 
   const getArchiveProducts = async () => {
     try {
-      const { data } = await authService.getArchiveProducts();
+      const {data}  = await authService.getArchiveProducts();
       setAddRows(data);
     } catch (error) {
       console.log(error);
@@ -34,7 +34,7 @@ function ArchivesProductsData() {
               className="text-lg text-cyan-900 font-[500]"
             />
           ) : (
-            <p>Loading...</p>
+            <p className='text-center mb-10'>Hozircha mahsulot mavjud emas</p>
           )}
         </div>
       </div>

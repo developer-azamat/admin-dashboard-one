@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import authService from '../../../api/axios';
+import Modal from '../../../Modal'
+import productService from '../../../api/productsApi'
 
 function Worker({role}) {
+	const [modal, setModal] = useState(false)
 	const { id } = useParams();
 	const [worker, setWorker] = useState()
 	const navigate = useNavigate()
@@ -29,11 +32,26 @@ function Worker({role}) {
 
 		handleReturn()
 	}
+	const cashDelete = async id => {
+		try {
+			await productService.mainXodimCashDelete(id)
+			setModal(false)
+			handleReturn()
+		} catch (error) {
+			console.log(error)
+		}
+	}
 
 	return (
 		<div>
-
-			<div className='px-10 py-8' onClick={handleReturn} >
+			<Modal
+				modal={modal}
+				setModal={setModal}
+				cashDelete={cashDelete}
+				handleRemove={handleRemove}
+				id={worker?.id}
+			/>
+			<div className='px-10 py-8' onClick={handleReturn}>
 				<div className='flex justify-between items-center my-5'>
 					<h1 className='text-3xl font-semibold'>Xodim</h1>
 					<Link
@@ -43,9 +61,9 @@ function Worker({role}) {
 						Orqaga qaytish
 					</Link>
 				</div>
-				
-					{worker && (
-						<div
+
+				{worker && (
+					<div
 						key={worker.id}
 						className='w-full flex justify-center items-center'
 					>
@@ -54,28 +72,21 @@ function Worker({role}) {
 							onClick={e => e.stopPropagation()}
 						>
 							<div className='bg-[#ecf0ff] rounded-lg p-5'>
-								<h1 className='text-3xl'>Ismi: {worker.ism} </h1>
-								<h2 className='text-2xl'>Familiya: {worker.fam}</h2>
-								<p className='mt-2'>username: {worker.username}</p>
-								<p className='mt-8 text-xl'>password: {worker.password}</p>
+								<p className='my-2 text-xl'>Username: {worker.username}</p>
+								<h1 className='text-xl my-2'>Ism: {worker.ism} </h1>
+								<h2 className='text-xl'>Familiya: {worker.fam}</h2>
+								<p className='mt-5 text-xl'>Parol: {worker.password}</p>
 								<p className='mt-3 text-xl'>Telefon: {worker.tel} </p>
-								{role === 'admin' ? <button
-									onClick={() => handleRemove(worker.id)}
+								<button
+									onClick={() => setModal(true)}
 									className='w-full py-3 border rounded-lg mt-8 bg-[#6558d3] text-white text-lg hover:bg-[#4c43a0] transition-all'
 								>
 									O'chirish
-								</button> 
-								:<button
-								onClick={handleReturn}
-								className='w-full py-3 border rounded-lg mt-8 bg-[#6558d3] text-white text-lg hover:bg-[#4c43a0] transition-all'
-							>
-								Qaytish
-							</button>}
+								</button>
 							</div>
 						</div>
 					</div>
-					)}
-
+				)}
 			</div>
 		</div>
 	)

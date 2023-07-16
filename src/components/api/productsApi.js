@@ -13,8 +13,7 @@ const productService = {
 		const { start_date, end_date, id } = db
 
 		const data =
-			await axios.get(`/stats/?start_date=${start_date}&end_date=${end_date}&ombor_id
-=${id}`)
+			await axios.get(`/stats/?start_date=${start_date}&end_date=${end_date}${id? "&ombor_id="+id : ""}`)
 		return data
 	},
 	async setCash(cash) {
@@ -42,6 +41,43 @@ const productService = {
 		const data = await axios.get('/main/xodim/mahsulotlar/')
 
 		return data
+	},
+	async getTarqatmalarAdmin () {
+		const data = await axios.get('/main/mahsulot_tarqatishlar/')
+
+		return data
+	},
+	async getXodimSotuvlar () {
+		const data = await axios.get('/cash/xodim/sotuvlar/')
+		return data
+	},
+	async setXodimSotuvlar (sotuv) {
+		const data = await axios.post('/cash/xodim/sotuvlar/', {
+			...sotuv
+		})
+
+		return data
+	},
+	async setTarqatmaAdmin (post){
+		const data = await axios.post('/main/mahsulot_tarqatishlar/', {
+			...post
+		})
+
+		return data
+	},
+	async mainOmborCashDelete (id) {
+		await axios.delete(`/main/ombor/cash-delete/${id}/`)
+	},
+	async mainXodimCashDelete (id) {
+		await axios.delete(`/user/xodim/cash-delete/${id}/`)
+	},
+	async tarqatmaSingleGet(id) {
+		const data = await axios.get(`/main/mahsulot_tarqatish/${id}/`)
+
+		return data
+	},
+	async handleSingleRemoveTarqatma (id){
+		await axios.delete(`/main/mahsulot_tarqatish/${id}/`)
 	}
 }
 

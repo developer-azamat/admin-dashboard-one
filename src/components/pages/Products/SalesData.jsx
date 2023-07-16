@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom/dist'
 import authService from '../../api/axios'
 import productService from '../../api/productsApi'
 import { columns } from './SalesArray'
+import helperDate from '../../../helpers/date-now'
 
 function SalesData({ role }) {
 	const [addRow, setAddRows] = useState([])
@@ -74,12 +75,12 @@ function SalesData({ role }) {
 
 	const handleSubmit = async e => {
 		e.preventDefault()
-
+		const nowDate = helperDate.cashDate(sana)
 		const newRow = {
 			mahsulot: Number(mahsulot),
 			miqdor: Number(miqdor),
 			ombor: Number(ombor),
-			sana: sana,
+			sana: nowDate,
 			xodim: Number(xodim),
 		}
 
@@ -88,10 +89,11 @@ function SalesData({ role }) {
         console.log(post)
 				const { data } = await authService.setCash(post)
 				setAddRows(prew => [...prew, data])
+				alert("Sotuv muvaffaqiyatli tarzda qo'shildi")
 		    setIsActive(!isActive)
 
 			} catch (error) {
-				alert(error.request.response)
+				alert(JSON.parse(error.request.responseText).message)
 			}
 		}
 		settingCash(newRow)
@@ -205,13 +207,6 @@ function SalesData({ role }) {
 												<option key={item.id} value={item.id}>{item.username}</option>
 											))) || <option value=''>Loading data...</option>}
 									</select>
-									{/* <input
-										onChange={e => setXodim(e.target.value)}
-										type='number'
-										className='w-full rounded-md border border-[#334155] outline-none bg-[#d5ddf8] px-4 py-3'
-										name='ombor'
-										placeholder=''
-									/> */}
 								</div>
 
 								<div className='input-group mt-[0.25rem] text-[0.875rem]'>
@@ -220,7 +215,7 @@ function SalesData({ role }) {
 									</label>
 									<input
 										onChange={e => setSana(e.target.value)}
-										type='text'
+										type='date'
 										className='w-full rounded-md border border-[#334155] outline-none bg-[#d5ddf8] px-4 py-3'
 										name='sana'
 										placeholder='00.00.0000'

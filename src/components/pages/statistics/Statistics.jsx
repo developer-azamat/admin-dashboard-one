@@ -79,7 +79,7 @@ const Statistics = () => {
 			? JSON.parse(localStorage.getItem('total'))
 			: null
 	)
-	const [diagram, setDiagram] = useState({})
+	const [diagram, setDiagram] = useState(null)
 	useEffect(() => {
 		const stats = JSON.parse(localStorage.getItem('total'))
 		setData(stats)
@@ -87,8 +87,6 @@ const Statistics = () => {
 		const newData = { ...data.mahsulot_diagram }
 		const newDiagram = { ...data.filial_diagram }
 		setDiagram(newDiagram)
-
-		console.log(diagram, newDiagram)
 		
 		let keys = []
 		for (let key in newData) {
@@ -137,8 +135,10 @@ const Statistics = () => {
 
 	return (
 		<div>
-			<div className=' overflow-x-hidden w-[100%]  gap-2 border min-h-[500px] border-transparent'>
-				{/* {diagram && <Chart filial_diagram={diagram} /> || <p>Loading...</p>} */}
+			<div className=' overflow-x-hidden w-[100%] flex py-10  gap-2 border min-h-[500px] border-transparent'>
+				{(diagram && <Chart f_diagram={diagram} />) || (
+					<p className='text-3xl'>Loading...</p>
+				)}
 				<div className='w-[50%]'>
 					<HighchartsReact highcharts={Highcharts} options={options} />
 				</div>

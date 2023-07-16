@@ -2,6 +2,7 @@ import React from 'react'
 import ProductsData from './ProductsData';
 import SalesData from './SalesData';
 import "./Products.css"
+import Tarqatma from './Tarqatma'
 
 function Products({role}) {
 
@@ -47,6 +48,7 @@ function Products({role}) {
 				</div>
 				<ProductsData role={role} />
 				<SalesData role={role} />
+				<Tarqatma/>
 			</div>
 		</div>
 	);

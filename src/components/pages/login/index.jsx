@@ -1,20 +1,24 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { getItem, setItem } from '../../../helpers/persistence-log.js'
 import { signUserStart, signUserSuccess } from '../../../reducers/auth.js'
 import authService from '../../api/axios.js'
 import './Login.css'
+import "./Loader.css"
 
 const Login = () => {
 	const [username, setLogin] = useState('')
 	const [password, setPassword] = useState('')
 	const dispatch = useDispatch()
+	const { isLoading } = useSelector(state=> state.reducer)
 
-	const [isAdmin, setAdmin] = useState(getItem('role') ? getItem("role"): "")
+	const [isAdmin, setAdmin] = useState(getItem('role') ? getItem("role"): "user")
 
 	// useEffect(() => {
 	// 	setItem('role', 'admin')
 	// }, [])
+
+	
 
 	const handleSubmit = async e => {
 		e.preventDefault()
@@ -51,12 +55,12 @@ const Login = () => {
 		<div className='login w-full h-[90vh] flex justify-center items-center'>
 			<div className='form-container w-[320px] rounded-[0.75rem] p-[2rem] bg-[#ECF0FF] text-black border hover:border-[black] transition-all'>
 				<select
-					className='outline-none rounded-md bg-transparent w-full m-1 border border-cyan-600'
+					className='outline-none rounded-md bg-transparent w-full m-1 border border-[#334155]'
 					onChange={e => {
 						setAdmin(e.target.value)
 						setItem('role', e.target.value)
 					}}
-					// value={isAdmin}
+					value={isAdmin}
 				>
 					<option value='admin'>Admin</option>
 					<option value='user'>Xodim</option>
@@ -88,26 +92,25 @@ const Login = () => {
 							id='password'
 							placeholder=''
 						/>
-						<div className='forgot'>
+						<div className='forgot py-4'>
 							<a rel='noopener noreferrer' href='#'>
-								Forgot Password ?
+								{/* Forgot Password ? */}
 							</a>
 						</div>
 					</div>
 					<button
 						type='submit'
-						className='sign bg-[#6558d3] hover:bg-[#4c43a0] transition-all text-white
+						className='sign bg-[#6558d3] hover:bg-[#4c43a0] transition-all text-white flex items-center justify-center
 				'
 					>
-						Sign in
+						{(isLoading && (
+							<svg className='loader-svg' viewBox='25 25 50 50'>
+								<circle className='loader-circle' r='20' cy='50' cx='50'></circle>
+							</svg>
+						)) ||
+							'Kirish'}
 					</button>
 				</form>
-				<p className='signup'>
-					Don't have an account?
-					<a rel='noopener noreferrer' href='#' className='font-semibold'>
-						Sign up
-					</a>
-				</p>
 			</div>
 		</div>
 	)
