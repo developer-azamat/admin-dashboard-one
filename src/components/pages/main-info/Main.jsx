@@ -53,7 +53,6 @@ function Main({ ombor_id , role}) {
 				id: '',
 			}
 
-			console.log(db)
 
 			const { data } = await productService.getAllStats(db)
 			console.log(data)
